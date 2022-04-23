@@ -165,6 +165,7 @@ map.on("load", () => {
     attribution:
       "地図の出典：<a href='https://www.gsi.go.jp/' target='_blank'>国土地理院</a>",
   });
+
   map.addLayer({
     id: "saisinsyasin",
     type: "raster",
@@ -188,20 +189,6 @@ map.on("load", () => {
     attribution:
       "地図の出典：<a href='https://www.gsi.go.jp/' target='_blank'>国土地理院</a>",
   });
-  map.addLayer({
-    id: "oruso",
-    type: "raster",
-    source: "oruso",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 1,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
 
   //空中写真(1979年頃)
   map.addSource("kutyu", {
@@ -210,20 +197,6 @@ map.on("load", () => {
     tileSize: 256,
     attribution:
       "地図の出典：<a href='https://www.gsi.go.jp/' target='_blank'>国土地理院</a>",
-  });
-  map.addLayer({
-    id: "kutyu",
-    type: "raster",
-    source: "kutyu",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 1,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
   });
 
   //基本図(マップボックスアカウントのマップデータから)
@@ -234,20 +207,6 @@ map.on("load", () => {
     ],
     tileSize: 256,
   });
-  map.addLayer({
-    id: "kihonzu",
-    type: "raster",
-    source: "kihonzu",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 1,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
 
   //地理院タイル標準
   map.addSource("hyouzyun", {
@@ -256,20 +215,6 @@ map.on("load", () => {
     tileSize: 256,
     attribution:
       "地図の出典：<a href='https://www.gsi.go.jp/' target='_blank'>国土地理院</a>",
-  });
-  map.addLayer({
-    id: "hyouzyun",
-    type: "raster",
-    source: "hyouzyun",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 1,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
   });
 
   //地理院タイル炎色
@@ -280,20 +225,6 @@ map.on("load", () => {
     attribution:
       "地図の出典：<a href='https://www.gsi.go.jp/' target='_blank'>国土地理院</a>",
   });
-  map.addLayer({
-    id: "tansyoku",
-    type: "raster",
-    source: "tansyoku",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 1,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
 
   //色別標高図
   map.addSource("sikibetu", {
@@ -302,20 +233,6 @@ map.on("load", () => {
     tileSize: 256,
     attribution:
       "地図の出典：<a href='https://www.gsi.go.jp/' target='_blank'>国土地理院</a>",
-  });
-  map.addLayer({
-    id: "sikibetu",
-    type: "raster",
-    source: "sikibetu",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 1,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
   });
 
   // 陰影起伏図
@@ -328,20 +245,6 @@ map.on("load", () => {
     attribution:
       "地図の出典：<a href='https://www.gsi.go.jp/bousaichiri/hillshademap.html' target='_blank'>国土地理院</a>",
   });
-  map.addLayer({
-    id: "ineikizyou",
-    type: "raster",
-    source: "ineikizyou",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 1,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
 
   // 傾斜量図白黒
   map.addSource("keisyasirokuro", {
@@ -350,20 +253,6 @@ map.on("load", () => {
     tileSize: 256,
     attribution:
       "地図の出典：<a href='https://www.gsi.go.jp/' target='_blank'>国土地理院</a>",
-  });
-  map.addLayer({
-    id: "keisyasirokuro",
-    type: "raster",
-    source: "keisyasirokuro",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 1,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
   });
 
   //傾斜区分図(岐阜県森林研究所)
@@ -376,20 +265,6 @@ map.on("load", () => {
     attribution:
       "地図の出典：<a href='https://www.forest.rd.pref.gifu.lg.jp/shiyou/CSrittaizu.html' target='_blank'>岐阜県森林研究所</a>",
   });
-  map.addLayer({
-    id: "keiyakubun",
-    type: "raster",
-    source: "keiyakubun",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 1,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
 
   // 植生図
   map.addSource("syokusei", {
@@ -398,20 +273,6 @@ map.on("load", () => {
     tileSize: 256,
     attribution:
       "地図の出典：<a href='https://map.ecoris.info/#contents' target='_blank'>エコリス地図タイル</a>",
-  });
-  map.addLayer({
-    id: "syokusei",
-    type: "raster",
-    source: "syokusei",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 1,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
   });
 
   // シームレス地質図
@@ -422,20 +283,6 @@ map.on("load", () => {
     attribution:
       "地図の出典：<a href='https://gbank.gsj.jp/seamless/index.html?lang=ja&' target='_blank'>産総研地質調査総合センター</a>",
   });
-  map.addLayer({
-    id: "tisitus",
-    type: "raster",
-    source: "tisitus",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 1,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
 
   // 活断層図
   map.addSource("katudansou", {
@@ -444,20 +291,6 @@ map.on("load", () => {
     tileSize: 256,
     attribution:
       "地図の出典：<a href='https://www.gsi.go.jp/bousaichiri/active_fault.html' target='_blank'>国土地理院</a>",
-  });
-  map.addLayer({
-    id: "katudansou",
-    type: "raster",
-    source: "katudansou",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 1,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
   });
 
   // CS立体図(岐阜県森林研究所)
@@ -470,20 +303,6 @@ map.on("load", () => {
     attribution:
       "地図の出典：<a href='https://www.forest.rd.pref.gifu.lg.jp/shiyou/CSrittaizu.html' target='_blank'>岐阜県森林研究所</a>",
   });
-  map.addLayer({
-    id: "csrittai",
-    type: "raster",
-    source: "csrittai",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 1,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
 
   //赤色立体図10mメッシュ
   map.addSource("sekisyoku", {
@@ -492,20 +311,6 @@ map.on("load", () => {
     tileSize: 256,
     attribution:
       "地図の出典：<a href='https://www.rrim.jp/' target='_blank'>アジア航測株式会社</a>",
-  });
-  map.addLayer({
-    id: "sekisyoku",
-    type: "raster",
-    source: "sekisyoku",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 1,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
   });
 
   //Google Maps
@@ -516,20 +321,6 @@ map.on("load", () => {
     attribution:
       "地図の出典：<a href='https://www.google.co.jp/maps/?hl=ja' target='_blank'>googlemap</a>",
   });
-  map.addLayer({
-    id: "google",
-    type: "raster",
-    source: "google",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 1,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
 
   //Google s
   map.addSource("GoogleS", {
@@ -538,20 +329,6 @@ map.on("load", () => {
     tileSize: 256,
     attribution:
       "地図の出典：<a href='https://www.google.co.jp/maps/?hl=ja' target='_blank'>googlemap</a>",
-  });
-  map.addLayer({
-    id: "GoogleS",
-    type: "raster",
-    source: "GoogleS",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 1,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
   });
 
   //Google sh
@@ -562,20 +339,6 @@ map.on("load", () => {
     attribution:
       "地図の出典：<a href='https://www.google.co.jp/maps/?hl=ja' target='_blank'>googlemap</a>",
   });
-  map.addLayer({
-    id: "GoogleSH",
-    type: "raster",
-    source: "GoogleSH",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 1,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
 
   //OpenStreetMap
   map.addSource("osm", {
@@ -585,20 +348,6 @@ map.on("load", () => {
     attribution:
       "地図の出典：<a href='https://openstreetmap.jp/' target='_blank'>OpenStreetMap</a>",
   });
-  map.addLayer({
-    id: "osm",
-    type: "raster",
-    source: "osm",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 1,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
 
   //白地図
   map.addSource("hakutizu", {
@@ -607,20 +356,6 @@ map.on("load", () => {
     tileSize: 256,
     attribution:
       "地図の出典：<a href='https://www.gsi.go.jp/' target='_blank'>国土地理院</a>",
-  });
-  map.addLayer({
-    id: "hakutizu",
-    type: "raster",
-    source: "hakutizu",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 1,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
   });
 
   //Esri World Imagery
@@ -633,20 +368,6 @@ map.on("load", () => {
     attribution:
       "地図の出典：<a href='https://www.arcgis.com/home/item.html?id=10df2279f9684e4a9f6a7f08febac2a9' target='_blank'>Esri</a>",
   });
-  map.addLayer({
-    id: "esriW",
-    type: "raster",
-    source: "esriW",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 1,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
 
   //MIERUNE Color
   map.addSource("mieruneC", {
@@ -655,20 +376,6 @@ map.on("load", () => {
     tileSize: 256,
     attribution:
       "地図の出典：<a href='https://www.mierune.co.jp/' target='_blank'>MIERUNE</a>",
-  });
-  map.addLayer({
-    id: "mieruneC",
-    type: "raster",
-    source: "mieruneC",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 1,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
   });
 
   //MIERUNE MONO
@@ -679,20 +386,6 @@ map.on("load", () => {
     attribution:
       "地図の出典：<a href='https://www.mierune.co.jp/' target='_blank'>MIERUNE</a>",
   });
-  map.addLayer({
-    id: "mieruneM",
-    type: "raster",
-    source: "mieruneM",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 1,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
 
   //Stamen_t
   map.addSource("Stamento", {
@@ -701,20 +394,6 @@ map.on("load", () => {
     tileSize: 256,
     attribution:
       "地図の出典：<a href='http://maps.stamen.com/#toner' target='_blank'>stamen</a>",
-  });
-  map.addLayer({
-    id: "Stamento",
-    type: "raster",
-    source: "Stamento",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 1,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
   });
 
   //Stamen_Terrain
@@ -725,20 +404,6 @@ map.on("load", () => {
     attribution:
       "地図の出典：<a href='http://maps.stamen.com/#terrain' target='_blank'>stamen</a>",
   });
-  map.addLayer({
-    id: "StamenT",
-    type: "raster",
-    source: "StamenT",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 1,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
 
   //Stamen_w
   map.addSource("StamenW", {
@@ -748,20 +413,251 @@ map.on("load", () => {
     attribution:
       "地図の出典：<a href='http://maps.stamen.com/#watercolor' target='_blank'>stamen</a>",
   });
-  map.addLayer({
-    id: "StamenW",
-    type: "raster",
-    source: "StamenW",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 1,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
+
+
+// kasaneteigi
+map.addSource("saisinsyasin2", {
+  type: "raster",
+  tiles: [
+    "https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg",
+  ],
+  tileSize: 256,
+  attribution:
+    "地図の出典：<a href='https://www.gsi.go.jp/' target='_blank'>国土地理院</a>",
+});
+
+//電子国土基本図（オルソ画像）
+map.addSource("oruso2", {
+  type: "raster",
+  tiles: ["https://cyberjapandata.gsi.go.jp/xyz/ort/{z}/{x}/{y}.jpg"],
+  tileSize: 256,
+  attribution:
+    "地図の出典：<a href='https://www.gsi.go.jp/' target='_blank'>国土地理院</a>",
+});
+
+//空中写真(1979年頃)
+map.addSource("kutyu2", {
+  type: "raster",
+  tiles: ["https://cyberjapandata.gsi.go.jp/xyz/gazo2/{z}/{x}/{y}.jpg"],
+  tileSize: 256,
+  attribution:
+    "地図の出典：<a href='https://www.gsi.go.jp/' target='_blank'>国土地理院</a>",
+});
+
+//基本図(マップボックスアカウントのマップデータから)
+map.addSource("kihonzu2", {
+  type: "raster",
+  tiles: [
+    "https://api.mapbox.com/styles/v1/ensyuringis/ckzppbbaf001k14ldljs4a65x/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZW5zeXVyaW5naXMiLCJhIjoiY2t6cHBhdHp2MDFlMTJ3bmRsNzY4dTlkbiJ9.BtuWDU9uyDaR5Var2Y6-4A",
+  ],
+  tileSize: 256,
+});
+
+//地理院タイル標準
+map.addSource("hyouzyun2", {
+  type: "raster",
+  tiles: ["https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png"],
+  tileSize: 256,
+  attribution:
+    "地図の出典：<a href='https://www.gsi.go.jp/' target='_blank'>国土地理院</a>",
+});
+
+//地理院タイル炎色
+map.addSource("tansyoku2", {
+  type: "raster",
+  tiles: ["https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png"],
+  tileSize: 256,
+  attribution:
+    "地図の出典：<a href='https://www.gsi.go.jp/' target='_blank'>国土地理院</a>",
+});
+
+//色別標高図
+map.addSource("sikibetu2", {
+  type: "raster",
+  tiles: ["https://cyberjapandata.gsi.go.jp/xyz/relief/{z}/{x}/{y}.png"],
+  tileSize: 256,
+  attribution:
+    "地図の出典：<a href='https://www.gsi.go.jp/' target='_blank'>国土地理院</a>",
+});
+
+// 陰影起伏図
+map.addSource("ineikizyou2", {
+  type: "raster",
+  tiles: [
+    "https://cyberjapandata.gsi.go.jp/xyz/hillshademap/{z}/{x}/{y}.png",
+  ],
+  tileSize: 256,
+  attribution:
+    "地図の出典：<a href='https://www.gsi.go.jp/bousaichiri/hillshademap.html' target='_blank'>国土地理院</a>",
+});
+
+// 傾斜量図白黒
+map.addSource("keisyasirokuro2", {
+  type: "raster",
+  tiles: ["https://cyberjapandata.gsi.go.jp/xyz/slopemap/{z}/{x}/{y}.png"],
+  tileSize: 256,
+  attribution:
+    "地図の出典：<a href='https://www.gsi.go.jp/' target='_blank'>国土地理院</a>",
+});
+
+//傾斜区分図(岐阜県森林研究所)
+map.addSource("keiyakubun2", {
+  type: "raster",
+  tiles: [
+    "https://tiles.arcgis.com/tiles/jJQWqgqiNhLLjkin/arcgis/rest/services/Gifu_Slpoe/MapServer/tile/{z}/{y}/{x}",
+  ],
+  tileSize: 256,
+  attribution:
+    "地図の出典：<a href='https://www.forest.rd.pref.gifu.lg.jp/shiyou/CSrittaizu.html' target='_blank'>岐阜県森林研究所</a>",
+});
+
+// 植生図
+map.addSource("syokusei2", {
+  type: "raster",
+  tiles: ["https://map.ecoris.info/tiles/vege67hill/{z}/{x}/{y}.png"],
+  tileSize: 256,
+  attribution:
+    "地図の出典：<a href='https://map.ecoris.info/#contents' target='_blank'>エコリス地図タイル</a>",
+});
+
+// シームレス地質図
+map.addSource("tisitus2", {
+  type: "raster",
+  tiles: ["https://gbank.gsj.jp/seamless/v2/api/1.2.1/tiles/{z}/{y}/{x}.png"],
+  tileSize: 256,
+  attribution:
+    "地図の出典：<a href='https://gbank.gsj.jp/seamless/index.html?lang=ja&' target='_blank'>産総研地質調査総合センター</a>",
+});
+
+// 活断層図
+map.addSource("katudansou2", {
+  type: "raster",
+  tiles: ["https://cyberjapandata.gsi.go.jp/xyz/afm/{z}/{x}/{y}.png"],
+  tileSize: 256,
+  attribution:
+    "地図の出典：<a href='https://www.gsi.go.jp/bousaichiri/active_fault.html' target='_blank'>国土地理院</a>",
+});
+
+// CS立体図(岐阜県森林研究所)
+map.addSource("csrittai2", {
+  type: "raster",
+  tiles: [
+    "https://tiles.arcgis.com/tiles/jJQWqgqiNhLLjkin/arcgis/rest/services/Gifu2021CS_Mosic/MapServer/tile/{z}/{y}/{x}",
+  ],
+  tileSize: 256,
+  attribution:
+    "地図の出典：<a href='https://www.forest.rd.pref.gifu.lg.jp/shiyou/CSrittaizu.html' target='_blank'>岐阜県森林研究所</a>",
+});
+
+//赤色立体図10mメッシュ
+map.addSource("sekisyoku2", {
+  type: "raster",
+  tiles: ["https://cyberjapandata.gsi.go.jp/xyz/sekishoku/{z}/{x}/{y}.png"],
+  tileSize: 256,
+  attribution:
+    "地図の出典：<a href='https://www.rrim.jp/' target='_blank'>アジア航測株式会社</a>",
+});
+
+//Google Maps
+map.addSource("google2", {
+  type: "raster",
+  tiles: ["https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}"],
+  tileSize: 256,
+  attribution:
+    "地図の出典：<a href='https://www.google.co.jp/maps/?hl=ja' target='_blank'>googlemap</a>",
+});
+
+//Google s
+map.addSource("GoogleS2", {
+  type: "raster",
+  tiles: ["https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}"],
+  tileSize: 256,
+  attribution:
+    "地図の出典：<a href='https://www.google.co.jp/maps/?hl=ja' target='_blank'>googlemap</a>",
+});
+
+//Google sh
+map.addSource("GoogleSH2", {
+  type: "raster",
+  tiles: ["https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}"],
+  tileSize: 256,
+  attribution:
+    "地図の出典：<a href='https://www.google.co.jp/maps/?hl=ja' target='_blank'>googlemap</a>",
+});
+
+//OpenStreetMap
+map.addSource("osm2", {
+  type: "raster",
+  tiles: ["http://tile.thunderforest.com/cycle/{z}/{x}/{y}.png"],
+  tileSize: 256,
+  attribution:
+    "地図の出典：<a href='https://openstreetmap.jp/' target='_blank'>OpenStreetMap</a>",
+});
+
+//白地図
+map.addSource("hakutizu2", {
+  type: "raster",
+  tiles: ["https://cyberjapandata.gsi.go.jp/xyz/blank/{z}/{x}/{y}.png"],
+  tileSize: 256,
+  attribution:
+    "地図の出典：<a href='https://www.gsi.go.jp/' target='_blank'>国土地理院</a>",
+});
+
+//Esri World Imagery
+map.addSource("esriW2", {
+  type: "raster",
+  tiles: [
+    "https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+  ],
+  tileSize: 256,
+  attribution:
+    "地図の出典：<a href='https://www.arcgis.com/home/item.html?id=10df2279f9684e4a9f6a7f08febac2a9' target='_blank'>Esri</a>",
+});
+
+//MIERUNE Color
+map.addSource("mieruneC2", {
+  type: "raster",
+  tiles: ["https://tile.mierune.co.jp/mierune/{z}/{x}/{y}.png"],
+  tileSize: 256,
+  attribution:
+    "地図の出典：<a href='https://www.mierune.co.jp/' target='_blank'>MIERUNE</a>",
+});
+
+//MIERUNE MONO
+map.addSource("mieruneM2", {
+  type: "raster",
+  tiles: ["https://tile.mierune.co.jp/mierune_mono/{z}/{x}/{y}.png"],
+  tileSize: 256,
+  attribution:
+    "地図の出典：<a href='https://www.mierune.co.jp/' target='_blank'>MIERUNE</a>",
+});
+
+//Stamen_t
+map.addSource("Stamento2", {
+  type: "raster",
+  tiles: ["https://stamen-tiles.a.ssl.fastly.net/toner/{z}/{x}/{y}.png"],
+  tileSize: 256,
+  attribution:
+    "地図の出典：<a href='http://maps.stamen.com/#toner' target='_blank'>stamen</a>",
+});
+
+//Stamen_Terrain
+map.addSource("StamenT2", {
+  type: "raster",
+  tiles: ["https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.png"],
+  tileSize: 256,
+  attribution:
+    "地図の出典：<a href='http://maps.stamen.com/#terrain' target='_blank'>stamen</a>",
+});
+
+//Stamen_w
+map.addSource("StamenW2", {
+  type: "raster",
+  tiles: ["https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg"],
+  tileSize: 256,
+  attribution:
+    "地図の出典：<a href='http://maps.stamen.com/#watercolor' target='_blank'>stamen</a>",
+});
 
   // レイヤ設定
   var Map_BaseLayer = {
@@ -834,12 +730,27 @@ map.on("load", () => {
           if (ch_id === clickedLayer) {
             // クリックしたレイヤを表示
             this.className = "active";
-            map.setLayoutProperty(clickedLayer, "visibility", "visible");
+            map.addLayer({
+              id: clickedLayer,
+              type: "raster",
+              source: clickedLayer,
+              minzoom: 0,
+              maxzoom: 24,
+              paint: {
+                "raster-opacity": 1,
+                "raster-brightness-min": 0,
+                "raster-brightness-max": 1,
+                "raster-contrast": 0,
+                "raster-saturation": 0,
+              },
+              });
+               // 空レイヤーの下に挿入
+              map.moveLayer(clickedLayer, 'mapbase');
           } else {
             // クリックしたレイヤ以外を非表示
             var ch_obj = document.getElementById(ch_id);
             ch_obj.className = "";
-            map.setLayoutProperty(ch_id, "visibility", "none");
+            map.removeLayer(ch_id);
           }
         }
       }
@@ -882,245 +793,6 @@ map.on("load", () => {
     },
   });
 
-  //全国最新写真(シームレス)
-  map.addLayer({
-    id: "saisinsyasin2",
-    type: "raster",
-    source: "saisinsyasin",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 0.5,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
-
-  //電子国土基本図(オルソ画像)
-  map.addLayer({
-    id: "oruso2",
-    type: "raster",
-    source: "oruso",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 0.5,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
-
-  //空中写真(1979年頃)
-  map.addLayer({
-    id: "kutyu2",
-    type: "raster",
-    source: "kutyu",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 0.5,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
-
-  // 基本図
-  map.addLayer({
-    id: "kihonzu2",
-    type: "raster",
-    source: "kihonzu",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 0.5,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
-
-  //地理院タイル標準
-  map.addLayer({
-    id: "hyouzyun2",
-    type: "raster",
-    source: "hyouzyun",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 0.5,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
-
-  //地理院タイル炎色
-  map.addLayer({
-    id: "tansyoku2",
-    type: "raster",
-    source: "tansyoku",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 0.5,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
-
-  // 標高
-  map.addLayer({
-    id: "sikibetu2",
-    type: "raster",
-    source: "sikibetu",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 0.5,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
-
-  // 陰影起伏図
-  map.addLayer({
-    id: "ineikizyou2",
-    type: "raster",
-    source: "ineikizyou",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 0.5,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
-
-  // 傾斜量図白黒
-  map.addLayer({
-    id: "keisyasirokuro2",
-    type: "raster",
-    source: "keisyasirokuro",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 0.5,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
-
-  // 傾斜区分図
-  map.addLayer({
-    id: "keiyakubun2",
-    type: "raster",
-    source: "keiyakubun",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 0.5,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
-
-  // 植生図
-  map.addLayer({
-    id: "syokusei2",
-    type: "raster",
-    source: "syokusei",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 0.5,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
-
-  // シームレス地質図
-  map.addLayer({
-    id: "tisitus2",
-    type: "raster",
-    source: "tisitus",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 0.5,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
-
-  // 活断層図
-  map.addLayer({
-    id: "katudansou2",
-    type: "raster",
-    source: "katudansou",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 0.5,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
-
-  // CS立体
-  map.addLayer({
-    id: "csrittai2",
-    type: "raster",
-    source: "csrittai",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 0.5,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
-  //赤色立体10
-  map.addLayer({
-    id: "sekisyoku2",
-    type: "raster",
-    source: "sekisyoku",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 0.5,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
-
   // 傾斜量図なだれ
   map.addSource("keisyanadare", {
     type: "raster",
@@ -1128,21 +800,6 @@ map.on("load", () => {
       "https://cyberjapandata.gsi.go.jp/xyz/slopezone1map/{z}/{x}/{y}.png",
     ],
     tileSize: 256,
-  });
-
-  map.addLayer({
-    id: "keisyanadare",
-    type: "raster",
-    source: "keisyanadare",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 1,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
   });
 
   // 地すべり地形分布図日本全国版（防災科学技術研究所）
@@ -1154,21 +811,6 @@ map.on("load", () => {
       "地図の出典：<a href='https://www.j-shis.bosai.go.jp/landslidemap' target='_blank'>防災科学技術研究所</a>",
   });
 
-  map.addLayer({
-    id: "zisuberi",
-    type: "raster",
-    source: "zisuberi",
-    minzoom: 5,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 1,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
-
   //磁気図(偏角)/偏角一覧図
   map.addSource("zikizu", {
     type: "raster",
@@ -1176,195 +818,6 @@ map.on("load", () => {
       "https://cyberjapandata.gsi.go.jp/xyz/jikizu2015_chijiki_d/{z}/{x}/{y}.png",
     ],
     tileSize: 256,
-  });
-
-  map.addLayer({
-    id: "zikizu",
-    type: "raster",
-    source: "zikizu",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 1,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
-
-  //Google Maps
-  map.addLayer({
-    id: "google2",
-    type: "raster",
-    source: "google",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 0.5,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
-
-  //Google s
-  map.addLayer({
-    id: "GoogleS2",
-    type: "raster",
-    source: "GoogleS",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 0.5,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
-
-  //Google sh
-  map.addLayer({
-    id: "GoogleSH2",
-    type: "raster",
-    source: "GoogleSH",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 0.5,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
-
-  //OpenStreetMap
-  map.addLayer({
-    id: "osm2",
-    type: "raster",
-    source: "osm",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 0.5,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
-
-  //白地図
-  map.addLayer({
-    id: "hakutizu2",
-    type: "raster",
-    source: "hakutizu",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 0.5,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
-
-  //Esri World Imagery
-  map.addLayer({
-    id: "esriW2",
-    type: "raster",
-    source: "esriW",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 0.5,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
-
-  //MIERUNE Color
-  map.addLayer({
-    id: "mieruneC2",
-    type: "raster",
-    source: "mieruneC",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 0.5,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
-
-  //MIERUNE MONO
-  map.addLayer({
-    id: "mieruneM2",
-    type: "raster",
-    source: "mieruneM",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 0.5,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
-
-  map.addLayer({
-    id: "Stamento2",
-    type: "raster",
-    source: "Stamento",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 0.5,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
-
-  //Stamen Terrain
-  map.addLayer({
-    id: "StamenT2",
-    type: "raster",
-    source: "StamenT",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 0.5,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
-  });
-
-  map.addLayer({
-    id: "StamenW2",
-    type: "raster",
-    source: "StamenW",
-    minzoom: 0,
-    maxzoom: 24,
-    paint: {
-      "raster-opacity": 0.5,
-      "raster-brightness-min": 0,
-      "raster-brightness-max": 1,
-      "raster-contrast": 0,
-      "raster-saturation": 0,
-    },
   });
 
   // ラスターレイヤ設定
@@ -1442,12 +895,27 @@ map.on("load", () => {
           if (ch_id2 === clickedLayer2) {
             // クリックしたレイヤを表示
             this.className = "active";
-            map.setLayoutProperty(clickedLayer2, "visibility", "visible");
+            map.addLayer({
+              id: clickedLayer2,
+              type: "raster",
+              source: clickedLayer2,
+              minzoom: 0,
+              maxzoom: 24,
+              paint: {
+                "raster-opacity": 0.5,
+                "raster-brightness-min": 0,
+                "raster-brightness-max": 1,
+                "raster-contrast": 0,
+                "raster-saturation": 0,
+              },
+              });
+               // 空レイヤーの下に挿入
+              map.moveLayer(clickedLayer2, 'rasterbase');
           } else {
             // クリックしたレイヤ以外を非表示
             var ch_obj = document.getElementById(ch_id2);
             ch_obj.className = "";
-            map.setLayoutProperty(ch_id2, "visibility", "none");
+            map.removeLayer(ch_id2);
           }
         }
       }
@@ -1547,12 +1015,6 @@ map.on("load", () => {
   map.addSource("dosyakeikaiR", {
     type: "vector",
     url: "mapbox://satoshi7190.ckukvgg451pby2bphqgrjs87b-9e8np",
-  });
-
-  //浸水想定区域
-  map.addSource("sinsuisouteikuiki", {
-    type: "vector",
-    url: "mapbox://satoshi7190.ckupb21bv1ccv26pnr6kbmw07-23kdx",
   });
 
   //美濃市指定避難所
@@ -1656,6 +1118,30 @@ map.on("load", () => {
     url: "mapbox://satoshi7190.ckyium27n1rdd28n1fq48uswf-7yy1u",
   });
 
+  //マップベース
+  map.addLayer({
+    id: "mapbase",
+    type: "raster",
+    source: "saisinsyasin",
+    minzoom: 0,
+    maxzoom: 0,
+    paint: {
+      "raster-opacity": 0,
+    },
+  });
+
+    //ラスターベース
+  map.addLayer({
+    id: "rasterbase",
+    type: "raster",
+    source: "saisinsyasin",
+    minzoom: 0,
+    maxzoom: 0,
+    paint: {
+      "raster-opacity": 0,
+    },
+  });
+
   map.addLayer({
     id: "岐阜県20万分の1表層地質",
     type: "fill",
@@ -1721,7 +1207,6 @@ map.on("load", () => {
       "fill-outline-color": "#000000",
     },
   });
-
   map.addLayer({
     id: "岐阜県20万分の1表層地質-断層",
     type: "line",
@@ -1742,7 +1227,6 @@ map.on("load", () => {
     type: "geojson",
     data: "https://raw.githubusercontent.com/satoshi7190/ensyuringis/main/geojson/gifu-201dozyo.geojson",
   });
-
   map.addLayer({
     id: "岐阜県20万分の1土壌分類",
     type: "fill",
@@ -1783,26 +1267,130 @@ map.on("load", () => {
     },
   });
 
+  map.addSource("kousuisoutei", {
+    type: "raster",
+    tiles: ["https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_pref_data/21/{z}/{x}/{y}.png"],
+    tileSize: 256,
+    attribution:
+      "<a href='https://disaportal.gsi.go.jp/index.html' target='_blank'>ハザードマップポータルサイト</a>",
+  });
   map.addLayer({
-    id: "浸水想定区域",
-    type: "fill",
-    source: "sinsuisouteikuiki",
-    "source-layer": "sinsuisouteikuiki",
+    id: "洪水浸水想定区域",
+    type: "raster",
+    source: "kousuisoutei",
+    minzoom: 0,
+    maxzoom: 24,
     layout: {
-      visibility: "none",
-    },
-    paint: {
-      "fill-color": [
-        "interpolate",
-        ["linear"],
-        ["get", "浸水深ランク"],
-        1,
-        "hsl(170, 92%, 57%)",
-        5,
-        "hsl(236, 91%, 29%)",
-      ],
-      "fill-opacity": 0.5,
-    },
+        visibility: "none",
+      },
+      paint: {
+        "raster-opacity": 0.6,
+      },
+  });
+
+  map.addSource("dosyadoseki", {
+    type: "raster",
+    tiles: ["https://disaportaldata.gsi.go.jp/raster/05_dosekiryukeikaikuiki_data/21/{z}/{x}/{y}.png"],
+    tileSize: 256,
+    attribution:
+      "<a href='https://disaportal.gsi.go.jp/index.html' target='_blank'>ハザードマップポータルサイト</a>",
+  });
+  map.addLayer({
+    id: "土砂災害警戒区域（土石流）",
+    type: "raster",
+    source: "dosyadoseki",
+    minzoom: 0,
+    maxzoom: 24,
+    layout: {
+        visibility: "none",
+      },
+      paint: {
+        "raster-opacity": 0.6,
+      },
+  });
+
+  map.addSource("dosyakyusyati", {
+    type: "raster",
+    tiles: ["https://disaportaldata.gsi.go.jp/raster/05_kyukeishakeikaikuiki_data/21/{z}/{x}/{y}.png"],
+    tileSize: 256,
+    attribution:
+      "<a href='https://disaportal.gsi.go.jp/index.html' target='_blank'>ハザードマップポータルサイト</a>",
+  });
+  map.addLayer({
+    id: "土砂災害警戒区域（急傾斜地の崩壊）",
+    type: "raster",
+    source: "dosyakyusyati",
+    minzoom: 0,
+    maxzoom: 24,
+    layout: {
+        visibility: "none",
+      },
+      paint: {
+        "raster-opacity": 0.6,
+      },
+  });
+
+  map.addSource("dosyazisuberi", {
+    type: "raster",
+    tiles: ["https://disaportaldata.gsi.go.jp/raster/05_jisuberikeikaikuiki_data/21/{z}/{x}/{y}.png"],
+    tileSize: 256,
+    attribution:
+      "<a href='https://disaportal.gsi.go.jp/index.html' target='_blank'>ハザードマップポータルサイト</a>",
+  });
+  map.addLayer({
+    id: "土砂災害警戒区域（地すべり）",
+    type: "raster",
+    source: "dosyazisuberi",
+    minzoom: 0,
+    maxzoom: 24,
+    layout: {
+        visibility: "none",
+      },
+      paint: {
+        "raster-opacity": 0.6,
+      },
+  });
+
+  map.addSource("dosekiryu", {
+    type: "raster",
+    tiles: ["https://disaportaldata.gsi.go.jp/raster/05_dosekiryukikenkeiryu_data/21/{z}/{x}/{y}.png"],
+    tileSize: 256,
+    attribution:
+      "<a href='https://disaportal.gsi.go.jp/index.html' target='_blank'>ハザードマップポータルサイト</a>",
+  });
+  map.addLayer({
+    id: "土石流危険渓流",
+    type: "raster",
+    source: "dosekiryu",
+    minzoom: 0,
+    maxzoom: 24,
+    layout: {
+        visibility: "none",
+      },
+      paint: {
+        "raster-opacity": 0.6,
+      },
+  });
+
+  map.addSource("kyusyati", {
+    type: "raster",
+    tiles: ["https://disaportaldata.gsi.go.jp/raster/05_kyukeisyachihoukai_data/21/{z}/{x}/{y}.png"],
+    tileSize: 256,
+    attribution:
+      "<a href='https://disaportal.gsi.go.jp/index.html' target='_blank'>ハザードマップポータルサイト</a>",
+  });
+  map.addLayer({
+    id: "急傾斜地崩壊危険箇所",
+    type: "raster",
+    source: "kyusyati",
+    minzoom: 0,
+    maxzoom: 24,
+    layout: {
+        visibility: "none",
+      },
+      paint: {
+        "raster-opacity": 0.6,
+      },
   });
 
   map.addLayer({
@@ -2254,36 +1842,6 @@ map.on("load", () => {
   });
 
   map.addLayer({
-    id: "土砂災害警戒区域イエローゾーン",
-    type: "fill",
-    source: "dosyakeikaiY",
-    "source-layer": "dosyakeikaiY",
-    layout: {
-      visibility: "none",
-    },
-    paint: {
-      "fill-color": "#C5B911",
-      "fill-opacity": 0.5,
-      "fill-outline-color": "#000000",
-    },
-  });
-
-  map.addLayer({
-    id: "土砂災害警戒区域レッドゾーン",
-    type: "fill",
-    source: "dosyakeikaiR",
-    "source-layer": "dosyakeikaiR",
-    layout: {
-      visibility: "none",
-    },
-    paint: {
-      "fill-color": "#FF0F0F",
-      "fill-opacity": 0.5,
-      "fill-outline-color": "#000000",
-    },
-  });
-
-  map.addLayer({
     id: "試験地",
     type: "fill",
     source: "ensyurinsikenti",
@@ -2451,46 +2009,6 @@ map.on("load", () => {
     layout: {
       visibility: "none",
       "text-field": ["to-string", ["get", "種類"]],
-      "text-variable-anchor": ["top", "bottom", "left", "right"],
-      "text-radial-offset": 0.5,
-      "text-justify": "auto",
-    },
-    paint: {
-      "text-color": "#000000",
-      "text-halo-color": "#ffffff",
-      "text-opacity": 1,
-      "text-halo-width": 1,
-    },
-  });
-
-  map.addLayer({
-    id: "土砂災害警戒区域イエローゾーン-文字",
-    source: "dosyakeikaiY",
-    "source-layer": "dosyakeikaiY",
-    type: "symbol",
-    layout: {
-      visibility: "none",
-      "text-field": ["concat", ["get", "年月日"], "\n", ["get", "現象種類"]],
-      "text-variable-anchor": ["top", "bottom", "left", "right"],
-      "text-radial-offset": 0.5,
-      "text-justify": "auto",
-    },
-    paint: {
-      "text-color": "#000000",
-      "text-halo-color": "#ffffff",
-      "text-opacity": 1,
-      "text-halo-width": 1,
-    },
-  });
-
-  map.addLayer({
-    id: "土砂災害警戒区域レッドゾーン-文字",
-    source: "dosyakeikaiR",
-    "source-layer": "dosyakeikaiR",
-    type: "symbol",
-    layout: {
-      visibility: "none",
-      "text-field": ["concat", ["get", "年月日"], "\n", ["get", "現象種類"]],
       "text-variable-anchor": ["top", "bottom", "left", "right"],
       "text-radial-offset": 0.5,
       "text-justify": "auto",
@@ -3456,11 +2974,12 @@ const toggleableLayerIds2 = [
   "等高線",
   "等高線-標高ラベル",
   "標高点",
-  "土砂災害警戒区域イエローゾーン",
-  "土砂災害警戒区域イエローゾーン-文字",
-  "土砂災害警戒区域レッドゾーン",
-  "土砂災害警戒区域レッドゾーン-文字",
-  "浸水想定区域",
+  "洪水浸水想定区域",
+  "土砂災害警戒区域（土石流）",
+  "土砂災害警戒区域（急傾斜地の崩壊）",
+  "土砂災害警戒区域（地すべり）",
+  "土石流危険渓流",
+  "急傾斜地崩壊危険箇所",
   "美濃市指定避難場所",
   "美濃市指定緊急避難場所",
   "岐阜県鳥獣保護区等(H30)",
