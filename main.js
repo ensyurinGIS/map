@@ -1,12 +1,3 @@
-//終了確認メッセージ
-window.addEventListener(
-  "beforeunload",
-  function (e) {
-    e.returnValue = "「演習林GIS」を終了しますか？";
-  },
-  false
-);
-
 //ロード画面長さ
 $("#splash").delay(3000).fadeOut(1000);
 $("#splash_logo").delay(5000).fadeOut(1000);
@@ -282,7 +273,7 @@ map.on("load", () => {
   });
 
   //地理院タイル炎色
-  map.addSource("ensyoku", {
+  map.addSource("tansyoku", {
     type: "raster",
     tiles: ["https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png"],
     tileSize: 256,
@@ -290,9 +281,9 @@ map.on("load", () => {
       "地図の出典：<a href='https://www.gsi.go.jp/' target='_blank'>国土地理院</a>",
   });
   map.addLayer({
-    id: "ensyoku",
+    id: "tansyoku",
     type: "raster",
-    source: "ensyoku",
+    source: "tansyoku",
     minzoom: 0,
     maxzoom: 24,
     paint: {
@@ -778,8 +769,8 @@ map.on("load", () => {
     oruso: "電子国土基本図(オルソ画像)",
     kutyu: "空中写真(1979年頃)",
     kihonzu: "基本図",
-    hyouzyun: "国土地理院地図",
-    ensyoku: "国土地理院地図炎色",
+    hyouzyun: "国土地理院地図標準",
+    tansyoku: "国土地理院地図淡色",
     sikibetu: "色別標高図",
     ineikizyou: "陰影起伏図",
     keisyasirokuro: "傾斜量図",
@@ -973,9 +964,9 @@ map.on("load", () => {
 
   //地理院タイル炎色
   map.addLayer({
-    id: "ensyoku2",
+    id: "tansyoku2",
     type: "raster",
-    source: "ensyoku",
+    source: "tansyoku",
     minzoom: 0,
     maxzoom: 24,
     paint: {
@@ -1383,8 +1374,8 @@ map.on("load", () => {
     oruso2: "電子国土基本図(オルソ画像)",
     kutyu2: "空中写真(1979年頃)",
     kihonzu2: "基本図",
-    hyouzyun2: "国土地理院地図",
-    ensyoku2: "国土地理院地図炎色",
+    hyouzyun2: "国土地理院地図標準",
+    tansyoku2: "国土地理院地図淡色",
     sikibetu2: "色別標高図",
     ineikizyou2: "陰影起伏図",
     keisyasirokuro2: "傾斜量図",
