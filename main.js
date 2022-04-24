@@ -1068,9 +1068,9 @@ attribution:
   });
 
   //国有林
-  map.addSource("kokuyurin", {
-    type: "vector",
-    url: "mapbox://satoshi7190.cku9slodv0wgc27rs708mp6b1-8me7t",
+  map.addSource("kozyousan", {
+    type: "geojson",
+    data: "https://raw.githubusercontent.com/ensyurinGIS/map/main/geojson/kozyousan.geojson",
   });
 
   //林班合体
@@ -1103,63 +1103,25 @@ attribution:
     url: "mapbox://ensyuringis.ckzt72vya0vu320pj4jqyrx92-5ye0d",
   });
 
-  //イエローゾーン
-  map.addSource("dosyakeikaiY", {
-    type: "vector",
-    url: "mapbox://satoshi7190.ckukv2m3i0sjg23mm847auwif-75gyi",
-  });
-
-  //レッドゾーン
-  map.addSource("dosyakeikaiR", {
-    type: "vector",
-    url: "mapbox://satoshi7190.ckukvgg451pby2bphqgrjs87b-9e8np",
-  });
-
   //美濃市指定避難所
-  map.addSource("minosi-siteihinanbasyo", {
-    type: "vector",
-    url: "mapbox://satoshi7190.ckutua08i04cs20li4oayvdhq-4pv9p",
+  map.addSource("MINOSI-hinan", {
+    type: "geojson",
+    data: "https://raw.githubusercontent.com/ensyurinGIS/map/main/geojson/MINOSI-hinan.geojson",
   });
 
   //美濃市指定緊急避難所
-  map.addSource("minosi-siteikinkyuhinanbasyo", {
-    type: "vector",
-    url: "mapbox://satoshi7190.ckutuh81z04f728pf0qmmr3zj-1ag9m",
+  map.addSource("MINOSI-kinkyuhinan.geojson", {
+    type: "geojson",
+    data: "https://raw.githubusercontent.com/ensyurinGIS/map/main/geojson/MINOSI-kinkyuhinan.geojson",
   });
 
   //フェノロジー2020
   map.addSource("fenorozi-2020", {
-    type: "vector",
-    url: "mapbox://satoshi7190.ckusnxu2b0afg27ms6om2lgny-3ntui",
-  });
-
-  //フェノロジー2020昆虫
-  map.addSource("fenorozi-2020-kontyu", {
-    type: "vector",
-    url: "mapbox://satoshi7190.ckuuwa1gw4y5826n3hlmdybao-1qlog",
-  });
-
-  //フェノロジー2020哺乳類
-  map.addSource("fenorozi-2020-honyurui", {
-    type: "vector",
-    url: "mapbox://satoshi7190.ckuuwctvy0l9w22oirx1a1wtu-2gk1b",
-  });
-
-  //フェノロジー2020鳥類
-  map.addSource("fenorozi-2020-tyourui", {
-    type: "vector",
-    url: "mapbox://satoshi7190.ckuuwhmpe479t2dp8xss83hc7-55f2h",
-  });
-
-  //フェノロジー2020菌類
-  map.addSource("fenorozi-2020-kinrui", {
-    type: "vector",
-    url: "mapbox://satoshi7190.ckuuwfzsm52pj28n361zhrbuu-6vfh0",
-  });
-  //フェノロジー2020植物
-  map.addSource("fenorozi-2020-syokubutu", {
-    type: "vector",
-    url: "mapbox://satoshi7190.ckuuyecm40g8n20mcpbgmlla2-1uqaj",
+    type: "geojson",
+    data: "https://raw.githubusercontent.com/ensyurinGIS/map/main/geojson/fenorozi-2020.geojson",
+    cluster: true,
+    clusterMaxZoom: 14,
+    clusterRadius: 50
   });
 
   //  演習林プロットデータ
@@ -1169,9 +1131,9 @@ attribution:
   });
 
   //鳥獣保護区等(H30)
-  map.addSource("H30-gifu-tyouzyuhogokutou", {
-    type: "vector",
-    url: "mapbox://satoshi7190.ckutttnh20wc922pr3ezhlc56-8ko5q",
+  map.addSource("GIFU-tyouzyuhogokuH30", {
+    type: "geojson",
+    data: "https://raw.githubusercontent.com/ensyurinGIS/map/main/geojson/GIFU-tyouzyuhogokuH30.geojson",
   });
 
   //等高線
@@ -1193,9 +1155,9 @@ attribution:
   });
 
   //360度写真
-  map.addSource("image360", {
+  map.addSource("THETA360", {
     type: "vector",
-    url: "mapbox://satoshi7190.ckwbhr68s00ec28plbt8krg2o-92zcd",
+    url: "mapbox://ensyuringis.cl2coh9y71gjq2dnw9747n4f7-79iz1",
   });
 
   //みんなの記録
@@ -1211,9 +1173,15 @@ attribution:
   });
 
   //岐阜県表層地質
-  map.addSource("GIFU-hyousoutisitu", {
-    type: "vector",
-    url: "mapbox://satoshi7190.ckyium27n1rdd28n1fq48uswf-7yy1u",
+  map.addSource("GIFU-201tisitu", {
+    type: "geojson",
+    data: "https://raw.githubusercontent.com/ensyurinGIS/map/main/geojson/GIFU-201tisitu.geojson",
+  });
+
+  //アカデミー施設名
+  map.addSource("SISETU_NAME", {
+    type: "geojson",
+    data: "https://raw.githubusercontent.com/ensyurinGIS/map/main/geojson/SISETU_NAME.geojson",
   });
 
   //マップベース
@@ -1243,8 +1211,7 @@ attribution:
   map.addLayer({
     id: "岐阜県20万分の1表層地質",
     type: "fill",
-    source: "GIFU-hyousoutisitu",
-    "source-layer": "GIFU-hyousoutisitu",
+    source: "GIFU-201tisitu",
     filter: ["all", ["match", ["geometry-type"], ["Polygon"], true, false]],
     layout: {
       visibility: "none",
@@ -1308,8 +1275,7 @@ attribution:
   map.addLayer({
     id: "岐阜県20万分の1表層地質-断層",
     type: "line",
-    source: "GIFU-hyousoutisitu",
-    "source-layer": "GIFU-hyousoutisitu",
+    source: "GIFU-201tisitu",
     filter: ["all", ["match", ["geometry-type"], ["LineString"], true, false]],
     layout: {
       visibility: "none",
@@ -1321,14 +1287,14 @@ attribution:
     },
   });
 
-  map.addSource("gifu-201dozyo", {
+  map.addSource("GIFU-201dozyo", {
     type: "geojson",
-    data: "https://raw.githubusercontent.com/satoshi7190/ensyuringis/main/geojson/gifu-201dozyo.geojson",
+    data: "https://raw.githubusercontent.com/ensyurinGIS/map/main/geojson/GIFU-201dozyo.geojson",
   });
   map.addLayer({
     id: "岐阜県20万分の1土壌分類",
     type: "fill",
-    source: "gifu-201dozyo",
+    source: "GIFU-201dozyo",
     layout: {
       visibility: "none",
     },
@@ -1494,8 +1460,7 @@ attribution:
   map.addLayer({
     id: "岐阜県鳥獣保護区等(H30)",
     type: "fill",
-    source: "H30-gifu-tyouzyuhogokutou",
-    "source-layer": "H30-gifu-tyouzyuhogokutou",
+    source: "GIFU-tyouzyuhogokuH30",
     layout: {
       visibility: "none",
     },
@@ -1540,8 +1505,7 @@ attribution:
   map.addLayer({
     id: "古城山国有林-林分",
     type: "fill",
-    source: "kokuyurin",
-    "source-layer": "kokuyurin",
+    source: "kozyousan",
     layout: {
       visibility: "none",
     },
@@ -1569,8 +1533,7 @@ attribution:
   map.addLayer({
     id: "古城山国有林-林分境界線",
     type: "line",
-    source: "kokuyurin",
-    "source-layer": "kokuyurin",
+    source: "kozyousan",
     layout: {
       visibility: "none",
     },
@@ -1876,8 +1839,7 @@ attribution:
 
   map.addLayer({
     id: "古城山国有林-林分ラベル",
-    source: "kokuyurin",
-    "source-layer": "kokuyurin",
+    source: "kozyousan",
     type: "symbol",
     layout: {
       visibility: "none",
@@ -2016,9 +1978,9 @@ attribution:
 
   map.addLayer({
     id: "アカデミー施設・その他建物-文字",
-    source: "zumenkiso",
+    source: "SISETU_NAME",
     type: "symbol",
-    filter: ["all", ["match", ["get", "カテゴリ"], ["建物"], true, false]],
+    filter: ["all", ["match", ["get", "カテゴリ"], ["建物", "その他"], true, false]],
     layout: {
       visibility: "visible",
       "text-field": ["to-string", ["get", "name"]],
@@ -2117,8 +2079,7 @@ attribution:
 
   map.addLayer({
     id: "岐阜県鳥獣保護区等(H30)-文字",
-    source: "H30-gifu-tyouzyuhogokutou",
-    "source-layer": "H30-gifu-tyouzyuhogokutou",
+    source: "GIFU-tyouzyuhogokuH30",
     type: "symbol",
     layout: {
       visibility: "none",
@@ -2303,7 +2264,6 @@ attribution:
     id: "フェノロジー調査2020(統計記録密度)",
     type: "heatmap",
     source: "fenorozi-2020",
-    "source-layer": "fenorozi-2020",
     layout: {
       visibility: "none",
     },
@@ -2313,8 +2273,7 @@ attribution:
   map.addLayer({
     id: "フェノロジー調査2020-植物",
     type: "symbol",
-    source: "fenorozi-2020-syokubutu",
-    "source-layer": "fenorozi-2020-syokubutu",
+    source: "fenorozi-2020",
     layout: {
       visibility: "none",
       "text-variable-anchor": ["top", "bottom", "left", "right"],
@@ -2342,8 +2301,7 @@ attribution:
   map.addLayer({
     id: "フェノロジー調査2020-昆虫",
     type: "symbol",
-    source: "fenorozi-2020-kontyu",
-    "source-layer": "fenorozi-2020-kontyu",
+    source: "fenorozi-2020",
     layout: {
       visibility: "none",
       "text-variable-anchor": ["top", "bottom", "left", "right"],
@@ -2371,8 +2329,7 @@ attribution:
   map.addLayer({
     id: "フェノロジー調査2020-菌類",
     type: "symbol",
-    source: "fenorozi-2020-kinrui",
-    "source-layer": "fenorozi-2020-kinrui",
+    source: "fenorozi-2020",
     layout: {
       visibility: "none",
       "text-variable-anchor": ["top", "bottom", "left", "right"],
@@ -2400,8 +2357,7 @@ attribution:
   map.addLayer({
     id: "フェノロジー調査2020-鳥類",
     type: "symbol",
-    source: "fenorozi-2020-tyourui",
-    "source-layer": "fenorozi-2020-tyourui",
+    source: "fenorozi-2020",
     layout: {
       visibility: "none",
       "text-variable-anchor": ["top", "bottom", "left", "right"],
@@ -2429,8 +2385,7 @@ attribution:
   map.addLayer({
     id: "フェノロジー調査2020-哺乳類",
     type: "symbol",
-    source: "fenorozi-2020-honyurui",
-    "source-layer": "fenorozi-2020-honyurui",
+    "source-layer": "fenorozi-2020",
     layout: {
       visibility: "none",
       "text-variable-anchor": ["top", "bottom", "left", "right"],
@@ -2545,8 +2500,7 @@ attribution:
 
   map.addLayer({
     id: "美濃市指定避難場所",
-    source: "minosi-siteihinanbasyo",
-    "source-layer": "minosi-siteihinanbasyo",
+    source: "MINOSI-hinan",
     type: "symbol",
     layout: {
       visibility: "none",
@@ -2568,8 +2522,7 @@ attribution:
 
   map.addLayer({
     id: "美濃市指定緊急避難場所",
-    source: "minosi-siteikinkyuhinanbasyo",
-    "source-layer": "minosi-siteikinkyuhinanbasyo",
+    source: "MINOSI-kinkyuhinan.geojson",
     type: "symbol",
     layout: {
       visibility: "none",
@@ -2933,8 +2886,8 @@ attribution:
   map.addLayer({
     id: "360度写真",
     type: "circle",
-    source: "image360",
-    "source-layer": "image360",
+    source: "THETA360",
+    "source-layer": "THETA360",
     layout: {
       visibility: "none",
     },
