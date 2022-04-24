@@ -1120,8 +1120,8 @@ attribution:
     type: "geojson",
     data: "https://raw.githubusercontent.com/ensyurinGIS/map/main/geojson/fenorozi-2020.geojson",
     cluster: true,
-    clusterMaxZoom: 14,
-    clusterRadius: 50
+    clusterMaxZoom: 17,
+    clusterRadius: 15
   });
 
   //  演習林プロットデータ
@@ -2260,20 +2260,64 @@ attribution:
     },
   });
 
+  // map.addLayer({
+  //   id: "フェノロジー調査2020(統計記録密度)",
+  //   type: "heatmap",
+  //   source: "fenorozi-2020",
+  //   layout: {
+  //     visibility: "none",
+  //   },
+  //   paint: {},
+  // });
+
   map.addLayer({
-    id: "フェノロジー調査2020(統計記録密度)",
-    type: "heatmap",
-    source: "fenorozi-2020",
+    id: 'clusters',
+    type: 'circle',
+    source: 'fenorozi-2020',
+    filter: ['has', 'point_count'],
     layout: {
       visibility: "none",
     },
-    paint: {},
-  });
+    paint: {
+    'circle-color': [
+    'step',
+    ['get', 'point_count'],
+    '#51bbd6',
+    100,
+    '#f1f075',
+    750,
+    '#f28cb1'
+    ],
+    'circle-radius': [
+    'step',
+    ['get', 'point_count'],
+    20,
+    100,
+    30,
+    750,
+    40
+    ]
+    }
+    });
+     
+    map.addLayer({
+    id: 'cluster-count',
+    type: 'symbol',
+    source: 'fenorozi-2020',
+    filter: ['has', 'point_count'],
+    layout: {
+      visibility: "none",
+    'text-field': '{point_count_abbreviated}',
+    'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
+    'text-size': 12
+    }
+    });
 
   map.addLayer({
-    id: "フェノロジー調査2020-植物",
+    id: "フェノロジー調査",
     type: "symbol",
     source: "fenorozi-2020",
+    filter: ['!', ['has', 'point_count']],
     layout: {
       visibility: "none",
       "text-variable-anchor": ["top", "bottom", "left", "right"],
@@ -2281,13 +2325,42 @@ attribution:
       "text-justify": "auto",
       "text-size": 12,
       "text-radial-offset": 1,
-      "icon-image": "syokubutu",
+      "icon-image": [
+        "case",
+        ["match", ["get", "分類群"], ["植物"], true, false],
+        "syokubutu",
+        ["match", ["get", "分類群"], ["昆虫"], true, false],
+        "musi",
+        ["match", ["get", "分類群"], ["哺乳類"], true, false],
+        "honyuurui",
+        ["match", ["get", "分類群"], ["シダ植物"], true, false],
+        "syokubutu",
+        ["match", ["get", "分類群"], ["多足類"], true, false],
+        "kumo",
+        ["match", ["get", "分類群"], ["両生類"], true, false],
+        "kaeru",
+        ["match", ["get", "分類群"], ["虫こぶ"], true, false],
+        "musi",
+        ["match", ["get", "分類群"], ["菌類"], true, false],
+        "kinoko",
+        ["match", ["get", "分類群"], ["魚類"], true, false],
+        "sakana",
+        ["match", ["get", "分類群"], ["爬虫類"], true, false],
+        "hebi",
+        ["match", ["get", "分類群"], ["地衣類"], true, false],
+        "syokubutu",
+        ["match", ["get", "分類群"], ["コケ"], true, false],
+        "syokubutu",
+        ["match", ["get", "分類群"], ["鳥類"], true, false],
+        "tori",
+        "",
+      ],
       "icon-size": 0.05,
       "text-justify": "left",
       "text-anchor": "bottom-left",
       "text-field": [
         "to-string",
-        ["concat", ["get", "日付"], "\n", ["get", "種名"], ["get", "状態"]],
+        ["concat", ["get", "種名"], ["get", "状態"]],
       ],
     },
     paint: {
@@ -2298,117 +2371,117 @@ attribution:
     },
   });
 
-  map.addLayer({
-    id: "フェノロジー調査2020-昆虫",
-    type: "symbol",
-    source: "fenorozi-2020",
-    layout: {
-      visibility: "none",
-      "text-variable-anchor": ["top", "bottom", "left", "right"],
-      "text-radial-offset": 0.5,
-      "text-justify": "auto",
-      "text-size": 12,
-      "text-radial-offset": 1,
-      "icon-image": "musi",
-      "icon-size": 0.05,
-      "text-justify": "left",
-      "text-anchor": "bottom-left",
-      "text-field": [
-        "to-string",
-        ["concat", ["get", "日付"], "\n", ["get", "種名"], ["get", "状態"]],
-      ],
-    },
-    paint: {
-      "text-halo-color": "#FFFFFF",
-      "text-halo-width": 1,
-      "text-opacity": 1,
-      "text-color": "#000000",
-    },
-  });
+  // map.addLayer({
+  //   id: "フェノロジー調査2020-昆虫",
+  //   type: "symbol",
+  //   source: "fenorozi-2020",
+  //   layout: {
+  //     visibility: "none",
+  //     "text-variable-anchor": ["top", "bottom", "left", "right"],
+  //     "text-radial-offset": 0.5,
+  //     "text-justify": "auto",
+  //     "text-size": 12,
+  //     "text-radial-offset": 1,
+  //     "icon-image": "musi",
+  //     "icon-size": 0.05,
+  //     "text-justify": "left",
+  //     "text-anchor": "bottom-left",
+  //     "text-field": [
+  //       "to-string",
+  //       ["concat", ["get", "日付"], "\n", ["get", "種名"], ["get", "状態"]],
+  //     ],
+  //   },
+  //   paint: {
+  //     "text-halo-color": "#FFFFFF",
+  //     "text-halo-width": 1,
+  //     "text-opacity": 1,
+  //     "text-color": "#000000",
+  //   },
+  // });
 
-  map.addLayer({
-    id: "フェノロジー調査2020-菌類",
-    type: "symbol",
-    source: "fenorozi-2020",
-    layout: {
-      visibility: "none",
-      "text-variable-anchor": ["top", "bottom", "left", "right"],
-      "text-radial-offset": 0.5,
-      "text-justify": "auto",
-      "text-size": 12,
-      "text-radial-offset": 1,
-      "icon-image": "kinoko",
-      "icon-size": 0.05,
-      "text-justify": "left",
-      "text-anchor": "bottom-left",
-      "text-field": [
-        "to-string",
-        ["concat", ["get", "日付"], "\n", ["get", "種名"], ["get", "状態"]],
-      ],
-    },
-    paint: {
-      "text-halo-color": "#FFFFFF",
-      "text-halo-width": 1,
-      "text-opacity": 1,
-      "text-color": "#000000",
-    },
-  });
+  // map.addLayer({
+  //   id: "フェノロジー調査2020-菌類",
+  //   type: "symbol",
+  //   source: "fenorozi-2020",
+  //   layout: {
+  //     visibility: "none",
+  //     "text-variable-anchor": ["top", "bottom", "left", "right"],
+  //     "text-radial-offset": 0.5,
+  //     "text-justify": "auto",
+  //     "text-size": 12,
+  //     "text-radial-offset": 1,
+  //     "icon-image": "kinoko",
+  //     "icon-size": 0.05,
+  //     "text-justify": "left",
+  //     "text-anchor": "bottom-left",
+  //     "text-field": [
+  //       "to-string",
+  //       ["concat", ["get", "日付"], "\n", ["get", "種名"], ["get", "状態"]],
+  //     ],
+  //   },
+  //   paint: {
+  //     "text-halo-color": "#FFFFFF",
+  //     "text-halo-width": 1,
+  //     "text-opacity": 1,
+  //     "text-color": "#000000",
+  //   },
+  // });
 
-  map.addLayer({
-    id: "フェノロジー調査2020-鳥類",
-    type: "symbol",
-    source: "fenorozi-2020",
-    layout: {
-      visibility: "none",
-      "text-variable-anchor": ["top", "bottom", "left", "right"],
-      "text-radial-offset": 0.5,
-      "text-justify": "auto",
-      "text-size": 12,
-      "text-radial-offset": 1,
-      "icon-image": "tori",
-      "icon-size": 0.05,
-      "text-justify": "left",
-      "text-anchor": "bottom-left",
-      "text-field": [
-        "to-string",
-        ["concat", ["get", "日付"], "\n", ["get", "種名"], ["get", "状態"]],
-      ],
-    },
-    paint: {
-      "text-halo-color": "#FFFFFF",
-      "text-halo-width": 1,
-      "text-opacity": 1,
-      "text-color": "#000000",
-    },
-  });
+  // map.addLayer({
+  //   id: "フェノロジー調査2020-鳥類",
+  //   type: "symbol",
+  //   source: "fenorozi-2020",
+  //   layout: {
+  //     visibility: "none",
+  //     "text-variable-anchor": ["top", "bottom", "left", "right"],
+  //     "text-radial-offset": 0.5,
+  //     "text-justify": "auto",
+  //     "text-size": 12,
+  //     "text-radial-offset": 1,
+  //     "icon-image": "tori",
+  //     "icon-size": 0.05,
+  //     "text-justify": "left",
+  //     "text-anchor": "bottom-left",
+  //     "text-field": [
+  //       "to-string",
+  //       ["concat", ["get", "日付"], "\n", ["get", "種名"], ["get", "状態"]],
+  //     ],
+  //   },
+  //   paint: {
+  //     "text-halo-color": "#FFFFFF",
+  //     "text-halo-width": 1,
+  //     "text-opacity": 1,
+  //     "text-color": "#000000",
+  //   },
+  // });
 
-  map.addLayer({
-    id: "フェノロジー調査2020-哺乳類",
-    type: "symbol",
-    "source-layer": "fenorozi-2020",
-    layout: {
-      visibility: "none",
-      "text-variable-anchor": ["top", "bottom", "left", "right"],
-      "text-radial-offset": 0.5,
-      "text-justify": "auto",
-      "text-size": 12,
-      "text-radial-offset": 1,
-      "icon-image": "honyuurui",
-      "icon-size": 0.05,
-      "text-justify": "left",
-      "text-anchor": "bottom-left",
-      "text-field": [
-        "to-string",
-        ["concat", ["get", "日付"], "\n", ["get", "種名"], ["get", "状態"]],
-      ],
-    },
-    paint: {
-      "text-halo-color": "#FFFFFF",
-      "text-halo-width": 1,
-      "text-opacity": 1,
-      "text-color": "#000000",
-    },
-  });
+  // map.addLayer({
+  //   id: "フェノロジー調査2020-哺乳類",
+  //   type: "symbol",
+  //   "source-layer": "fenorozi-2020",
+  //   layout: {
+  //     visibility: "none",
+  //     "text-variable-anchor": ["top", "bottom", "left", "right"],
+  //     "text-radial-offset": 0.5,
+  //     "text-justify": "auto",
+  //     "text-size": 12,
+  //     "text-radial-offset": 1,
+  //     "icon-image": "honyuurui",
+  //     "icon-size": 0.05,
+  //     "text-justify": "left",
+  //     "text-anchor": "bottom-left",
+  //     "text-field": [
+  //       "to-string",
+  //       ["concat", ["get", "日付"], "\n", ["get", "種名"], ["get", "状態"]],
+  //     ],
+  //   },
+  //   paint: {
+  //     "text-halo-color": "#FFFFFF",
+  //     "text-halo-width": 1,
+  //     "text-opacity": 1,
+  //     "text-color": "#000000",
+  //   },
+  // });
 
   map.addLayer({
     id: "OWL-立木データ",
@@ -3028,12 +3101,12 @@ const toggleableLayerIds2 = [
   "プロット調査",
   "OWL-立木データ",
   "OWL-立木データ-文字",
-  "フェノロジー調査2020-植物",
-  "フェノロジー調査2020-昆虫",
-  "フェノロジー調査2020-哺乳類",
-  "フェノロジー調査2020-鳥類",
-  "フェノロジー調査2020-菌類",
-  "フェノロジー調査2020(統計記録密度)",
+  // "フェノロジー調査2020-植物",
+  // "フェノロジー調査2020-昆虫",
+  // "フェノロジー調査2020-哺乳類",
+  // "フェノロジー調査2020-鳥類",
+  // "フェノロジー調査2020-菌類",
+  // "フェノロジー調査2020(統計記録密度)",
   "翔楓祭2021企画",
   "古城山国有林-林分",
   "古城山国有林-林分境界線",
@@ -3126,6 +3199,70 @@ map.on("mouseenter", "360度写真", () => {
   map.getCanvas().style.cursor = "pointer";
 });
 map.on("mouseleave", "360度写真", () => {
+  map.getCanvas().style.cursor = "";
+});
+
+map.on('click', 'clusters', (e) => {
+    const features = map.queryRenderedFeatures(e.point, {
+    layers: ['clusters']
+    });
+    const clusterId = features[0].properties.cluster_id;
+    map.getSource('fenorozi-2020').getClusterExpansionZoom(
+      clusterId,
+      (err, zoom) => {
+        if (err) return;
+        
+        map.easeTo({
+          center: features[0].geometry.coordinates,
+          zoom: zoom
+        });
+      }
+    );
+    e.stopPropagation();
+  });
+
+  map.on('mouseenter', 'clusters', () => {
+    map.getCanvas().style.cursor = 'pointer';
+    });
+    map.on('mouseleave', 'clusters', () => {
+    map.getCanvas().style.cursor = '';
+    });
+
+map.on("click", "フェノロジー調査", (e) => {
+  new mapboxgl.Popup()
+    .setLngLat(e.features[0].geometry.coordinates)
+    .setHTML(
+        "<h3>" + 
+        e.features[0].properties.種名 +
+        "</h3>" +
+        "<a href='http://ja.wikipedia.org/wiki/" +
+        e.features[0].properties.種名 +
+        "' target='_blank' rel='noopener noreferrer'>ウィキペディアで調べる</a><hr>日付：" +
+        e.features[0].properties.日付 +
+        "<br>DBH：" +
+        e.features[0].properties.胸高直径cm +
+        "cm<br>樹高：" +
+        e.features[0].properties.樹高m +
+        "m<br>材積：" +
+        e.features[0].properties.材積m3 +
+        "m3<br>幹週：" +
+        e.features[0].properties.幹周cm +
+        "cm<br>樹幹半径：" +
+        e.features[0].properties.樹冠半径m +
+        "m<br>矢高：" +
+        e.features[0].properties.矢高cm +
+        "cm" +
+        "<style>a { color:#F00; }</style>"
+    )
+    .addTo(map);
+  map.flyTo({ center: e.features[0].geometry.coordinates});
+  e.stopPropagation();
+});
+
+map.on("mouseenter", "フェノロジー調査", () => {
+  map.getCanvas().style.cursor = "pointer";
+});
+map.on("mouseleave", "フェノロジー調査", () => {
   map.getCanvas().style.cursor = "";
 });
 
@@ -3385,7 +3522,7 @@ map.on("click", "アカデミー施設・その他建物", (e) => {
         e.features[0].properties.image +
         "' target='_blank'rel='noopener noreferrer'><img src='" +
         e.features[0].properties.image +
-        "' width='100%' height='190px'></div></div></div><style>img { object-fit: cover;}</style>"
+        "' width='100%' height='190px'></div></div></div><style>img { object-fit: cover;} a { color:#F00; }</style>"
     )
     .addTo(map);
   let target = document.getElementById("scroll-top");
@@ -3881,6 +4018,70 @@ map.addControl(new HelloWorldControl3(), "top-right");
 
 //2d3dボタン
 map.addControl(new PitchToggle({ minpitchzoom: 0 }));
+
+//フェノロジーボタン
+class HelloWorldControl6 {
+  onAdd(map) {
+    const seton =
+      '<img src="https://img.icons8.com/ios-glyphs/25/05CB63/opera-glasses.png"/>';
+    const setoff =
+      '<img src="https://img.icons8.com/ios-glyphs/25/000000/opera-glasses.png"/>';
+
+    this.map = map;
+    const homeButton = document.createElement("button");
+    homeButton.innerHTML = setoff;
+    homeButton.addEventListener("click", (e) => {
+      const clickedLayer = "フェノロジー調査";
+      e.preventDefault();
+      e.stopPropagation();
+      homeButton.innerHTML = seton;
+      const visibility = map.getLayoutProperty(clickedLayer, "visibility");
+
+      // Toggle layer visibility by changing the layout object's visibility property.
+      if (visibility === "none") {
+        map.setLayoutProperty(clickedLayer, "visibility", "visible");
+        map.setLayoutProperty("cluster-count", "visibility", "visible");
+        map.setLayoutProperty("clusters", "visibility", "visible");
+
+        splash("フェノロジー調査2020", {
+          message_class: "splashmsg default", //メッセージエリアに設定するクラス
+          fadein_sec: 0.1, //コマンド実行からメッセージがフェードインする時間（秒）
+          wait_sec: 0.5, //コマンド実行からメッセージのフェードアウトを開始する時間（秒）
+          fadeout_sec: 0.3, //フェードアウトする時間（秒）
+          opacity: 0.9, //メッセージの透過率
+          trans_in: "ease-in", //フェードインの加速度設定（CSSのtransition参照）
+          trans_out: "ease-out", //フェードアウトの加速度設定（CSSのtransition参照）
+          outer_style:
+            "top: 0px;left: 0px;position: fixed;z-index: 1000;width: 100%;height: 100%;", //外側のスタイル
+          message_style:
+            "padding:0.5em;font-size:4em;color:white;background-color:gray; position: absolute;top: 50%; left: 50%;transform: translateY(-50%) translateX(-50%);-webkit-transform: translateY(-50%) translateX(-50%);", //メッセージエリアのスタイル
+          style_id: "append_splash_msg_style", //追加する制御用スタイルタグのID
+          outer_id: "append_splash_msg", //追加するスタイルタグのID
+          message_id: "append_splash_msg_inner",
+          on_splash_vanished: null, //コールバック関数（ function() ）
+        });
+      } else {
+        homeButton.innerHTML = setoff;
+        map.setLayoutProperty(clickedLayer, "visibility", "none");
+        map.setLayoutProperty("cluster-count", "visibility", "none");
+        map.setLayoutProperty("clusters", "visibility", "none");
+      }
+    });
+
+    this.container = document.createElement("div");
+    this.container.className = "mapboxgl-ctrl mapboxgl-ctrl-group";
+    this.container.appendChild(homeButton);
+
+    return this.container;
+  }
+
+  onRemove() {
+    this.container.parentNode.removeChild(this.container);
+    this.map = undefined;
+  }
+}
+
+map.addControl(new HelloWorldControl6(), "top-right");
 
 //360°ボタンset
 class HelloWorldControl5 {
