@@ -751,17 +751,17 @@ attribution:
   // レイヤ設定
   var Map_BaseLayer = {
     saisinsyasin: "全国最新写真(シームレス)",
-    oruso: "電子国土基本図(オルソ画像)",
-    kutyu: "空中写真(1979年頃)",
-    kihonzu: "基本図",
+    kihonzu: "森林基本図",
+    csrittai: "CS立体図(岐阜県森林研究所)",
+    keiyakubun: "傾斜区分図(岐阜県森林研究所)",
     hyouzyun: "国土地理院地図（標準）",
     tansyoku: "国土地理院地図（淡色）",
     hakutizu: "国土地理院地図（白）",
     sikibetu: "色別標高図",
     ineikizyou: "陰影起伏図",
     keisyasirokuro: "傾斜量図",
-    csrittai: "CS立体図(岐阜県森林研究所)",
-    keiyakubun: "傾斜区分図(岐阜県森林研究所)",
+    oruso: "電子国土基本図(オルソ画像)",
+    kutyu: "空中写真(1979年頃)",
     gifukyouyu: "岐阜県共有空間データ（Q地図タイル）",
     syokusei: "植生図(エコリス)",
     tisitus: "シームレス地質図(産総研)",
@@ -889,6 +889,7 @@ attribution:
       "raster-saturation": 0,
     },
   });
+
 
   // 傾斜量図なだれ
   map.addSource("keisyanadare", {
@@ -2098,7 +2099,7 @@ attribution:
 
   map.addLayer({
     id: "自力建設-文字",
-    source: "zumenkiso",
+    source: "SISETU_NAME",
     type: "symbol",
     filter: ["all", ["match", ["get", "カテゴリ"], ["自力建設"], true, false]],
     layout: {
@@ -2108,6 +2109,7 @@ attribution:
       "text-variable-anchor": ["top", "bottom", "left", "right"],
       "text-radial-offset": 0.5,
       "text-justify": "auto",
+      "icon-image": "dot-11",
     },
     paint: {
       "text-halo-color": "#000000",
@@ -3130,7 +3132,6 @@ const toggleableLayerIds2 = [
   "岐阜県20万分の1土壌分類",
   "岐阜県20万分の1土壌分類-文字",
   "行政区画",
-  // '360度写真',
 ];
 
 //各レイヤーに対応するトグルボタンを設定します。
@@ -4018,70 +4019,6 @@ map.addControl(new HelloWorldControl3(), "top-right");
 
 //2d3dボタン
 map.addControl(new PitchToggle({ minpitchzoom: 0 }));
-
-//フェノロジーボタン
-class HelloWorldControl6 {
-  onAdd(map) {
-    const seton =
-      '<img src="https://img.icons8.com/ios-glyphs/25/05CB63/opera-glasses.png"/>';
-    const setoff =
-      '<img src="https://img.icons8.com/ios-glyphs/25/000000/opera-glasses.png"/>';
-
-    this.map = map;
-    const homeButton = document.createElement("button");
-    homeButton.innerHTML = setoff;
-    homeButton.addEventListener("click", (e) => {
-      const clickedLayer = "フェノロジー調査";
-      e.preventDefault();
-      e.stopPropagation();
-      homeButton.innerHTML = seton;
-      const visibility = map.getLayoutProperty(clickedLayer, "visibility");
-
-      // Toggle layer visibility by changing the layout object's visibility property.
-      if (visibility === "none") {
-        map.setLayoutProperty(clickedLayer, "visibility", "visible");
-        map.setLayoutProperty("cluster-count", "visibility", "visible");
-        map.setLayoutProperty("clusters", "visibility", "visible");
-
-        splash("フェノロジー調査2020", {
-          message_class: "splashmsg default", //メッセージエリアに設定するクラス
-          fadein_sec: 0.1, //コマンド実行からメッセージがフェードインする時間（秒）
-          wait_sec: 0.5, //コマンド実行からメッセージのフェードアウトを開始する時間（秒）
-          fadeout_sec: 0.3, //フェードアウトする時間（秒）
-          opacity: 0.9, //メッセージの透過率
-          trans_in: "ease-in", //フェードインの加速度設定（CSSのtransition参照）
-          trans_out: "ease-out", //フェードアウトの加速度設定（CSSのtransition参照）
-          outer_style:
-            "top: 0px;left: 0px;position: fixed;z-index: 1000;width: 100%;height: 100%;", //外側のスタイル
-          message_style:
-            "padding:0.5em;font-size:4em;color:white;background-color:gray; position: absolute;top: 50%; left: 50%;transform: translateY(-50%) translateX(-50%);-webkit-transform: translateY(-50%) translateX(-50%);", //メッセージエリアのスタイル
-          style_id: "append_splash_msg_style", //追加する制御用スタイルタグのID
-          outer_id: "append_splash_msg", //追加するスタイルタグのID
-          message_id: "append_splash_msg_inner",
-          on_splash_vanished: null, //コールバック関数（ function() ）
-        });
-      } else {
-        homeButton.innerHTML = setoff;
-        map.setLayoutProperty(clickedLayer, "visibility", "none");
-        map.setLayoutProperty("cluster-count", "visibility", "none");
-        map.setLayoutProperty("clusters", "visibility", "none");
-      }
-    });
-
-    this.container = document.createElement("div");
-    this.container.className = "mapboxgl-ctrl mapboxgl-ctrl-group";
-    this.container.appendChild(homeButton);
-
-    return this.container;
-  }
-
-  onRemove() {
-    this.container.parentNode.removeChild(this.container);
-    this.map = undefined;
-  }
-}
-
-map.addControl(new HelloWorldControl6(), "top-right");
 
 //360°ボタンset
 class HelloWorldControl5 {
