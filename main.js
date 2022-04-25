@@ -3026,16 +3026,18 @@ attribution:
     },
   });
 
+
+  //マップアイコン
   map.loadImage(
     'https://docs.mapbox.com/mapbox-gl-js/assets/cat.png',
     (error, image) => {
     if (error) throw error;
      
     // Add the image to the map style.
-    map.addImage('cat', image);
+    map.addImage('mapicon', image);
      
     // Add a data source containing one point feature.
-    map.addSource('point', {
+    map.addSource('mapicon', {
     'type': 'geojson',
     'data': {
     'type': 'FeatureCollection',
@@ -3053,15 +3055,15 @@ attribution:
      
     // Add a layer to use the image to represent the data.
     map.addLayer({
-    'id': 'points',
+    'id': 'mapicon',
     'type': 'symbol',
-    'source': 'point', // reference the data source
+    'source': 'mapicon', // reference the data source
     'layout': {
-    'icon-image': 'cat', // reference the image
+    'icon-image': 'mapicon', // reference the image
     'icon-size': 0.25
     }
     });
-    map.setLayerZoomRange('points', 0, 11);
+    map.setLayerZoomRange('mapicon', 0, 11);
 });
 
 }
@@ -3243,6 +3245,19 @@ for (const id of toggleableLayerIds2) {
 // });
 
 //クリックイベントのプロパティからのHTML。
+map.on("click", "mapicon", (e) => {
+  map.flyTo({ center: [136.92300400916308, 35.5509525769706], zoom: 14.5 });
+  e.stopPropagation();
+});
+
+map.on("mouseenter", "mapicon", () => {
+  map.getCanvas().style.cursor = "pointer";
+});
+map.on("mouseleave", "mapicon", () => {
+  map.getCanvas().style.cursor = "";
+});
+
+
 map.on("click", "360度写真", (e) => {
   new mapboxgl.Popup()
     .setLngLat(e.features[0].geometry.coordinates)
