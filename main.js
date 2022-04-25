@@ -1,3 +1,17 @@
+// Vue.use(window["vue-js-modal"].default);
+
+// var app = new Vue({
+//   el: '#app',
+//   methods: {
+//     show : function() {
+//       this.$modal.show('hello-world');
+//     },
+//     hide : function () {
+//       this.$modal.hide('hello-world');
+//     },
+//   }
+// })
+
 //ロード画面長さ
 $("#splash").delay(3000).fadeOut(1000);
 $("#splash_logo").delay(5000).fadeOut(1000);
@@ -1039,9 +1053,9 @@ attribution:
   });
 
   //その他ポイント
-  map.addSource("rinnaipointosin", {
+  map.addSource("TITEN", {
     type: "vector",
-    url: "mapbox://satoshi7190.ckussat723mwp27p851kqvruk-18by7",
+    url: "mapbox://ensyuringis.cl2em8xmn1yks21o4ey2m50br-8h3uo",
   });
 
   //歩道
@@ -1054,12 +1068,6 @@ attribution:
   map.addSource("KAWA", {
     type: "vector",
     url: "mapbox://ensyuringis.ckzt76xfi0g0427r67smbkb9t-2ody0",
-  });
-
-  //林内ポイント
-  map.addSource("rinnai-point", {
-    type: "vector",
-    url: "mapbox://satoshi7190.ckussat723mwp27p851kqvruk-5hy2g",
   });
 
   //サインポール
@@ -1090,6 +1098,12 @@ attribution:
   map.addSource("ENSYURIN_hani", {
     type: "vector",
     url: "mapbox://ensyuringis.ckzt6zrqq147721r0v4kfmyvl-78cpl",
+  });
+
+  //未来の森づくり
+  map.addSource("ENSYURIN_mirainomori", {
+    type: "vector",
+    url: "mapbox://ensyuringis.cl2embn5f02tb28nac80mmgg5-1iftx",
   });
 
   //試験地
@@ -1743,17 +1757,15 @@ attribution:
 
   map.addLayer({
     id: "未来の森づくり予定地",
-    type: "line",
-    source: "ensyurinhani",
-    "source-layer": "ensyurinhani",
-    filter: ["match", ["get", "Name"], ["未来の森づくり施業区域"], true, false],
+    type: "fill",
+    source: "ENSYURIN_mirainomori",
+    "source-layer": "ENSYURIN_mirainomori",
     layout: {
-      visibility: "visible",
+      visibility: "none",
     },
     paint: {
-      "line-width": 6,
-      "line-color": "#a3a815",
-      "line-opacity": 1,
+      "fill-color": "#a3a815",
+      "fill-opacity": 1,
     },
   });
 
@@ -2202,8 +2214,8 @@ attribution:
 
   map.addLayer({
     id: "その他地点",
-    source: "rinnaipointosin",
-    "source-layer": "rinnaipointosin",
+    source: "TITEN",
+    "source-layer": "TITEN",
     type: "symbol",
     layout: {
       visibility: "visible",
@@ -2981,31 +2993,6 @@ attribution:
   });
 
   map.addLayer({
-    id: "360度写真",
-    type: "circle",
-    source: "THETA360",
-    "source-layer": "THETA360",
-    layout: {
-      visibility: "none",
-    },
-    paint: {
-      "circle-color": "#05CB63",
-      "circle-radius": [
-        "interpolate",
-        ["linear"],
-        ["zoom"],
-        13,
-        1,
-        15,
-        8,
-        20.014,
-        30,
-      ],
-      "circle-opacity": 0.7,
-    },
-  });
-
-  map.addLayer({
     id: "みんなの記録-文字",
     source: "kiroku",
     type: "symbol",
@@ -3026,10 +3013,9 @@ attribution:
     },
   });
 
-
   //マップアイコン
   map.loadImage(
-    'https://docs.mapbox.com/mapbox-gl-js/assets/cat.png',
+    'https://raw.githubusercontent.com/ensyurinGIS/map/main/sozai/mapicon.png',
     (error, image) => {
     if (error) throw error;
      
@@ -3088,7 +3074,6 @@ const toggleableLayerIds = [
   "アカデミー施設・その他建物-文字",
   "自力建設",
   "自力建設-文字",
-  "未来の森づくり予定地",
   "演習林-スギ林",
   "演習林-ヒノキ林",
   "演習林-アカマツ林",
@@ -3125,13 +3110,13 @@ for (const id of toggleableLayerIds) {
     const visibility = map.getLayoutProperty(clickedLayer, "visibility");
 
     //レイアウトオブジェクトのvisibilityプロパティを変更して、レイヤーの可視性を切り替えます。
-    if (visibility === "visible") {
-      map.setLayoutProperty(clickedLayer, "visibility", "visible");
-      this.className = "";
-    } else {
-      this.className = "noactive";
-      map.setLayoutProperty(clickedLayer, "visibility", "none");
-    }
+    // if (visibility === "visible") {
+    //   map.setLayoutProperty(clickedLayer, "visibility", "visible");
+    //   this.className = "";
+    // } else {
+    //   this.className = "noactive";
+    //   map.setLayoutProperty(clickedLayer, "visibility", "none");
+    // }
 
     if (visibility === "visible") {
       map.setLayoutProperty(clickedLayer, "visibility", "none");
@@ -3150,6 +3135,7 @@ const toggleableLayerIds2 = [
   // '演習林-林班樹種別色分け',
   "みんなの記録(表示期限切れ)",
   "みんなの記録-統計密度",
+  "未来の森づくり予定地",
   "平面図-アカデミー施設1F",
   "平面図-アカデミー施設1F-文字",
   "平面図-アカデミー施設2F",
@@ -3211,7 +3197,7 @@ for (const id of toggleableLayerIds2) {
   link.id = id;
   link.href = "#";
   link.textContent = id;
-  link.className = "noactive";
+  link.className = "";
 
   //トグルがクリックされたときにレイヤーを表示または非表示にします。
   link.onclick = function (e) {
@@ -3222,14 +3208,6 @@ for (const id of toggleableLayerIds2) {
     const visibility = map.getLayoutProperty(clickedLayer, "visibility");
 
     //レイアウトオブジェクトのvisibilityプロパティを変更して、レイヤーの可視性を切り替えます。
-    if (visibility === "visible") {
-      map.setLayoutProperty(clickedLayer, "visibility", "visible");
-      this.className = "";
-    } else {
-      this.className = "noactive";
-      map.setLayoutProperty(clickedLayer, "visibility", "none");
-    }
-
     if (visibility === "visible") {
       map.setLayoutProperty(clickedLayer, "visibility", "none");
       this.className = "";
@@ -4114,11 +4092,65 @@ class HelloWorldControl5 {
       e.preventDefault();
       e.stopPropagation();
       homeButton.innerHTML = seton;
-      const visibility = map.getLayoutProperty(clickedLayer, "visibility");
 
       // Toggle layer visibility by changing the layout object's visibility property.
-      if (visibility === "none") {
-        map.setLayoutProperty(clickedLayer, "visibility", "visible");
+      if (map.getLayer("360度写真")) {
+        homeButton.innerHTML = setoff;
+        map.removeLayer("background");
+        map.removeLayer("360度写真");
+        map.flyTo({ center: [136.92300400916308, 35.5509525769706],
+          zoom: 14.5,
+          bearing: 0,
+          pitch: 0,
+        });
+
+      
+      } else {
+
+        map.flyTo({ center: [136.92300400916308, 35.5509525769706],
+                    zoom: 15,
+                    bearing: 90,
+                    pitch: 40,
+                    duration: 3000,
+                  });
+
+                  // map.rotateTo(180, { duration: 10000 });
+        // map.easeTo({ bearing: 40 })
+        map.addLayer({
+          id: "background",
+          type: "background",
+          layout: {
+            visibility: "visible",
+          },
+          paint: {
+            "background-color": "#000000",
+            "background-opacity": 0.4,
+          },
+        });
+
+        map.addLayer({
+          id: "360度写真",
+          type: "circle",
+          source: "THETA360",
+          "source-layer": "THETA360",
+          layout: {
+          },
+          paint: {
+            "circle-color": "#05CB63",
+            "circle-radius": [
+              "interpolate",
+              ["linear"],
+              ["zoom"],
+              13,
+              1,
+              15,
+              8,
+              20.014,
+              30,
+            ],
+            "circle-opacity": 0.7,
+          },
+        });
 
         splash("360°パノラマビュー", {
           message_class: "splashmsg default", //メッセージエリアに設定するクラス
@@ -4137,9 +4169,7 @@ class HelloWorldControl5 {
           message_id: "append_splash_msg_inner",
           on_splash_vanished: null, //コールバック関数（ function() ）
         });
-      } else {
-        homeButton.innerHTML = setoff;
-        map.setLayoutProperty(clickedLayer, "visibility", "none");
+
       }
     });
 

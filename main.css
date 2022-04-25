@@ -1,9 +1,8 @@
 	
 @import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
 
-/* スワイプリロード無効 */
 body {
-  overscroll-behavior-y: none;
+  overscroll-behavior-y: none;/* スワイプリロード無効 */
   background-color: rgb(44, 44, 44);
 }
 
@@ -268,10 +267,10 @@ body {
 }
 
 /* レイヤー初期非表示 */
-#menu a.noactive {
+/* #menu a.noactive {
   background-color: rgba(0, 0, 0, 0.75);
   color: #a0a0a0;
-}
+} */
 
 /* ベースマップ */
 #menu2 {
