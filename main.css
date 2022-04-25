@@ -1,3 +1,6 @@
+	
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+
 /* スワイプリロード無効 */
 body {
   overscroll-behavior-y: none;
@@ -23,18 +26,18 @@ body {
 }
 
 /* Loading アイコンの大きさ設定　*/
-#splash_logo img {
-  width: 200px;
-  filter: grayscale(100%) invert(100%) contrast(300%);
-}
 
 #title1 {
   position: absolute;
   text-align: center;
   width: 100%;
   font-size: 32px;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
   color: #ffffff;
+}
+
+#forestlogo {
+  width: 70%;
 }
 
 /* SVGアニメーション　*/
@@ -54,22 +57,6 @@ body {
     stroke-dashoffset: 0;
   }
 }
-
-/* 起動アニメーション */
-/* span {
-  display: inline-block;
-}
-#box1 {
-  animation: 1s ease-in-out infinite alternate rotation;
-}
-@keyframes rotation {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-} */
 
 /* メニュー */
 label {

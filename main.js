@@ -857,7 +857,7 @@ attribution:
       inputChange5();
       //凡例表示
       //         img = document.getElementById("hanrei");
-      // img.src = "https://raw.githubusercontent.com/satoshi7190/ensyuringis/main/hanrei/" + clickedLayer + ".png";
+      // img.src = "https://raw.githubusercontent.com/ensyurinGIS/map/main/hanrei/" + clickedLayer + ".png";
     };
 
     // レイヤメニューにレイヤ追加
@@ -1025,7 +1025,7 @@ attribution:
 
       //凡例表示
       //     img = document.getElementById("hanrei2");
-      // img.src = "https://raw.githubusercontent.com/satoshi7190/ensyuringis/main/hanrei/" + clickedLayer2 + ".png";
+      // img.src = "https://raw.githubusercontent.com/ensyurinGIS/map/main/hanrei/" + clickedLayer2 + ".png";
     };
 
     // レイヤメニューにレイヤ追加
@@ -1033,9 +1033,9 @@ attribution:
     layers.appendChild(link);
   }
 
-  map.addSource("zumenkiso", {
+  map.addSource("TATEMONO", {
     type: "geojson",
-    data: "https://raw.githubusercontent.com/satoshi7190/ensyuringis/main/geojson/zumenkiso.geojson",
+    data: "https://raw.githubusercontent.com/ensyurinGIS/map/main/geojson/TATEMONO.geojson",
   });
 
   //その他ポイント
@@ -1504,6 +1504,29 @@ attribution:
   });
 
   map.addLayer({
+    id: "行政区画-文字",
+    type: "symbol",
+    source: "mapbox",
+    "source-layer": "place_label",
+    layout: {
+      visibility: "none",
+      "text-field": ["to-string", ["get", "name"]],
+      "text-size": [
+        "case",
+        ["match", ["get", "type"], ["city"], true, false],
+        17,
+        13,
+      ],
+    },
+    paint: {
+      "text-halo-color": "#ffffff",
+      "text-halo-width": 3,
+      "text-opacity": 1,
+      "text-color": "#000000",
+    },
+  });
+
+  map.addLayer({
     id: "古城山国有林-林分",
     type: "fill",
     source: "kozyousan",
@@ -1736,7 +1759,7 @@ attribution:
 
   map.addLayer({
     id: "アカデミー施設・その他建物",
-    source: "zumenkiso",
+    source: "TATEMONO",
     type: "fill",
     filter: ["all", ["match", ["get", "カテゴリ"], ["建物"], true, false]],
     layout: {
@@ -1885,7 +1908,7 @@ attribution:
 
   map.addSource("tyusyazyo", {
     type: "geojson",
-    data: "https://raw.githubusercontent.com/satoshi7190/ensyuringis/main/geojson/tyusyazyo.geojson",
+    data: "https://raw.githubusercontent.com/ensyurinGIS/map/main/geojson/tyusyazyo.geojson",
   });
   map.addLayer({
     id: "駐車場",
@@ -1965,7 +1988,7 @@ attribution:
   map.addLayer({
     id: "自力建設",
     type: "fill",
-    source: "zumenkiso",
+    source: "TATEMONO",
     filter: ["all", ["match", ["get", "カテゴリ"], ["自力建設"], true, false]],
     layout: {
       visibility: "visible",
@@ -1998,7 +2021,7 @@ attribution:
           true,
           false,
         ],
-        "morinos",
+        "morinosマーク",
         [
           "match",
           ["get", "name"],
@@ -2006,7 +2029,7 @@ attribution:
           true,
           false,
         ],
-        "アカデミーロゴアイコン",
+        "アカデミーマークアイコン",
         "dot-11",
       ],
       "icon-size": [
@@ -2026,7 +2049,7 @@ attribution:
           true,
           false,
         ],
-        0.6,
+        0.3,
         1,
       ],
     },
@@ -2040,8 +2063,7 @@ attribution:
 
   map.addLayer({
     id: "岐阜県20万分の1表層地質-文字",
-    source: "GIFU-hyousoutisitu",
-    "source-layer": "GIFU-hyousoutisitu",
+    source: "GIFU-201tisitu",
     filter: ["all", ["match", ["geometry-type"], ["Polygon"], true, false]],
     type: "symbol",
     layout: {
@@ -2106,9 +2128,9 @@ attribution:
       visibility: "visible",
       "text-field": ["to-string", ["get", "name"]],
       "text-size": 14,
-      "text-variable-anchor": ["top", "bottom", "left", "right"],
       "text-radial-offset": 0.5,
       "text-justify": "auto",
+      "text-font": ["Open Sans Regular","Arial Unicode MS Regular"],
       "icon-image": "dot-11",
     },
     paint: {
@@ -2631,7 +2653,7 @@ attribution:
 
   map.addSource("AC1F-CAD", {
     type: "geojson",
-    data: "https://raw.githubusercontent.com/satoshi7190/ensyuringis/main/geojson/AC1F-CAD.geojson",
+    data: "https://raw.githubusercontent.com/ensyurinGIS/map/main/geojson/AC1F-CAD.geojson",
   });
   map.addLayer({
     id: "平面図-アカデミー施設1F",
@@ -2650,7 +2672,7 @@ attribution:
 
   map.addSource("AC2F-CAD", {
     type: "geojson",
-    data: "https://raw.githubusercontent.com/satoshi7190/ensyuringis/main/geojson/AC2F-CAD.geojson",
+    data: "https://raw.githubusercontent.com/ensyurinGIS/map/main/geojson/AC2F-CAD.geojson",
   });
   map.addLayer({
     id: "平面図-アカデミー施設2F",
@@ -2669,7 +2691,7 @@ attribution:
 
   map.addSource("ZIRIKI-CAD", {
     type: "geojson",
-    data: "https://raw.githubusercontent.com/satoshi7190/ensyuringis/main/geojson/ZIRIKI-CAD.geojson",
+    data: "https://raw.githubusercontent.com/ensyurinGIS/map/main/geojson/ZIRIKI-CAD.geojson",
   });
   map.addLayer({
     id: "平面図-自力建設",
@@ -2688,7 +2710,7 @@ attribution:
 
   map.addSource("sisetuannaitou", {
     type: "geojson",
-    data: "https://raw.githubusercontent.com/satoshi7190/ensyuringis/main/geojson/sisetuannaitou.geojson",
+    data: "https://raw.githubusercontent.com/ensyurinGIS/map/main/geojson/sisetuannaitou.geojson",
   });
   map.addLayer({
     id: "施設案内塔",
@@ -2714,7 +2736,7 @@ attribution:
 
   map.addSource("AC1F-CAD-TEXT", {
     type: "geojson",
-    data: "https://raw.githubusercontent.com/satoshi7190/ensyuringis/main/geojson/AC1F-CAD-TEXT.geojson",
+    data: "https://raw.githubusercontent.com/ensyurinGIS/map/main/geojson/AC1F-CAD-TEXT.geojson",
   });
   map.addLayer({
     id: "平面図-アカデミー施設1F-文字",
@@ -2735,7 +2757,7 @@ attribution:
 
   map.addSource("AC2F-CAD-TEXT", {
     type: "geojson",
-    data: "https://raw.githubusercontent.com/satoshi7190/ensyuringis/main/geojson/AC2F-CAD-TEXT.geojson",
+    data: "https://raw.githubusercontent.com/ensyurinGIS/map/main/geojson/AC2F-CAD-TEXT.geojson",
   });
   map.addLayer({
     id: "平面図-アカデミー施設2F-文字",
@@ -2756,7 +2778,7 @@ attribution:
 
   map.addSource("ZIRIKI-CAD-TEXT", {
     type: "geojson",
-    data: "https://raw.githubusercontent.com/satoshi7190/ensyuringis/main/geojson/ZIRIKI-CAD-TEXT.geojson",
+    data: "https://raw.githubusercontent.com/ensyurinGIS/map/main/geojson/ZIRIKI-CAD-TEXT.geojson",
   });
   map.addLayer({
     id: "平面図-自力建設-文字",
@@ -2777,7 +2799,7 @@ attribution:
 
   map.addSource("SYOUKA1F-TEXT", {
     type: "geojson",
-    data: "https://raw.githubusercontent.com/satoshi7190/ensyuringis/main/geojson/SYOUKA1F-TEXT.geojson",
+    data: "https://raw.githubusercontent.com/ensyurinGIS/map/main/geojson/SYOUKA1F-TEXT.geojson",
   });
   map.addLayer({
     id: "消火器・避難器具等1F",
@@ -2817,7 +2839,7 @@ attribution:
 
   map.addSource("SYOUKA2F-TEXT", {
     type: "geojson",
-    data: "https://raw.githubusercontent.com/satoshi7190/ensyuringis/main/geojson/SYOUKA2F-TEXT.geojson",
+    data: "https://raw.githubusercontent.com/ensyurinGIS/map/main/geojson/SYOUKA2F-TEXT.geojson",
   });
   map.addLayer({
     id: "消火器・避難器具等2F",
@@ -2861,7 +2883,7 @@ attribution:
 
   map.addSource("syohusai", {
     type: "geojson",
-    data: "https://raw.githubusercontent.com/satoshi7190/ensyuringis/main/geojson/syohusai.geojson",
+    data: "https://raw.githubusercontent.com/ensyurinGIS/map/main/geojson/syohusai.geojson",
   });
   map.addLayer({
     id: "翔楓祭2021企画",
@@ -3003,7 +3025,47 @@ attribution:
       "text-color": "#000000",
     },
   });
+
+  map.loadImage(
+    'https://docs.mapbox.com/mapbox-gl-js/assets/cat.png',
+    (error, image) => {
+    if (error) throw error;
+     
+    // Add the image to the map style.
+    map.addImage('cat', image);
+     
+    // Add a data source containing one point feature.
+    map.addSource('point', {
+    'type': 'geojson',
+    'data': {
+    'type': 'FeatureCollection',
+    'features': [
+    {
+    'type': 'Feature',
+    'geometry': {
+    'type': 'Point',
+    'coordinates': [136.91826224059088, 35.555001266741186]
+    }
+    }
+    ]
+    }
+    });
+     
+    // Add a layer to use the image to represent the data.
+    map.addLayer({
+    'id': 'points',
+    'type': 'symbol',
+    'source': 'point', // reference the data source
+    'layout': {
+    'icon-image': 'cat', // reference the image
+    'icon-size': 0.25
+    }
+    });
+    map.setLayerZoomRange('points', 0, 11);
 });
+
+}
+);
 
 //マップが「アイドル」状態になる前にレンダリングされた最後のフレームの後。
 // map.on('idle', () => {
@@ -3132,6 +3194,7 @@ const toggleableLayerIds2 = [
   "岐阜県20万分の1土壌分類",
   "岐阜県20万分の1土壌分類-文字",
   "行政区画",
+  "行政区画-文字",
 ];
 
 //各レイヤーに対応するトグルボタンを設定します。
