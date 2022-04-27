@@ -462,9 +462,9 @@ input[type="radio"] {
   padding: 7px;
 }
 
-.layer3 {
+/* .layer3 {
   display: none;
-}
+} */
 
 .layer4 {
   font-size: 18px;
@@ -472,9 +472,9 @@ input[type="radio"] {
   padding: 7px;
 }
 
-.layer5 {
+/* .layer5 {
   display: none;
-}
+} */
 
 /* 全スライダースタイル */
 input[type="range"] {
