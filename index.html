@@ -423,17 +423,17 @@
                 <label class="dropdown__label-close" for="dropdown-radio-clear">閉じる</label>
                 <div class="dropdown__contents">
                     <div class="dropdown__contents-inner">
-                        <li class="ui-list__item">
-                            <a>リンク<br>
-                                <input type="button" onclick="window.open('https://docs.google.com/spreadsheets/d/1_sWTOPlUJc2vHUYhtgouy5_DfzHU-yayC_X0MGFyvgU/edit?usp=sharing')" value="みんなの記録データーベース"><br>
-                                <input type="button" onclick="window.open('https://sites.google.com/view/komatsugis')" value="Cr2小松聖-課題研究まとめ"><br>
-                                <input type="button" onclick="window.open('https://experience.arcgis.com/experience/d05d579ef68240d894052c3b04190d58/?draft=true')" value="ぎふ森林情報WebMAP"><br>
-                                <input type="button" onclick="window.open('https://www.forest.ac.jp/')" value="森林文化アカデミーHP">
-                                <hr>
-                            </a>
-                        </li>
-                        <li class="ui-list__item"><a>アプリ情報<br>演習林GIS version 1.3.0β<br>2022年1月23日更新<hr></a></li>
-                        <li class="ui-list__item"><a>制作<br>森と木のクリエーター科20期生<br>林業専攻<br>小松　聖<br>satoshi7190@gmail.com</a></li>
+                        <div id="informationbox">
+                            <h2>演習林GISについて</h2>2021年度課題研究「WebGISを活用したアカデミー演習林の情報共有化」により、森林文化アカデミーの生徒が制作したWebマップです。<br>最終更新：2022年1月23日<hr>
+                        <h2>リンク集</h2>
+                            <input type="button" class="linkbutton" onclick="window.open('https://docs.google.com/spreadsheets/d/1_sWTOPlUJc2vHUYhtgouy5_DfzHU-yayC_X0MGFyvgU/edit?usp=sharing')" value="みんなの記録データーベース"></input><br>
+                            <input type="button" class="linkbutton" onclick="window.open('https://sites.google.com/view/komatsugis')" value="Cr2小松聖-課題研究まとめ"><br>
+                            <input type="button" class="linkbutton" onclick="window.open('https://www.forest.ac.jp/')" value="岐阜県立森林文化アカデミーHP"><br>
+                            <input type="button" class="linkbutton" onclick="window.open('https://experience.arcgis.com/experience/d05d579ef68240d894052c3b04190d58/?draft=true')" value="ぎふ森林情報WebMAP"><hr>
+                        <h2>制作者</h2>
+                        <img src="">
+                        森と木のクリエーター科20期生<br>林業専攻<br>小松　聖<br>satoshi7190@gmail.com
+                        </div> 
                     </div>           
                 </div>
             </div>
