@@ -13,7 +13,7 @@ body {
   width: 100%;
   height: 100%;
   z-index: 99;
-  background-color: rgb(44, 44, 44);
+  background-color: rgb(184, 64, 64);
 }
 
 /* Loading画像中央配置　*/
@@ -186,14 +186,6 @@ label {
   transform: translate3d(0, 0, 0);
 }
 
-/* #informationbox {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.75);
-  border-radius: 0.25rem;
-} */
 #informationbox {
   text-align: left;
   padding: 0 1rem;
@@ -202,6 +194,14 @@ label {
   background-color: rgba(0, 0, 0, 0.75);
 }
 
+#img_block{
+    text-align: center;
+}
+
+#informationbox img {
+    width: 60%;
+
+}
 .linkbutton{
     color: #fff;
     background-color: rgba(11, 126, 11, 0.75);
@@ -213,21 +213,6 @@ label {
     cursor: pointer;
     
 }
-/* .ui-list__item:not(:last-child) {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-}
-.ui-list__item--no-padding {
-  padding: 0;
-}
-.ui-list__input {
-  border: none;
-  display: block;
-  width: 100%;
-  background-color: transparent;
-  color: white;
-  padding-left: 1.5rem;
-} */
-/* メニュー */
 
 body {
   height: 100%;
@@ -279,12 +264,6 @@ body {
   background-color: rgba(11, 126, 11, 0.75);
   color: #ffffff;
 }
-
-/* レイヤー初期非表示 */
-/* #menu a.noactive {
-  background-color: rgba(0, 0, 0, 0.75);
-  color: #a0a0a0;
-} */
 
 /* ベースマップ */
 #menu2 {
@@ -450,9 +429,6 @@ input[type="radio"] {
 
 .tabbox {
   width: 95%;
-  /* background-color: rgba(0, 0, 0, 0.75); */
-
-  /*         z-index: 1; */
   top: 5px;
   left: 5px;
   border-radius: 3px;
@@ -530,23 +506,6 @@ input[type="range"]:active::-webkit-slider-thumb {
   pointer-events: all;
 }
 
-/* background-color: rgba(0, 0, 0, 0.75);
-  font-size: 14px;
-  text-transform: none;
-  line-height: 30px;
-  color: #a0a0a0;
-  display: block;
-  margin: 0;
-  padding: 5px;
-  text-decoration: none;
-  border-bottom: 1px solid #a0a0a0; */
-
-/* セレクトボタン
-.select {
-  border: 1px solid;
-  font-size: 30px;
-} */
-
 /* 検索 */
 .geocoder {
   z-index: 3;
@@ -560,7 +519,6 @@ input[type="range"]:active::-webkit-slider-thumb {
   min-width: 100%;
 }
 /* ポップアップ */
-/* Popups (adjustments to emulate Leaflet.js) */
 @keyframes fadein {
   from {
     opacity: 0;
@@ -585,25 +543,6 @@ input[type="range"]:active::-webkit-slider-thumb {
   border-radius: 5px;
   box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
   background-color: rgba(0, 0, 0, 0.75);
-}
-
-/* ポップアップPC */
-@media (min-width: 640px) {
-  .mapboxgl-popup {
-    animation: fadein 0.2s;
-    width: 80%;
-    max-width: 200px;
-    font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
-    color: #ffffff;
-  }
-
-  .mapboxgl-popup-content {
-    width: 400px;
-    min-width: 50px;
-    border-radius: 5px;
-    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
-    background-color: rgba(0, 0, 0, 0.75);
-  }
 }
 
 /* ポップアップ閉じるボタン */
@@ -718,7 +657,7 @@ body .mapboxgl-map {
   font-size: 20px;
   font-style: "Yu Gothic UI Semibold";
   text-align: center;
-  background-color: rgba(48, 48, 48, 0.979);
+  background-color: rgb(16,16,16);
 }
 
 #append_splash_msg_inner.alert {
@@ -735,7 +674,7 @@ body .mapboxgl-map {
     font-size: 20px;
     font-style: "Yu Gothic UI Semibold";
     text-align: center;
-    background-color: rgba(48, 48, 48, 0.979);
+    background-color: rgb(16,16,16);
   }
 }
 
