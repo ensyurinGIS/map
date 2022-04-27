@@ -4,8 +4,6 @@ const lineselectID = [
     "川",
     "演習林-小林班境界線",
     "演習林-林班境界線",
-    "演習林-山林境界線",
-    "未来の森づくり予定地",
     "平面図-アカデミー施設1F",
     "平面図-アカデミー施設2F",
     "平面図-自力建設",
@@ -58,7 +56,7 @@ slider11.addEventListener('input', (e) => {
 
 function inputChange1(){
     var layer = document.getElementById('layer1');
-    
+
     var nowcolor = map.getPaintProperty(layer.value, 'line-color');
     document.getElementById( "selectcolor1" ).value = nowcolor;
 
