@@ -167,7 +167,7 @@ function splash(msg, custom_set) {
   }
   
   function massage4() {
-    splash("アプリの詳細情報", {
+    splash("インフォメーション", {
       message_class: "splashmsg default", //メッセージエリアに設定するクラス
       fadein_sec: 0.1, //コマンド実行からメッセージがフェードインする時間（秒）
       wait_sec: 0.5, //コマンド実行からメッセージのフェードアウトを開始する時間（秒）
