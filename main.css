@@ -13,10 +13,10 @@ body {
   width: 100%;
   height: 100%;
   z-index: 99;
-  background-color: rgb(184, 64, 64);
+  background-color: rgb(44, 44, 44);
 }
 
-/* Loading画像中央配置　*/
+/* Loading画像中央配置*/
 #splash_logo {
   position: absolute;
   top: 50%;
@@ -24,7 +24,7 @@ body {
   transform: translate(-50%, -50%);
 }
 
-/* Loading アイコンの大きさ設定　*/
+/* Loading アイコンの大きさ設定*/
 #title1 {
   position: absolute;
   text-align: center;
@@ -38,7 +38,7 @@ body {
   width: 70%;
 }
 
-/* SVGアニメーション　*/
+/* SVGアニメーション*/
 #wrap_all path {
   animation-fill-mode: forwards;
   fill: transparent;
@@ -678,48 +678,7 @@ body .mapboxgl-map {
   }
 }
 
-/* 凡例表示スマホ */
-#map-overlay {
-  z-index: 2;
-  /* pointer-events: none; */
-  position: absolute;
-  width: 80%;
-  top: 90px;
-  left: 10px;
-  bottom: 80px;
-  overflow-y: auto;
-  background: rgba(0, 0, 0, 0.75);
-  color: white;
-  padding: 5px;
-  font-size: 14px;
-  font-style: "Yu Gothic UI Semibold";
-  /* padding: 10px; */
-  /* padding: 10px; */
-}
-
 #map-overlay img {
   width: 100%;
   border: 2px rgba(48, 48, 48, 0.979) solid;
 }
-
-/* 凡例表示pc */
-/* @media (min-width: 640px) {
-  #map-overlay {
-    z-index: 2;
-    position: absolute;
-    width: 300px;
-    left: 10px;
-    top: 70px;
-    overflow-y: auto;
-    background: rgba(0, 0, 0, 0.75);
-    color: white;
-    padding: 10px;
-    font-size: 14px;
-    font-style: "Yu Gothic UI Semibold";
-  } */
-
-/* #map-overlay img {
-    width: 100%;
-    border: 2px rgba(48, 48, 48, 0.979) solid;
-  }
-} */
