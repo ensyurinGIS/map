@@ -24,13 +24,13 @@ for (const id of PolygonselectID) {
     const option = document.createElement("option");
     option.id = id;
     option.text = id;
-    const select = document.getElementById("layer2");
+    const select = document.getElementById("property_Polygon");
     select.appendChild(option);
 }
 
 document.querySelector("#selectcolor2").addEventListener('input',(event)=>{
     //色が変更された場合に色情報を取得する
-    var layer = document.getElementById('layer2');
+    var layer = document.getElementById('property_Polygon');
     var colorval = event.target.value;
     map.setPaintProperty(layer.value, 'fill-color', colorval);
 });
@@ -38,7 +38,7 @@ document.querySelector("#selectcolor2").addEventListener('input',(event)=>{
 slider2.addEventListener('input', (e) => {
     const sliderValue = document.getElementById('slider-value2');
     map.setPaintProperty(
-        layer2.value,
+        property_Polygon.value,
         'fill-opacity',
         parseInt(e.target.value, 10) / 100
     );
@@ -46,7 +46,7 @@ slider2.addEventListener('input', (e) => {
 });
 
 function inputChange2(){
-    var layer = document.getElementById('layer2');
+    var layer = document.getElementById('property_Polygon');
 
     var nowcolor = map.getPaintProperty(layer.value, 'fill-color');
     document.getElementById( "selectcolor2" ).value = nowcolor;

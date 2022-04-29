@@ -34,6 +34,8 @@ map.on("load", () => {
         url: "mapbox://mapbox.mapbox-terrain-dem-v1",
     });
 
+    map.setTerrain({'source': 'mapbox-dem', 'exaggeration': 0});
+
     //スカイレイヤー(空)読み込み
     map.addLayer({
         id: "sky",
@@ -1006,12 +1008,12 @@ map.on("load", () => {
                 }
 
             //カラープロパティセット
-            document.getElementById("layer5").value = clickedLayer;
+            document.getElementById("property_base").value = clickedLayer;
             inputChange5();
         };
 
         // レイヤメニューにレイヤ追加
-        var layers = document.getElementById("menu2");
+        var layers = document.getElementById("menu_base");
         layers.appendChild(link);
     }
 
@@ -1076,12 +1078,12 @@ map.on("load", () => {
             }
 
             //カラープロパティセット
-            document.getElementById("layer3").value = clickedLayer2;
+            document.getElementById("property_raster").value = clickedLayer2;
             inputChange3();
         };
 
         // レイヤメニューにレイヤ追加
-        var layers = document.getElementById("menu3");
+        var layers = document.getElementById("menu_raster");
         layers.appendChild(link);
     }
 
@@ -3082,7 +3084,7 @@ for (const id of toggleableLayerIds) {
     }
 };
 
-    const layers = document.getElementById("menu");
+    const layers = document.getElementById("menu_vector");
     layers.appendChild(link);
 }
 //ベクターレイヤー非表示
@@ -3175,7 +3177,7 @@ if (visibility === "visible") {
 }
 };
 
-const layers = document.getElementById("menu");
+const layers = document.getElementById("menu_vector");
 layers.appendChild(link);
 }
 

@@ -5,7 +5,7 @@ for (var i = 0; i < Object.keys(mapselectID).length; i++) {
     const option = document.createElement("option");
     option.value = id;
     option.text = mapselectID[id];
-    const select = document.getElementById("layer5");
+    const select = document.getElementById("property_base");
     select.appendChild(option);
 }
 
@@ -13,7 +13,7 @@ for (var i = 0; i < Object.keys(mapselectID).length; i++) {
 slider13.addEventListener('input', (e) => {
     const sliderValue = document.getElementById('slider-value13');
     map.setPaintProperty(
-        layer5.value,
+        property_base.value,
         'raster-opacity',
         parseInt(e.target.value, 10) / 100
     );
@@ -23,7 +23,7 @@ slider13.addEventListener('input', (e) => {
 slider14.addEventListener('input', (e) => {
     const sliderValue = document.getElementById('slider-value14');
     map.setPaintProperty(
-        layer5.value,
+        property_base.value,
         'raster-saturation',
         parseInt(e.target.value, 10) / 100
     );
@@ -33,7 +33,7 @@ slider14.addEventListener('input', (e) => {
 slider15.addEventListener('input', (e) => {
     const sliderValue = document.getElementById('slider-value15');
     map.setPaintProperty(
-        layer5.value,
+        property_base.value,
         'raster-contrast',
         parseInt(e.target.value, 10) / 100
     );
@@ -43,7 +43,7 @@ slider15.addEventListener('input', (e) => {
 slider16.addEventListener('input', (e) => {
     const sliderValue = document.getElementById('slider-value16');
     map.setPaintProperty(
-        layer5.value,
+        property_base.value,
         'raster-brightness-min',
         parseInt(e.target.value, 10) / 100
     );
@@ -53,7 +53,7 @@ slider16.addEventListener('input', (e) => {
 slider17.addEventListener('input', (e) => {
     const sliderValue = document.getElementById('slider-value17');
     map.setPaintProperty(
-        layer5.value,
+        property_base.value,
         'raster-brightness-max',
         parseInt(e.target.value, 10) / 100
     );
@@ -61,7 +61,7 @@ slider17.addEventListener('input', (e) => {
 });
 
 function inputChange5(){
-    var layer = document.getElementById('layer5');
+    var layer = document.getElementById('property_base');
 
     const sliderValue13 = document.getElementById('slider-value13');
     var nowopacity = map.getPaintProperty(layer.value, 'raster-opacity',) * 100;

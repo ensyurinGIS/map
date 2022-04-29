@@ -103,6 +103,8 @@ label {
         top: 1rem;
     }
 }
+
+/* メニューアイコン */
 .controls__item {
     flex-grow: 1;
     min-height: 100%;
@@ -121,11 +123,15 @@ label {
 .dropdown__radio:not(:checked) ~ .dropdown__label-close {
     display: none;
 }
+
+/* button部分 */
 .dropdown__label-open {
     display: block;
     line-height: 2.5rem;
     color: white;
-    text-align: center;
+    text-align: center;    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* 閉じるボタン */
@@ -135,6 +141,7 @@ label {
     color: white;
     text-align: center;
     background-color: rgba(211, 28, 28, 0.75);
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
 /* 隠しメニュー スマホ*/
@@ -204,6 +211,7 @@ label {
     line-height: 2rem;
     color: white;
     background-color: rgba(0, 0, 0, 0.75);
+    font-family: 'Noto Sans JP', sans-serif;
     }
 
 #img_block{
@@ -222,9 +230,11 @@ label {
     border: none;
     margin: 5px;
     cursor: pointer;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
-#menu {
+/* ベースマップメニュー*/
+#menu_base {
     background-color: #404040;
     position: absolute;
     /*         z-index: 1; */
@@ -233,11 +243,11 @@ label {
     border-radius: 3px;
     width: 95%;
     /* border: 1px solid rgba(0, 0, 0, 0.4); */
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
-/* レイヤー*/
-#menu a {
+/* ベースマップメニュー選択中*/
+#menu_base a {
     background-color: rgba(0, 0, 0, 0.75);
     font-size: 14px;
     text-transform: none;
@@ -250,20 +260,20 @@ label {
     border-bottom: 1px solid #a0a0a0;
 }
 
-/* レイヤー最後 */
-#menu a:last-child {
+/* ベースマップメニュー最後 */
+#menu_base a:last-child {
     background-color: rgba(0, 0, 0, 0.75);
     border: none;
 }
 
-/* レイヤー初期表示 */
-#menu a.active {
+/* ベースマップメニュー初期表示 */
+#menu_base a.active {
     background-color: rgba(11, 126, 11, 0.75);
     color: #ffffff;
 }
 
-/* ベースマップ */
-#menu2 {
+/* 重ねマップ */
+#menu_raster {
     background-color: #404040;
     position: absolute;
     /*         z-index: 1; */
@@ -272,10 +282,10 @@ label {
     border-radius: 3px;
     width: 95%;
     border: 1px solid rgba(0, 0, 0, 0.4);
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
-#menu2 a {
+#menu_raster a {
     background-color: rgba(0, 0, 0, 0.75);
     font-size: 14px;
     text-transform: none;
@@ -288,79 +298,54 @@ label {
     border-bottom: 1px solid #a0a0a0;
 }
 
-/* ベースマップ最後 */
-#menu2 a:last-child {
-    background-color: rgba(0, 0, 0, 0.75);
-    border: none;
-}
-
-/* ベースマップ選択中 */
-#menu2 a.active {
-    background-color: rgba(11, 126, 11, 0.75);
-    color: #ffffff;
-}
-
-/* ベースレイヤー重ね */
-#menu3 {
-    background-color: #404040;
-    position: absolute;
-    /*         z-index: 1; */
-    top: 5px;
-    left: 5px;
-    border-radius: 3px;
-    width: 95%;
-    border: 1px solid rgba(0, 0, 0, 0.4);
-    font-family: "Open Sans", sans-serif;
-}
-
-#menu3 a {
-    background-color: rgba(0, 0, 0, 0.75);
-    font-size: 14px;
-    text-transform: none;
-    line-height: 30px;
-    color: #a0a0a0;
-    display: block;
-    margin: 0;
-    padding: 5px;
-    text-decoration: none;
-    border-bottom: 1px solid #a0a0a0;
-}
-
-/* ベースマップ最後 */
-#menu3 a:last-child {
+/* 重ねマップ最後 */
+#menu_raster a:last-child {
 background-color: rgba(0, 0, 0, 0.75);
 border: none;
 }
 
-/* ベースマップ選択中 */
-#menu3 a.active {
+/* 重ねマップ選択中 */
+#menu_raster a.active {
 background-color: rgba(11, 126, 11, 0.75);
 color: #ffffff;
 }
 
-.mapboxgl-ctrl-geocoder {
-    min-width: 100%;
-}
-.mapboxgl-ctrl-pitchtoggle-3d {
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCI+ICAgIDx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkeT0iLjM1ZW0iIHN0eWxlPSJmb250LXNpemU6IDE0cHg7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLEFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmOyBmb250LXdlaWdodDogYm9sZDsgdGV4dC1hbmNob3I6IG1pZGRsZTsiPjNEPC90ZXh0Pjwvc3ZnPg==);
-}
-
-.mapboxgl-ctrl-pitchtoggle-2d {
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCI+ICAgIDx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkeT0iLjM1ZW0iIHN0eWxlPSJmb250LXNpemU6IDE0cHg7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLEFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmOyBmb250LXdlaWdodDogYm9sZDsgdGV4dC1hbmNob3I6IG1pZGRsZTsiPjJEPC90ZXh0Pjwvc3ZnPg==);
-}
-
-.btnactive {
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCI+ICAgIDx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkeT0iLjM1ZW0iIHN0eWxlPSJmb250LXNpemU6IDE0cHg7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLEFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmOyBmb250LXdlaWdodDogYm9sZDsgdGV4dC1hbmNob3I6IG1pZGRsZTsiPjJEPC90ZXh0Pjwvc3ZnPg==);
+/* ベクターメニュー */
+#menu_vector {
+    background-color: #404040;
+    position: absolute;
+    /*         z-index: 1; */
+    top: 5px;
+    left: 5px;
+    border-radius: 3px;
+    width: 95%;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
-/*========= レイアウトのためのCSS ===============*/
-#container {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+#menu_vector a {
+    background-color: rgba(0, 0, 0, 0.75);
+    font-size: 14px;
+    text-transform: none;
+    line-height: 30px;
+    color: #a0a0a0;
+    display: block;
+    margin: 0;
+    padding: 5px;
+    text-decoration: none;
+    border-bottom: 1px solid #a0a0a0;
+}
+
+/* ベクターメニュー最後 */
+#menu_vector a:last-child {
+    background-color: rgba(0, 0, 0, 0.75);
+    border: none;
+}
+
+/* ベクターメニュー選択中 */
+#menu_vector a.active {
+    background-color: rgba(11, 126, 11, 0.75);
+    color: #ffffff;
 }
 
 /* タブメニュー */
@@ -391,14 +376,13 @@ input[type="radio"] {
     cursor: pointer;
     order: -1; /* タブメニューは一番上に表示する */
     background: rgba(0, 0, 0, 0.75);
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Noto Sans JP', sans-serif;
     font-size: 14px;
 
     /* 下線以外をつける */
-    border-top: 1px solid #a0a0a0;
+
     border-left: 1px solid #a0a0a0;
     border-right: 1px solid #a0a0a0;
-    border-bottom: 1px solid #a0a0a0;
 }
 
 .tab-item:not(:first-of-type) {
@@ -431,36 +415,40 @@ input[type="radio"] {
     border-radius: 3px;
     width: 95%;
     border: 1px solid rgba(0, 0, 0, 0.4);
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Noto Sans JP', sans-serif;
     font-size: 14px;
     padding: 3px;
 }
 
 /* セレクトボタンスタイル */
-.layer1 {
-    font-size: 18px;
-    width: 100%;
-    padding: 7px;
-}
 
-.layer2 {
-    font-size: 18px;
-    width: 100%;
-    padding: 7px;
-}
-
-.layer3 {
+#property_base {
     display: none;
 }
 
-.layer4 {
+#property_raster {
+    display: none;
+}
+
+#property_Polygon {
     font-size: 18px;
     width: 100%;
     padding: 7px;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
-.layer5 {
-    display: none;
+#property_line {
+    font-size: 18px;
+    width: 100%;
+    padding: 7px;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+#property_text {
+    font-size: 18px;
+    width: 100%;
+    padding: 7px;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
 /* 全スライダースタイル */
@@ -525,13 +513,14 @@ input[type="range"]:active::-webkit-slider-thumb {
     }
 }
 
-/* ポップアップスマホ */
+/* ポップアップ */
 .mapboxgl-popup {
     animation: fadein 0.2s;
     width: 70%;
     max-width: 200px;
     font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
     color: #ffffff;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
 .mapboxgl-popup-content {
@@ -552,7 +541,7 @@ input[type="range"]:active::-webkit-slider-thumb {
 .mapboxgl-popup-close-button:hover {
     color: #ffffff;
     background-color: rgba(211, 28, 28, 0.75);
-    border-top-right-radius: 12px;
+    border-top-right-radius: 5px;
 }
 body .mapboxgl-map {
     line-height: 1.4;
@@ -647,11 +636,11 @@ body .mapboxgl-map {
 #append_splash_msg_inner.default {
     position: absolute;
     pointer-events: none;
-    top: 45%;
+    top: 30%;
     left: 50%;
-    width: 70%;
+    width: 60%;
     font-size: 20px;
-    font-style: "Yu Gothic UI Semibold";
+    font-family: 'Noto Sans JP', sans-serif;
     text-align: center;
     background-color: rgb(16,16,16);
 }
@@ -668,7 +657,7 @@ body .mapboxgl-map {
     left: 50%;
     width: 50%;
     font-size: 20px;
-    font-style: "Yu Gothic UI Semibold";
+    font-family: 'Noto Sans JP', sans-serif;
     text-align: center;
     background-color: rgb(16,16,16);
     }

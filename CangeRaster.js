@@ -5,14 +5,14 @@ for (var i = 0; i < Object.keys(rasterselectID).length; i++) {
     const option = document.createElement("option");
     option.value = id;
     option.text = rasterselectID[id];
-    const select = document.getElementById("layer3");
+    const select = document.getElementById("property_raster");
     select.appendChild(option);
 }
 
 slider3.addEventListener('input', (e) => {
 const sliderValue = document.getElementById('slider-value3');
 map.setPaintProperty(
-layer3.value,
+property_raster.value,
 'raster-opacity',
 parseInt(e.target.value, 10) / 100
 );
@@ -22,7 +22,7 @@ sliderValue.textContent = e.target.value + '%';
 slider12.addEventListener('input', (e) => {
 const sliderValue = document.getElementById('slider-value12');
 map.setPaintProperty(
-layer3.value,
+property_raster.value,
 'raster-saturation',
 parseInt(e.target.value, 10) / 100
 );
@@ -32,7 +32,7 @@ sliderValue.textContent = e.target.value;
 slider4.addEventListener('input', (e) => {
 const sliderValue = document.getElementById('slider-value4');
 map.setPaintProperty(
-layer3.value,
+property_raster.value,
 'raster-brightness-min',
 parseInt(e.target.value, 10) / 100
 );
@@ -42,7 +42,7 @@ sliderValue.textContent = e.target.value;
 slider5.addEventListener('input', (e) => {
 const sliderValue = document.getElementById('slider-value5');
 map.setPaintProperty(
-layer3.value,
+property_raster.value,
 'raster-brightness-max',
 parseInt(e.target.value, 10) / 100
 );
@@ -52,7 +52,7 @@ sliderValue.textContent = e.target.value;
 slider6.addEventListener('input', (e) => {
 const sliderValue = document.getElementById('slider-value6');
 map.setPaintProperty(
-layer3.value,
+property_raster.value,
 'raster-contrast',
 parseInt(e.target.value, 10) / 100
 );
@@ -60,7 +60,7 @@ sliderValue.textContent = e.target.value;
 });
 
 function inputChange3(){
-var layer = document.getElementById('layer3');
+var layer = document.getElementById('property_raster');
 const sliderValue3 = document.getElementById('slider-value3');
 var nowopacity = map.getPaintProperty(layer.value, 'raster-opacity',) * 100;
 document.getElementById( "slider3" ).value = Math.trunc(nowopacity);

@@ -40,14 +40,14 @@ for (const id of textselectID) {
     const option = document.createElement("option");
     option.id = id;
     option.text = id;
-    const select = document.getElementById("layer4");
+    const select = document.getElementById("property_text");
     select.appendChild(option);
 }
 
 slider7.addEventListener('input', (e) => {
     const sliderValue = document.getElementById('slider-value7');
     map.setPaintProperty(
-        layer4.value,
+        property_text.value,
         'text-opacity',
         parseInt(e.target.value, 10) / 100
     );
@@ -57,7 +57,7 @@ slider7.addEventListener('input', (e) => {
 slider8.addEventListener('input', (e) => {
     const sliderValue = document.getElementById('slider-value8');
     map.setLayoutProperty(
-        layer4.value,
+        property_text.value,
         'text-size',
         parseInt(e.target.value, 10) / 100
     );
@@ -67,7 +67,7 @@ slider8.addEventListener('input', (e) => {
 slider9.addEventListener('input', (e) => {
     const sliderValue = document.getElementById('slider-value9');
     map.setPaintProperty(
-        layer4.value,
+        property_text.value,
         'text-halo-width',
         parseInt(e.target.value, 10) / 100
     );
@@ -76,20 +76,20 @@ slider9.addEventListener('input', (e) => {
 
 document.querySelector("#selectcolor3").addEventListener('input',(event)=>{
     //色が変更された場合に色情報を取得する
-    var layer = document.getElementById('layer4');
+    var layer = document.getElementById('property_text');
     var colorval = event.target.value;
     map.setPaintProperty(layer.value, 'text-color', colorval);
 });
 
 document.querySelector("#selectcolor4").addEventListener('input',(event)=>{
     //色が変更された場合に色情報を取得する
-    var layer = document.getElementById('layer4');
+    var layer = document.getElementById('property_text');
     var colorval = event.target.value;
     map.setPaintProperty(layer.value, 'text-halo-color', colorval);
 });
 
 function inputChange4(){
-    var layer = document.getElementById('layer4');
+    var layer = document.getElementById('property_text');
     
     const sliderValue7 = document.getElementById('slider-value7');
     var nowopacity = map.getPaintProperty(layer.value, 'text-opacity',) * 100;

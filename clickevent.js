@@ -551,8 +551,11 @@ map.on("click", "翔楓祭2021企画", (e) => {
     e.features[0].properties.項目 +
     "<hr>" +
     e.features[0].properties.説明 +
+    "<a href='" +
     e.features[0].properties.写真 +
-    "</div></div>"
+    "' target='_blank'rel='noopener noreferrer'><img src='" +
+    e.features[0].properties.写真 +
+    "' width='100%' height='190px'></div></div><style>img { object-fit: cover;} a { color:#F00; }</style>"
     )
     .addTo(map);
     map.flyTo({ 
@@ -763,11 +766,9 @@ map.on("click", "未来の森づくり予定地", (e) => {
     });
     e.stopPropagation();
 });
-//カーソルをポインタに変更する//マウスは演習林-林班の上にあります。
 map.on("mouseenter", "未来の森づくり予定地", () => {
     map.getCanvas().style.cursor = "pointer";
 });
-//カーソルをポインタに戻します 状態レイヤーを離れるとき。
 map.on("mouseleave", "未来の森づくり予定地", () => {
     map.getCanvas().style.cursor = "";
 });

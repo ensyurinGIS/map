@@ -23,13 +23,13 @@ for (const id of lineselectID) {
     const option = document.createElement("option");
     option.id = id;
     option.text = id;
-    const select = document.getElementById("layer1");
+    const select = document.getElementById("property_line");
     select.appendChild(option);
 }
 
 document.querySelector("#selectcolor1").addEventListener('input',(event)=>{
     //色が変更された場合に色情報を取得する
-    var layer = document.getElementById('layer1');
+    var layer = document.getElementById('property_line');
     var colorval = event.target.value;
     map.setPaintProperty(layer.value, 'line-color', colorval);
 });
@@ -37,7 +37,7 @@ document.querySelector("#selectcolor1").addEventListener('input',(event)=>{
 slider1.addEventListener('input', (e) => {
     const sliderValue = document.getElementById('slider-value1');
     map.setPaintProperty(
-        layer1.value,
+        property_line.value,
         'line-opacity',
         parseInt(e.target.value, 10) / 100
     );
@@ -47,7 +47,7 @@ slider1.addEventListener('input', (e) => {
 slider11.addEventListener('input', (e) => {
     const sliderValue = document.getElementById('slider-value11');
     map.setPaintProperty(
-        layer1.value,
+        property_line.value,
         'line-width', 
         parseInt(e.target.value, 10) / 100
     );
@@ -55,7 +55,7 @@ slider11.addEventListener('input', (e) => {
 });
 
 function inputChange1(){
-    var layer = document.getElementById('layer1');
+    var layer = document.getElementById('property_line');
 
     var nowcolor = map.getPaintProperty(layer.value, 'line-color');
     document.getElementById( "selectcolor1" ).value = nowcolor;

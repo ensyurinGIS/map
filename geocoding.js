@@ -740,7 +740,7 @@
             // Add a tree emoji as a prefix for custom
             // data results using carmen geojson format:
             // https://github.com/mapbox/carmen/blob/master/carmen-geojson.md
-            feature["place_name"] = `${feature.properties.title} `;
+            feature["place_name"] = `${feature.properties.title} ` + 'ssss';
             feature["center"] = feature.geometry.coordinates;
             feature["place_type"] = ["park"];
             matchingFeatures.push(feature);
@@ -748,19 +748,3 @@
         }
         return matchingFeatures;
         }
-    
-        // Add the control to the map.
-        const geocoder = new MapboxGeocoder({
-        accessToken: mapboxgl.accessToken,
-        localGeocoder: forwardGeocoder,
-        // localGeocoder: coordinatesGeocoder,
-        zoom: 17,
-        placeholder: "アカデミー内検索",
-        collapsed: true,
-        limit: 30,
-        mapboxgl: mapboxgl,
-        bbox: [
-        136.91859770217587, 35.55452735278091, 136.91862256754007, 35.5541050315276,
-        ],
-        });
-        document.getElementById("geocoder").appendChild(geocoder.onAdd(map));

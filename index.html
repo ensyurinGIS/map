@@ -5,10 +5,13 @@
     <title>演習林GIS</title>
     <link rel="icon" href="https://raw.githubusercontent.com/satoshi7190/ensyuringis/c2016360d89f16bfe523930b61f39166fbed80d7/image/favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="CDN.js" defer></script>
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js" defer></script>
     <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css" rel="stylesheet" />
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js" defer></script>
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.3.0/mapbox-gl-draw.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.3.0/mapbox-gl-draw.css' type='text/css' />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js" defer></script>
     <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/4-1-4/js/4-1-4.js" defer></script>
@@ -285,11 +288,11 @@
             <input type="radio" name="dropdown-radios" id="dropdown-radio-clear" class="u-hidden" />
             <div class="dropdown">
                 <input type="radio" name="dropdown-radios" id="dropdown-radio-search" class="dropdown__radio u-hidden" />
-                <label class="dropdown__label-open" for="dropdown-radio-search" tabindex="0" onclick="massage1()"><img class="icon" src="https://img.icons8.com/ios-glyphs/35/ffffff/world-map.png"/></label>
+                <label class="dropdown__label-open" for="dropdown-radio-search" tabindex="0" onclick="massage_base()"><img class="icon" src="https://img.icons8.com/ios-glyphs/35/ffffff/world-map.png"/></label>
                 <label class="dropdown__label-close" for="dropdown-radio-clear">閉じる</label>
                 <div class="dropdown__contents">
                     <div class="dropdown__contents-inner">
-                        <nav id="menu2"></nav>
+                        <nav id="menu_base"></nav>
                     </div>
                 </div>
             </div>
@@ -297,11 +300,13 @@
         <div class="controls__item">
             <div class="dropdown">
                 <input type="radio" name="dropdown-radios" id="dropdown-radio-crop2" class="dropdown__radio u-hidden" />
-                <label class="dropdown__label-open" for="dropdown-radio-crop2" tabindex="0" onclick="massage5()"><img class="icon" src="https://img.icons8.com/material-outlined/35/ffffff/timezone-plus-2.png"/></label>
+                <label class="dropdown__label-open" for="dropdown-radio-crop2" tabindex="0" onclick="massage_raster()">
+                    <img class="icon" src="https://img.icons8.com/material-outlined/35/ffffff/timezone-plus-2.png"/>
+                </label>
                 <label class="dropdown__label-close" for="dropdown-radio-clear">閉じる</label>
                 <div class="dropdown__contents">
                     <div class="dropdown__contents-inner">
-                        <nav id="menu3"></nav>
+                        <nav id="menu_raster"></nav>
                     </div>
                 </div>
             </div>
@@ -309,11 +314,11 @@
         <div class="controls__item">
             <div class="dropdown">
                 <input type="radio" name="dropdown-radios" id="dropdown-radio-crop" class="dropdown__radio u-hidden" />
-                <label class="dropdown__label-open" for="dropdown-radio-crop" tabindex="0" onclick="massage2()"><img class="icon" src="https://img.icons8.com/ios-glyphs/35/ffffff/layers.png"/></label>
+                <label class="dropdown__label-open" for="dropdown-radio-crop" tabindex="0" onclick="massage_vector()"><img class="icon" src="https://img.icons8.com/ios-glyphs/35/ffffff/layers.png"/></label>
                 <label class="dropdown__label-close" for="dropdown-radio-clear">閉じる</label>
                 <div class="dropdown__contents">
                     <div class="dropdown__contents-inner">
-                        <nav id="menu"></nav>
+                        <nav id="menu_vector"></nav>
                     </div>
                 </div>
             </div>
@@ -321,18 +326,18 @@
         <div class="controls__item">
             <div class="dropdown">
                 <input type="radio" name="dropdown-radios" id="dropdown-radio-layers" class="dropdown__radio u-hidden" />
-                <label class="dropdown__label-open" for="dropdown-radio-layers" tabindex="0" onclick="massage3()"><img src="https://img.icons8.com/material-outlined/35/ffffff/paint-palette.png"/></label>
+                <label class="dropdown__label-open" for="dropdown-radio-layers" tabindex="0" onclick="massage_property()"><img src="https://img.icons8.com/material-outlined/35/ffffff/paint-palette.png"/></label>
                 <label class="dropdown__label-close" for="dropdown-radio-clear">閉じる</label>
                 <div class="dropdown__contents">
                     <div class="dropdown__contents-inner"> 
                         <div class="tab">
                             <input id="tabumenu5" class="tab-input" name="menu" type="radio" checked="checked">
-                            <label for="tabumenu5" class="tab-item">ベース</label>
+                            <label for="tabumenu5" class="tab-item">マップ</label>
                             <div class="tab-content">                          
                                 <div class="tabbox">    
-                                    <select id="layer5" name="layer5" class="layer5" onchange="inputChange5()">
+                                    <select id="property_base" onchange="inputChange5()">
                                     </select>  
-                                    表示中のベースマップを編集<br>
+                                    ベースマップを編集<br>
                                     ▼不透明度：<span id="slider-value13">100%</span><br>
                                     <input id="slider13" type="range" min="0" max="100" step="0" value="100"><br>
                                     ▼色相：<span id="slider-value14">0</span><br>
@@ -343,15 +348,15 @@
                                     <input id="slider16" type="range" min="0" max="100" step="0" value="0"><br>
                                     ▼明るさ-最大輝度：<span id="slider-value17">100</span><br>
                                     <input id="slider17" type="range" min="0" max="100" step="0" value="100">
-                                    <script type="text/javascript" src="CangeMap.js" defer></script>
+                                    <script type="text/javascript" src="CangeBase.js" defer></script>
                                 </div>
                             </div>            
                             <input id="tabumenu3" class="tab-input" name="menu" type="radio">
-                            <label for="tabumenu3" class="tab-item">ラスター</label>
+                            <label for="tabumenu3" class="tab-item">マップ２</label>
                             <div class="tab-content">                          
                                 <div class="tabbox">
-                                    <select id="layer3" name="layer3" class="layer3" onchange="inputChange3()"></select>
-                                    重ね中のラスターレイヤーを編集<br>
+                                    <select id="property_raster" onchange="inputChange3()"></select>
+                                    重ね中のマップを編集<br>
                                     ▼不透明度：<span id="slider-value3">---</span><br>
                                     <input id="slider3" type="range" min="0" max="100" step="0" value="0"><br>
                                     ▼色相：<span id="slider-value12">---</span><br>
@@ -370,7 +375,7 @@
                             <div class="tab-content">                          
                                 <div class="tabbox">
                                     ▼編集するポリゴンレイヤーの選択
-                                    <select id="layer2" name="layer2" class="layer2" onchange="inputChange2()"></select>
+                                    <select id="property_Polygon" onchange="inputChange2()"></select>
                                     ▼ポリゴンの色<br>
                                     <input type="color" id="selectcolor2" value="#47504F"><br>
                                     ▼不透明度：<span id="slider-value2">100%</span><br>
@@ -383,7 +388,7 @@
                             <div class="tab-content">
                                 <div class="tabbox">
                                     ▼編集するラインレイヤーの選択
-                                    <select id="layer1" name="layer1" class="layer1" onchange="inputChange1()"></select>
+                                    <select id="property_line" onchange="inputChange1()"></select>
                                     ▼ラインの色<br>
                                     <input type="color" id="selectcolor1" value="#8e8e7b"><br>
                                     ▼ラインの幅：<span id="slider-value11">5</span><br>
@@ -398,7 +403,7 @@
                             <div class="tab-content">                          
                                 <div class="tabbox">
                                     ▼編集する文字レイヤーの選択
-                                    <select id="layer4" name="layer4" class="layer4" onchange="inputChange4()"></select>
+                                    <select id="property_text" onchange="inputChange4()"></select>
                                     <br>▼文字の色<br>
                                     <input type="color" id="selectcolor3" value="#99B8FF"><br>
                                     ▼文字の縁の色<br>
@@ -420,7 +425,7 @@
         <div class="controls__item">
             <div class="dropdown">
                 <input type="radio" name="dropdown-radios" id="dropdown-radio-basemaps" class="dropdown__radio u-hidden" />
-                <label class="dropdown__label-open" for="dropdown-radio-basemaps" tabindex="0" onclick="massage4()"><img src="https://img.icons8.com/material-outlined/35/ffffff/info.png"/></label>
+                <label class="dropdown__label-open" for="dropdown-radio-basemaps" tabindex="0" onclick="massage_information()"><img src="https://img.icons8.com/material-outlined/35/ffffff/info.png"/></label>
                 <label class="dropdown__label-close" for="dropdown-radio-clear">閉じる</label>
                 <div class="dropdown__contents">
                     <div class="dropdown__contents-inner">
@@ -428,8 +433,9 @@
                             <h2>演習林GISについて</h2>2021年度課題研究「WebGISを活用したアカデミー演習林の情報共有化」により、森林文化アカデミーの生徒が制作したWebマップです。<br><input type="button" class="linkbutton" onclick="window.open('https://sites.google.com/view/komatsugis')" value="詳細はコチラへ"><hr>
                         <h2>リンク集</h2>
                             <input type="button" class="linkbutton" onclick="window.open('https://docs.google.com/spreadsheets/d/1_sWTOPlUJc2vHUYhtgouy5_DfzHU-yayC_X0MGFyvgU/edit?usp=sharing')" value="みんなの記録データーベース"></input><br>
-                            <input type="button" class="linkbutton" onclick="window.open('https://www.forest.ac.jp/')" value="岐阜県立森林文化アカデミーHP"><br>
-                            <input type="button" class="linkbutton" onclick="window.open('https://sites.google.com/view/gifuac-shofusai')" value="森林文化アカデミー翔楓祭HP"><br>
+                            <input type="button" class="linkbutton" onclick="window.open('https://www.forest.ac.jp/')" value="岐阜県立森林文化アカデミー HP"><br>
+                            <input type="button" class="linkbutton" onclick="window.open('https://sites.google.com/view/gifuac-shofusai')" value="森林文化アカデミー翔楓祭 HP"><br>
+                            <input type="button" class="linkbutton" onclick="window.open('https://morinos.net/')" value="morinos HP"><br>
                             <input type="button" class="linkbutton" onclick="window.open('https://experience.arcgis.com/experience/d05d579ef68240d894052c3b04190d58/?draft=true')" value="ぎふ森林情報WebMAP"><hr>
                         <h2>制作者</h2>
                             <div id="img_block">
@@ -442,12 +448,11 @@
             </div>
         </div>
     </div>
-    <div id="map"></div>
-    <div id="geocoder" class="geocoder"></div>       
+    <div id="map"></div>      
 </body>
     <script type="text/javascript" src="main.js" defer></script>
-    <script type="text/javascript" src="control.js" defer></script>
     <script type="text/javascript" src="geocoding.js" defer></script>
+    <script type="text/javascript" src="control.js" defer></script>
     <script type="text/javascript" src="clickevent.js" defer></script>
     <script type="text/javascript" src="splash.js" defer></script>
     <script type="text/javascript" src="menucange.js" defer></script>
