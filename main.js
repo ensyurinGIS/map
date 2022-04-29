@@ -961,7 +961,7 @@ map.on("load", () => {
         link.textContent = mapselectID[id];
 
         // 初期表示m_mono以外非表示
-        if (id === "saisinsyasin") {
+        if (id === "saisinsyasin_Base") {
             link.className = "active";
         } else {
             map.setLayoutProperty(id, "visibility", "none");
@@ -1009,7 +1009,7 @@ map.on("load", () => {
 
             //カラープロパティセット
             document.getElementById("property_base").value = clickedLayer;
-            inputChange5();
+            CangeBase();
         };
 
         // レイヤメニューにレイヤ追加
@@ -1079,7 +1079,7 @@ map.on("load", () => {
 
             //カラープロパティセット
             document.getElementById("property_raster").value = clickedLayer2;
-            inputChange3();
+            CangeRaster();
         };
 
         // レイヤメニューにレイヤ追加
@@ -1885,7 +1885,7 @@ map.on("load", () => {
 
     map.addLayer({
         id: "岐阜県20万分の1土壌分類-文字",
-        source: "gifu-201dozyo",
+        source: "GIFU-201dozyo",
         type: "symbol",
         layout: {
             visibility: "none",

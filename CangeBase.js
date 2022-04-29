@@ -60,7 +60,7 @@ slider17.addEventListener('input', (e) => {
     sliderValue.textContent = e.target.value;
 });
 
-function inputChange5(){
+function CangeBase(){
     var layer = document.getElementById('property_base');
 
     const sliderValue13 = document.getElementById('slider-value13');

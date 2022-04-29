@@ -59,7 +59,7 @@ parseInt(e.target.value, 10) / 100
 sliderValue.textContent = e.target.value;
 });
 
-function inputChange3(){
+function CangeRaster(){
 var layer = document.getElementById('property_raster');
 const sliderValue3 = document.getElementById('slider-value3');
 var nowopacity = map.getPaintProperty(layer.value, 'raster-opacity',) * 100;

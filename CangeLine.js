@@ -54,7 +54,7 @@ slider11.addEventListener('input', (e) => {
     sliderValue.textContent = e.target.value / 100
 });
 
-function inputChange1(){
+function CangeLine(){
     var layer = document.getElementById('property_line');
 
     var nowcolor = map.getPaintProperty(layer.value, 'line-color');

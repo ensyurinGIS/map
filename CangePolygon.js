@@ -45,7 +45,7 @@ slider2.addEventListener('input', (e) => {
     sliderValue.textContent = e.target.value + '%';
 });
 
-function inputChange2(){
+function CangePolygon(){
     var layer = document.getElementById('property_Polygon');
 
     var nowcolor = map.getPaintProperty(layer.value, 'fill-color');

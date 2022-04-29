@@ -88,7 +88,7 @@ document.querySelector("#selectcolor4").addEventListener('input',(event)=>{
     map.setPaintProperty(layer.value, 'text-halo-color', colorval);
 });
 
-function inputChange4(){
+function CangeText(){
     var layer = document.getElementById('property_text');
     
     const sliderValue7 = document.getElementById('slider-value7');

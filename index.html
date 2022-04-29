@@ -335,7 +335,7 @@
                             <label for="tabumenu5" class="tab-item">マップ</label>
                             <div class="tab-content">                          
                                 <div class="tabbox">    
-                                    <select id="property_base" onchange="inputChange5()">
+                                    <select id="property_base" onchange="CangeBase()">
                                     </select>  
                                     ベースマップを編集<br>
                                     ▼不透明度：<span id="slider-value13">100%</span><br>
@@ -355,7 +355,7 @@
                             <label for="tabumenu3" class="tab-item">マップ２</label>
                             <div class="tab-content">                          
                                 <div class="tabbox">
-                                    <select id="property_raster" onchange="inputChange3()"></select>
+                                    <select id="property_raster" onchange="CangeRaster()"></select>
                                     重ね中のマップを編集<br>
                                     ▼不透明度：<span id="slider-value3">---</span><br>
                                     <input id="slider3" type="range" min="0" max="100" step="0" value="0"><br>
@@ -375,7 +375,7 @@
                             <div class="tab-content">                          
                                 <div class="tabbox">
                                     ▼編集するポリゴンレイヤーの選択
-                                    <select id="property_Polygon" onchange="inputChange2()"></select>
+                                    <select id="property_Polygon" onchange="CangePolygon()"></select>
                                     ▼ポリゴンの色<br>
                                     <input type="color" id="selectcolor2" value="#47504F"><br>
                                     ▼不透明度：<span id="slider-value2">100%</span><br>
@@ -388,7 +388,7 @@
                             <div class="tab-content">
                                 <div class="tabbox">
                                     ▼編集するラインレイヤーの選択
-                                    <select id="property_line" onchange="inputChange1()"></select>
+                                    <select id="property_line" onchange="CangeLine()"></select>
                                     ▼ラインの色<br>
                                     <input type="color" id="selectcolor1" value="#8e8e7b"><br>
                                     ▼ラインの幅：<span id="slider-value11">5</span><br>
@@ -403,7 +403,7 @@
                             <div class="tab-content">                          
                                 <div class="tabbox">
                                     ▼編集する文字レイヤーの選択
-                                    <select id="property_text" onchange="inputChange4()"></select>
+                                    <select id="property_text" onchange="CangeText()"></select>
                                     <br>▼文字の色<br>
                                     <input type="color" id="selectcolor3" value="#99B8FF"><br>
                                     ▼文字の縁の色<br>
