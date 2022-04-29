@@ -1,38 +1,4 @@
-var rasterselectID = {
-    nasi: "(重ねて表示しない)",
-    saisinsyasin2: "全国最新写真(シームレス)",
-    oruso2: "電子国土基本図(オルソ画像)",
-    kutyu2: "空中写真(1979年頃)",
-    kihonzu2: "基本図",
-    hyouzyun2: "国土地理院地図（標準）",
-    tansyoku2: "国土地理院地図（淡色）",
-    hakutizu2: "国土地理院地図（白）",
-    sikibetu2: "色別標高図",
-    ineikizyou2: "陰影起伏図",
-    keisyasirokuro2: "傾斜量図",
-    csrittai2: "CS立体図(岐阜県森林研究所)",
-    keiyakubun2: "傾斜区分図(岐阜県森林研究所)",
-    gihukyouyu2: "岐阜県共有空間データ（Q地図タイル）",
-    syokusei2: "植生図(エコリス)",
-    tisitus2: "シームレス地質図(産総研)",
-    katudansou2: "活断層図",
-    sekisyoku2: "赤色立体図(10mメッシュ)",
-    zisuberi: "地すべり地形分布図",
-    keisyanadare: "全国傾斜量区分図(雪崩関連)",
-    zikizu: "磁気図(偏角)/偏角一覧図",
-    google2: "Google Maps",
-    GoogleS2: "Google Satellite",
-    GoogleSH2: "Google Satellite Hybrid",
-    osm2: "OpenStreetMap",
-    esriW2: "Esri World Imagery",
-    mieruneC2: "MIERUNE Color",
-    mieruneM2: "MIERUNE MONO",
-    Stamento2: "Stamen Toner",
-    StamenT2: "Stamen Terrain",
-    StamenW2: "Stamen Watercolor",
-    };
-
-  //セレクトボタンを追加
+//セレクトボタンを追加
 for (var i = 0; i < Object.keys(rasterselectID).length; i++) {
 
     const id = Object.keys(rasterselectID)[i];
