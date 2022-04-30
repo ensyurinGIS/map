@@ -32,11 +32,66 @@ map.on("click", "360度写真", (e) => {
     });
     e.stopPropagation();
 });
-
 map.on("mouseenter", "360度写真", () => {
     map.getCanvas().style.cursor = "pointer";
 });
 map.on("mouseleave", "360度写真", () => {
+    map.getCanvas().style.cursor = "";
+});
+
+map.on("click", "美濃市指定避難場所", (e) => {
+    new mapboxgl.Popup()
+    .setLngLat(e.features[0].geometry.coordinates)
+    .setHTML(
+        "<h3>" + 
+        e.features[0].properties.名称 +
+        "</h3>" +
+        e.features[0].properties.住所 +
+        "<br>" +
+        e.features[0].properties.電話番号 +
+        "<hr>想定収容人数<br><h2>" +
+        e.features[0].properties.想定収容人数 +
+        "</h2>"
+    )
+    .addTo(map);
+    map.flyTo({ 
+        center: e.features[0].geometry.coordinates,
+        duration: 1000,  
+    });
+    e.stopPropagation();
+});
+map.on("mouseenter", "美濃市指定避難場所", () => {
+    map.getCanvas().style.cursor = "pointer";
+});
+map.on("mouseleave", "美濃市指定避難場所", () => {
+    map.getCanvas().style.cursor = "";
+});
+
+map.on("click", "美濃市指定緊急避難場所", (e) => {
+    new mapboxgl.Popup()
+    .setLngLat(e.features[0].geometry.coordinates)
+    .setHTML(
+    "<h3>" + 
+    e.features[0].properties.名称 +
+    "</h3>" +
+    e.features[0].properties.住所 +
+    "<br>" +
+    e.features[0].properties.電話番号 +
+    "<hr>想定収容人数<br><h2>" +
+    e.features[0].properties.想定収容人数 +
+    "</h2>"
+    )
+    .addTo(map);
+    map.flyTo({ 
+        center: e.features[0].geometry.coordinates,
+        duration: 1000,  
+    });
+    e.stopPropagation();
+});
+map.on("mouseenter", "美濃市指定緊急避難場所", () => {
+    map.getCanvas().style.cursor = "pointer";
+});
+map.on("mouseleave", "美濃市指定緊急避難場所", () => {
     map.getCanvas().style.cursor = "";
 });
 
@@ -64,7 +119,6 @@ map.on("click", "フェノロジー調査2020-植物", (e) => {
     });
     e.stopPropagation();
 });
-
 map.on("mouseenter", "フェノロジー調査2020-植物", () => {
     map.getCanvas().style.cursor = "pointer";
 });
@@ -96,7 +150,6 @@ map.on("click", "フェノロジー調査2020-昆虫", (e) => {
     });
     e.stopPropagation();
 });
-
 map.on("mouseenter", "フェノロジー調査2020-昆虫", () => {
     map.getCanvas().style.cursor = "pointer";
 });
@@ -128,7 +181,6 @@ map.on("click", "フェノロジー調査2020-哺乳類", (e) => {
     });
     e.stopPropagation();
 });
-
 map.on("mouseenter", "フェノロジー調査2020-哺乳類", () => {
     map.getCanvas().style.cursor = "pointer";
 });
@@ -160,7 +212,6 @@ map.on("click", "フェノロジー調査2020-鳥類", (e) => {
     });
     e.stopPropagation();
 });
-
 map.on("mouseenter", "フェノロジー調査2020-鳥類", () => {
     map.getCanvas().style.cursor = "pointer";
 });
@@ -192,7 +243,6 @@ map.on("click", "フェノロジー調査2020-菌類", (e) => {
     });
     e.stopPropagation();
 });
-
 map.on("mouseenter", "フェノロジー調査2020-菌類", () => {
     map.getCanvas().style.cursor = "pointer";
 });
@@ -224,7 +274,6 @@ map.on("click", "フェノロジー調査2020-爬虫類", (e) => {
     });
     e.stopPropagation();
 });
-
 map.on("mouseenter", "フェノロジー調査2020-爬虫類", () => {
     map.getCanvas().style.cursor = "pointer";
 });

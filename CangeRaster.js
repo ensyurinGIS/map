@@ -9,80 +9,80 @@ for (var i = 0; i < Object.keys(rasterselectID).length; i++) {
     select.appendChild(option);
 }
 
-slider3.addEventListener('input', (e) => {
-const sliderValue = document.getElementById('slider-value3');
-map.setPaintProperty(
-property_raster.value,
-'raster-opacity',
-parseInt(e.target.value, 10) / 100
-);
-sliderValue.textContent = e.target.value + '%';
+slider_raster_opacity.addEventListener('input', (e) => {
+    const sliderValue = document.getElementById('slider_raster_opacity_value');
+    map.setPaintProperty(
+        property_raster.value,
+        'raster-opacity',
+        parseInt(e.target.value, 10) / 100
+    );
+    sliderValue.textContent = e.target.value + '%';
 });
 
-slider12.addEventListener('input', (e) => {
-const sliderValue = document.getElementById('slider-value12');
-map.setPaintProperty(
-property_raster.value,
-'raster-saturation',
-parseInt(e.target.value, 10) / 100
-);
-sliderValue.textContent = e.target.value;
+slider_raster_saturation.addEventListener('input', (e) => {
+    const sliderValue = document.getElementById('slider_raster_saturation_value');
+    map.setPaintProperty(
+        property_raster.value,
+        'raster-saturation',
+        parseInt(e.target.value, 10) / 100
+    );
+    sliderValue.textContent = e.target.value;
 });
 
-slider4.addEventListener('input', (e) => {
-const sliderValue = document.getElementById('slider-value4');
-map.setPaintProperty(
-property_raster.value,
-'raster-brightness-min',
-parseInt(e.target.value, 10) / 100
-);
-sliderValue.textContent = e.target.value;
+slider_raster_contrast.addEventListener('input', (e) => {
+    const sliderValue = document.getElementById('slider_raster_contrast_value');
+    map.setPaintProperty(
+        property_raster.value,
+        'raster-contrast',
+        parseInt(e.target.value, 10) / 100
+    );
+    sliderValue.textContent = e.target.value;
 });
 
-slider5.addEventListener('input', (e) => {
-const sliderValue = document.getElementById('slider-value5');
-map.setPaintProperty(
-property_raster.value,
-'raster-brightness-max',
-parseInt(e.target.value, 10) / 100
-);
-sliderValue.textContent = e.target.value;
+slider_raster_brightnessmin.addEventListener('input', (e) => {
+    const sliderValue = document.getElementById('slider_raster_brightnessmin_value');
+    map.setPaintProperty(
+        property_raster.value,
+        'raster-brightness-min',
+        parseInt(e.target.value, 10) / 100
+    );
+    sliderValue.textContent = e.target.value;
 });
 
-slider6.addEventListener('input', (e) => {
-const sliderValue = document.getElementById('slider-value6');
-map.setPaintProperty(
-property_raster.value,
-'raster-contrast',
-parseInt(e.target.value, 10) / 100
-);
-sliderValue.textContent = e.target.value;
+slider_raster_brightnessmax.addEventListener('input', (e) => {
+    const sliderValue = document.getElementById('slider_raster_brightnessmax_value');
+    map.setPaintProperty(
+        property_raster.value,
+        'raster-brightness-max',
+        parseInt(e.target.value, 10) / 100
+    );
+    sliderValue.textContent = e.target.value;
 });
 
 function CangeRaster(){
-var layer = document.getElementById('property_raster');
-const sliderValue3 = document.getElementById('slider-value3');
-var nowopacity = map.getPaintProperty(layer.value, 'raster-opacity',) * 100;
-document.getElementById( "slider3" ).value = Math.trunc(nowopacity);
-sliderValue3.textContent = Math.trunc(nowopacity) + '%';
+    var layer = document.getElementById('property_raster');
+    const sliderValueO = document.getElementById('slider_raster_opacity_value');
+    var nowopacity = map.getPaintProperty(layer.value, 'raster-opacity',) * 100;
+    document.getElementById( "slider_raster_opacity" ).value = Math.trunc(nowopacity);
+    sliderValueO.textContent = Math.trunc(nowopacity) + '%';
 
-var nowsikiso = map.getPaintProperty(layer.value, 'raster-saturation',) * 100;
-const sliderValue12 = document.getElementById('slider-value12');
-document.getElementById( "slider12" ).value = Math.trunc(nowsikiso);
-sliderValue12.textContent = Math.trunc(nowsikiso);
+    var nowsikiso = map.getPaintProperty(layer.value, 'raster-saturation',) * 100;
+    const sliderValueS = document.getElementById('slider_raster_saturation_value');
+    document.getElementById( "slider_raster_saturation" ).value = Math.trunc(nowsikiso);
+    sliderValueS.textContent = Math.trunc(nowsikiso);
 
-var nowbmin = map.getPaintProperty(layer.value, 'raster-brightness-min',) * 100;
-const sliderValue4 = document.getElementById('slider-value4');
-document.getElementById( "slider4" ).value = Math.trunc(nowbmin);
-sliderValue4.textContent = Math.trunc(nowbmin);
+    var nowcontrast = map.getPaintProperty(layer.value, 'raster-contrast',) * 100;
+    const sliderValueC = document.getElementById('slider_raster_contrast_value');
+    document.getElementById( "slider_raster_contrast" ).value = Math.trunc(nowcontrast);
+    sliderValueC.textContent = Math.trunc(nowcontrast);
 
-var nowbmix = map.getPaintProperty(layer.value, 'raster-brightness-max',) * 100;
-const sliderValue5 = document.getElementById('slider-value5');
-document.getElementById( "slider5" ).value = Math.trunc(nowbmix);
-sliderValue5.textContent = Math.trunc(nowbmix);
+    var nowbmin = map.getPaintProperty(layer.value, 'raster-brightness-min',) * 100;
+    const sliderValueMIN = document.getElementById('slider_raster_brightnessmin_value');
+    document.getElementById( "slider_raster_brightnessmin" ).value = Math.trunc(nowbmin);
+    sliderValueMIN.textContent = Math.trunc(nowbmin);
 
-var nowcontrast = map.getPaintProperty(layer.value, 'raster-contrast',) * 100;
-const sliderValue6 = document.getElementById('slider-value6');
-document.getElementById( "slider6" ).value = Math.trunc(nowcontrast);
-sliderValue6.textContent = Math.trunc(nowcontrast);
+    var nowbmix = map.getPaintProperty(layer.value, 'raster-brightness-max',) * 100;
+    const sliderValueMAX = document.getElementById('slider_raster_brightnessmax_value');
+    document.getElementById( "slider_raster_brightnessmax" ).value = Math.trunc(nowbmix);
+    sliderValueMAX.textContent = Math.trunc(nowbmix);
 }

@@ -10,8 +10,8 @@ for (var i = 0; i < Object.keys(mapselectID).length; i++) {
 }
 
 //スライダー設定
-slider13.addEventListener('input', (e) => {
-    const sliderValue = document.getElementById('slider-value13');
+slider_base_opacity.addEventListener('input', (e) => {
+    const sliderValue = document.getElementById('slider_base_opacity_value');
     map.setPaintProperty(
         property_base.value,
         'raster-opacity',
@@ -20,8 +20,8 @@ slider13.addEventListener('input', (e) => {
     sliderValue.textContent = e.target.value + '%';
 });
 
-slider14.addEventListener('input', (e) => {
-    const sliderValue = document.getElementById('slider-value14');
+slider_base_saturation.addEventListener('input', (e) => {
+    const sliderValue = document.getElementById('slider_base_saturation_value');
     map.setPaintProperty(
         property_base.value,
         'raster-saturation',
@@ -30,8 +30,8 @@ slider14.addEventListener('input', (e) => {
     sliderValue.textContent = e.target.value;
 });
 
-slider15.addEventListener('input', (e) => {
-    const sliderValue = document.getElementById('slider-value15');
+slider_base_contrast.addEventListener('input', (e) => {
+    const sliderValue = document.getElementById('slider_base_contrast_value');
     map.setPaintProperty(
         property_base.value,
         'raster-contrast',
@@ -40,8 +40,8 @@ slider15.addEventListener('input', (e) => {
     sliderValue.textContent = e.target.value;
 });
 
-slider16.addEventListener('input', (e) => {
-    const sliderValue = document.getElementById('slider-value16');
+slider_base_brightnessmin.addEventListener('input', (e) => {
+    const sliderValue = document.getElementById('slider_base_brightnessmin_value');
     map.setPaintProperty(
         property_base.value,
         'raster-brightness-min',
@@ -50,8 +50,8 @@ slider16.addEventListener('input', (e) => {
     sliderValue.textContent = e.target.value;
 });
 
-slider17.addEventListener('input', (e) => {
-    const sliderValue = document.getElementById('slider-value17');
+slider_base_brightnessmax.addEventListener('input', (e) => {
+    const sliderValue = document.getElementById('slider_base_brightnessmax_value');
     map.setPaintProperty(
         property_base.value,
         'raster-brightness-max',
@@ -61,31 +61,31 @@ slider17.addEventListener('input', (e) => {
 });
 
 function CangeBase(){
-    var layer = document.getElementById('property_base');
+    const layer = document.getElementById('property_base');
 
-    const sliderValue13 = document.getElementById('slider-value13');
-    var nowopacity = map.getPaintProperty(layer.value, 'raster-opacity',) * 100;
-    document.getElementById( "slider13" ).value = Math.trunc(nowopacity);
-    sliderValue13.textContent = Math.trunc(nowopacity) + '%';
+    const sliderValueO = document.getElementById('slider_base_opacity_value');
+    const nowopacity = map.getPaintProperty(layer.value, 'raster-opacity',) * 100;
+    document.getElementById( "slider_base_opacity" ).value = Math.trunc(nowopacity);
+    sliderValueO.textContent = Math.trunc(nowopacity) + '%';
 
-    var nowsikiso = map.getPaintProperty(layer.value, 'raster-saturation',) * 100;
-    const sliderValue14 = document.getElementById('slider-value14');
-    document.getElementById( "slider14" ).value = Math.trunc(nowsikiso);
-    sliderValue14.textContent = Math.trunc(nowsikiso);
+    const nowsikiso = map.getPaintProperty(layer.value, 'raster-saturation',) * 100;
+    const sliderValueS = document.getElementById('slider_base_saturation_value');
+    document.getElementById( "slider_base_saturation" ).value = Math.trunc(nowsikiso);
+    sliderValueS.textContent = Math.trunc(nowsikiso);
 
-    var nowcontrast = map.getPaintProperty(layer.value, 'raster-contrast',) * 100;
-    const sliderValue15 = document.getElementById('slider-value15');
-    document.getElementById( "slider15" ).value = Math.trunc(nowcontrast);
-    sliderValue15.textContent = Math.trunc(nowcontrast);
+    const nowcontrast = map.getPaintProperty(layer.value, 'raster-contrast',) * 100;
+    const sliderValueC = document.getElementById('slider_base_contrast_value');
+    document.getElementById( "slider_base_contrast" ).value = Math.trunc(nowcontrast);
+    sliderValueC.textContent = Math.trunc(nowcontrast);
 
-    var nowbmin = map.getPaintProperty(layer.value, 'raster-brightness-min',) * 100;
-    const sliderValue16 = document.getElementById('slider-value16');
-    document.getElementById( "slider16" ).value = Math.trunc(nowbmin);
-    sliderValue16.textContent = Math.trunc(nowbmin);
+    const nowbmin = map.getPaintProperty(layer.value, 'raster-brightness-min',) * 100;
+    const sliderValueMIN = document.getElementById('slider_base_brightnessmin_value');
+    document.getElementById( "slider_base_brightnessmin" ).value = Math.trunc(nowbmin);
+    sliderValueMIN.textContent = Math.trunc(nowbmin);
 
-    var nowbmix = map.getPaintProperty(layer.value, 'raster-brightness-max',) * 100;
-    const sliderValue17 = document.getElementById('slider-value17');
-    document.getElementById( "slider17" ).value = Math.trunc(nowbmix);
-    sliderValue17.textContent = Math.trunc(nowbmix);
+    const nowbmix = map.getPaintProperty(layer.value, 'raster-brightness-max',) * 100;
+    const sliderValueMAX = document.getElementById('slider_base_brightnessmax_value');
+    document.getElementById( "slider_base_brightnessmax" ).value = Math.trunc(nowbmix);
+    sliderValueMAX.textContent = Math.trunc(nowbmix);
 
 }

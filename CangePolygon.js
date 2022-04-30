@@ -28,15 +28,15 @@ for (const id of PolygonselectID) {
     select.appendChild(option);
 }
 
-document.querySelector("#selectcolor2").addEventListener('input',(event)=>{
+document.querySelector("#selectcolor_Polygon").addEventListener('input',(event)=>{
     //色が変更された場合に色情報を取得する
     var layer = document.getElementById('property_Polygon');
     var colorval = event.target.value;
     map.setPaintProperty(layer.value, 'fill-color', colorval);
 });
 
-slider2.addEventListener('input', (e) => {
-    const sliderValue = document.getElementById('slider-value2');
+slider_Polygon_opacity.addEventListener('input', (e) => {
+    const sliderValue = document.getElementById('slider_Polygon_opacity_value');
     map.setPaintProperty(
         property_Polygon.value,
         'fill-opacity',
@@ -49,10 +49,10 @@ function CangePolygon(){
     var layer = document.getElementById('property_Polygon');
 
     var nowcolor = map.getPaintProperty(layer.value, 'fill-color');
-    document.getElementById( "selectcolor2" ).value = nowcolor;
+    document.getElementById( "selectcolor_Polygon" ).value = nowcolor;
 
     var nowopacity = map.getPaintProperty(layer.value, 'fill-opacity',) * 100;
-    const sliderValue2 = document.getElementById('slider-value2');
-    document.getElementById( "slider2" ).value = Math.trunc(nowopacity);
-    sliderValue2.textContent = Math.trunc(nowopacity) + '%';
+    const sliderValueO = document.getElementById('slider_Polygon_opacity_value');
+    document.getElementById( "slider_Polygon_opacity" ).value = Math.trunc(nowopacity);
+    sliderValueO.textContent = Math.trunc(nowopacity) + '%';
 }

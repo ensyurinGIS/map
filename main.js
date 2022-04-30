@@ -2623,28 +2623,6 @@ map.on("load", () => {
     });
 
     map.addLayer({
-        id: "美濃市指定避難場所",
-        source: "MINOSI-hinan",
-        type: "symbol",
-        layout: {
-            visibility: "none",
-            "text-field": ["to-string", ["get", "名称"]],
-            "text-offset": [0, -1],
-            "text-variable-anchor": ["top", "bottom", "left", "right"],
-            "text-radial-offset": 0.5,
-            "text-justify": "auto",
-            "icon-image": "siteihinanzyo",
-            "icon-size": 1.5,
-        },
-        paint: {
-            "text-halo-color": "#000000",
-            "text-halo-width": 1,
-            "text-opacity": 1,
-            "text-color": "#FFFFFF",
-        },
-    });
-
-    map.addLayer({
         id: "美濃市指定緊急避難場所",
         source: "MINOSI-kinkyuhinan.geojson",
         type: "symbol",
@@ -2656,6 +2634,28 @@ map.on("load", () => {
             "text-radial-offset": 0.5,
             "text-justify": "auto",
             "icon-image": "siteikinkyuhinanzyo",
+            "icon-size": 1.5,
+        },
+        paint: {
+            "text-halo-color": "#000000",
+            "text-halo-width": 1,
+            "text-opacity": 1,
+            "text-color": "#FFFFFF",
+        },
+    });
+
+    map.addLayer({
+        id: "美濃市指定避難場所",
+        source: "MINOSI-hinan",
+        type: "symbol",
+        layout: {
+            visibility: "none",
+            "text-field": ["to-string", ["get", "名称"]],
+            "text-offset": [0, -1],
+            "text-variable-anchor": ["top", "bottom", "left", "right"],
+            "text-radial-offset": 0.5,
+            "text-justify": "auto",
+            "icon-image": "siteihinanzyo",
             "icon-size": 1.5,
         },
         paint: {
@@ -2808,7 +2808,7 @@ map.on("load", () => {
             "case",
             ["match", ["get", "name"], ["消火器"], true, false],
             "消火器のアイコン4",
-            ["match", ["get", "名前"], ["パッケージ型消火器"], true, false],
+            ["match", ["get", "name"], ["パッケージ型消火器"], true, false],
             "消火器のアイコン4",
             "dot-11",
             ],
@@ -2845,7 +2845,7 @@ map.on("load", () => {
             "case",
             ["match", ["get", "name"], ["消火器"], true, false],
             "消火器のアイコン4",
-            ["match", ["get", "名前"], ["パッケージ型消火器"], true, false],
+            ["match", ["get", "name"], ["パッケージ型消火器"], true, false],
             "消火器のアイコン4",
             ["match", ["get", "name"], ["避難梯子"], true, false],
             "非常口のあの人のアイコン",
@@ -2989,10 +2989,8 @@ map.on("load", () => {
     'https://raw.githubusercontent.com/ensyurinGIS/map/main/sozai/mapicon.png',
     (error, image) => {
         if (error) throw error;
-        // Add the image to the map style.
         map.addImage('mapicon', image);
             
-        // Add a data source containing one point feature.
         map.addSource('mapicon', {
             'type': 'geojson',
             'data': {
@@ -3008,13 +3006,13 @@ map.on("load", () => {
                 ]       
             }
         });
-        // Add a layer to use the image to represent the data.
+
         map.addLayer({
             'id': 'mapicon',
             'type': 'symbol',
-            'source': 'mapicon', // reference the data source
+            'source': 'mapicon',
             'layout': {
-                'icon-image': 'mapicon', // reference the image
+                'icon-image': 'mapicon',
                 'icon-size': 0.25
             }
         });
@@ -3046,34 +3044,21 @@ const toggleableLayerIds = [
 
 //各レイヤーに対応するトグルボタンを設定します。
 for (const id of toggleableLayerIds) {
-//ボタンがすでに設定されているレイヤーをスキップします。
-    // if (document.getElementById(id)) {
-    // continue;
-    // }
 
-//リンクを作成します。
+//リンクを作成。
     const link = document.createElement("a");
     link.id = id;
     link.href = "#";
     link.textContent = id;
     link.className = "active";
 
-//トグルがクリックされたときにレイヤーを表示または非表示にします。
+//トグルがクリックされたときにレイヤーを表示または非表示。
     link.onclick = function (e) {
     const clickedLayer = this.textContent;
     e.preventDefault();
     e.stopPropagation();
 
     const visibility = map.getLayoutProperty(clickedLayer, "visibility");
-
-    //レイアウトオブジェクトのvisibilityプロパティを変更して、レイヤーの可視性を切り替えます。
-    // if (visibility === "visible") {
-    //   map.setLayoutProperty(clickedLayer, "visibility", "visible");
-    //   this.className = "";
-    // } else {
-    //   this.className = "noactive";
-    //   map.setLayoutProperty(clickedLayer, "visibility", "none");
-    // }
 
     if (visibility === "visible") {
         map.setLayoutProperty(clickedLayer, "visibility", "none");
@@ -3087,7 +3072,8 @@ for (const id of toggleableLayerIds) {
     const layers = document.getElementById("menu_vector");
     layers.appendChild(link);
 }
-//ベクターレイヤー非表示
+
+//レイヤー初期非表示
 const toggleableLayerIds2 = [
     "みんなの記録(表示期限切れ)",
     "みんなの記録-統計密度",

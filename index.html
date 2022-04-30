@@ -4,14 +4,20 @@
     <meta charset="utf-8" />
     <title>演習林GIS</title>
     <link rel="icon" href="https://raw.githubusercontent.com/satoshi7190/ensyuringis/c2016360d89f16bfe523930b61f39166fbed80d7/image/favicon.svg" type="image/svg+xml">
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    <meta property="og:title" content="演習林GIS-森林文化アカデミー" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ensyuringis.github.io/map/" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/ensyurinGIS/map/main/sozai/favicon.svg" />
+    <meta property="og:description" content="森林文化アカデミー演習林（33ha）のWebマップ" />
+    <meta name="twitter:card" content="summary" />
     <script type="text/javascript" src="CDN.js" defer></script>
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js" defer></script>
     <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css" rel="stylesheet" />
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js" defer></script>
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
-    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.3.0/mapbox-gl-draw.js'></script>
-    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.3.0/mapbox-gl-draw.css' type='text/css' />
+    <!-- <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.3.0/mapbox-gl-draw.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.3.0/mapbox-gl-draw.css' type='text/css' /> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js" defer></script>
     <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/4-1-4/js/4-1-4.js" defer></script>
@@ -331,89 +337,89 @@
                 <div class="dropdown__contents">
                     <div class="dropdown__contents-inner"> 
                         <div class="tab">
-                            <input id="tabumenu5" class="tab-input" name="menu" type="radio" checked="checked">
-                            <label for="tabumenu5" class="tab-item">マップ</label>
+                            <input id="tabumenuBase" class="tab-input" name="menu" type="radio" checked="checked">
+                            <label for="tabumenuBase" class="tab-item">マップ</label>
                             <div class="tab-content">                          
                                 <div class="tabbox">    
                                     <select id="property_base" onchange="CangeBase()">
                                     </select>  
                                     ベースマップを編集<br>
-                                    ▼不透明度：<span id="slider-value13">100%</span><br>
-                                    <input id="slider13" type="range" min="0" max="100" step="0" value="100"><br>
-                                    ▼色相：<span id="slider-value14">0</span><br>
-                                    <input id="slider14" type="range" min="-100" max="100" step="0" value="0"><br>
-                                    ▼コントラスト：<span id="slider-value15">0</span><br>
-                                    <input id="slider15" type="range" min="-100" max="100" step="0" value="0"><br>
-                                    ▼明るさ-最小輝度：<span id="slider-value16">0</span><br>
-                                    <input id="slider16" type="range" min="0" max="100" step="0" value="0"><br>
-                                    ▼明るさ-最大輝度：<span id="slider-value17">100</span><br>
-                                    <input id="slider17" type="range" min="0" max="100" step="0" value="100">
+                                    ▼不透明度：<span id="slider_base_opacity_value">100%</span><br>
+                                    <input id="slider_base_opacity" type="range" min="0" max="100" step="0" value="100"><br>
+                                    ▼色相：<span id="slider_base_saturation_value">0</span><br>
+                                    <input id="slider_base_saturation" type="range" min="-100" max="100" step="0" value="0"><br>
+                                    ▼コントラスト：<span id="slider_base_contrast_value">0</span><br>
+                                    <input id="slider_base_contrast" type="range" min="-100" max="100" step="0" value="0"><br>
+                                    ▼明るさ-最小輝度：<span id="slider_base_brightnessmin_value">0</span><br>
+                                    <input id="slider_base_brightnessmin" type="range" min="0" max="100" step="0" value="0"><br>
+                                    ▼明るさ-最大輝度：<span id="slider_base_brightnessmax_value">100</span><br>
+                                    <input id="slider_base_brightnessmax" type="range" min="0" max="100" step="0" value="100">
                                     <script type="text/javascript" src="CangeBase.js" defer></script>
                                 </div>
                             </div>            
-                            <input id="tabumenu3" class="tab-input" name="menu" type="radio">
-                            <label for="tabumenu3" class="tab-item">+マップ</label>
+                            <input id="tabumenuRaster" class="tab-input" name="menu" type="radio">
+                            <label for="tabumenuRaster" class="tab-item">+マップ</label>
                             <div class="tab-content">                          
                                 <div class="tabbox">
                                     <select id="property_raster" onchange="CangeRaster()"></select>
                                     重ね中のマップを編集<br>
-                                    ▼不透明度：<span id="slider-value3">---</span><br>
-                                    <input id="slider3" type="range" min="0" max="100" step="0" value="0"><br>
-                                    ▼色相：<span id="slider-value12">---</span><br>
-                                    <input id="slider12" type="range" min="-100" max="100" step="0" value="0"><br>
-                                    ▼コントラスト：<span id="slider-value6">---</span><br>
-                                    <input id="slider6" type="range" min="-100" max="100" step="0" value="0"><br>
-                                    ▼明るさ-最小輝度：<span id="slider-value4">---</span><br>
-                                    <input id="slider4" type="range" min="0" max="100" step="0" value="0"><br>
-                                    ▼明るさ-最大輝度：<span id="slider-value5">---</span><br>
-                                    <input id="slider5" type="range" min="0" max="100" step="0" value="100">
+                                    ▼不透明度：<span id="slider_raster_opacity_value">---</span><br>
+                                    <input id="slider_raster_opacity" type="range" min="0" max="100" step="0" value="0"><br>
+                                    ▼色相：<span id="slider_raster_saturation_value">---</span><br>
+                                    <input id="slider_raster_saturation" type="range" min="-100" max="100" step="0" value="0"><br>
+                                    ▼コントラスト：<span id="slider_raster_contrast_value">---</span><br>
+                                    <input id="slider_raster_contrast" type="range" min="-100" max="100" step="0" value="0"><br>
+                                    ▼明るさ-最小輝度：<span id="slider_raster_brightnessmin_value">---</span><br>
+                                    <input id="slider_raster_brightnessmin" type="range" min="0" max="100" step="0" value="0"><br>
+                                    ▼明るさ-最大輝度：<span id="slider_raster_brightnessmax_value">---</span><br>
+                                    <input id="slider_raster_brightnessmax" type="range" min="0" max="100" step="0" value="100">
                                         <script type="text/javascript" src="CangeRaster.js" defer></script>
                                 </div>
                             </div>                        
-                            <input id="tabumenu2" class="tab-input" name="menu" type="radio">
-                            <label for="tabumenu2" class="tab-item">ポリゴン</label>
+                            <input id="tabumenuPolygon" class="tab-input" name="menu" type="radio">
+                            <label for="tabumenuPolygon" class="tab-item">ポリゴン</label>
                             <div class="tab-content">                          
                                 <div class="tabbox">
                                     ▼編集するポリゴンレイヤーの選択
                                     <select id="property_Polygon" onchange="CangePolygon()"></select>
                                     ▼ポリゴンの色<br>
-                                    <input type="color" id="selectcolor2" value="#47504F"><br>
-                                    ▼不透明度：<span id="slider-value2">100%</span><br>
-                                    <input id="slider2" type="range" min="0" max="100" step="0" value="100">
+                                    <input type="color" id="selectcolor_Polygon" value="#47504F"><br>
+                                    ▼不透明度：<span id="slider_Polygon_opacity_value">100%</span><br>
+                                    <input id="slider_Polygon_opacity" type="range" min="0" max="100" step="0" value="100">
                                     <script type="text/javascript" src="CangePolygon.js" defer></script>
                                 </div>
                             </div>
-                            <input id="tabumenu1" class="tab-input" name="menu" type="radio">
-                            <label for="tabumenu1" class="tab-item">ライン</label>
+                            <input id="tabumenuLine" class="tab-input" name="menu" type="radio">
+                            <label for="tabumenuLine" class="tab-item">ライン</label>
                             <div class="tab-content">
                                 <div class="tabbox">
                                     ▼編集するラインレイヤーの選択
                                     <select id="property_line" onchange="CangeLine()"></select>
                                     ▼ラインの色<br>
-                                    <input type="color" id="selectcolor1" value="#8e8e7b"><br>
-                                    ▼ラインの幅：<span id="slider-value11">5</span><br>
-                                    <input id="slider11" type="range" min="100" max="1000" step="0" value="500"><br>
-                                    ▼不透明度：<span id="slider-value1">80%</span><br>
-                                    <input id="slider1" type="range" min="0" max="100" step="0" value="80">
+                                    <input type="color" id="selectcolor_line" value="#8e8e7b"><br>
+                                    ▼ラインの幅：<span id="slider_line_width_value">5</span><br>
+                                    <input id="slider_line_width" type="range" min="100" max="1000" step="0" value="500"><br>
+                                    ▼不透明度：<span id="slider_line_opacity_value">80%</span><br>
+                                    <input id="slider_line_opacity" type="range" min="0" max="100" step="0" value="80">
                                     <script type="text/javascript" src="CangeLine.js" defer></script>
                                 </div>
                             </div>
-                            <input id="tabumenu4" class="tab-input" name="menu" type="radio">
-                            <label for="tabumenu4" class="tab-item">文字</label>
+                            <input id="tabumenuText" class="tab-input" name="menu" type="radio">
+                            <label for="tabumenuText" class="tab-item">文字</label>
                             <div class="tab-content">                          
                                 <div class="tabbox">
                                     ▼編集する文字レイヤーの選択
                                     <select id="property_text" onchange="CangeText()"></select>
                                     <br>▼文字の色<br>
-                                    <input type="color" id="selectcolor3" value="#99B8FF"><br>
+                                    <input type="color" id="selectcolor_text" value="#99B8FF"><br>
                                     ▼文字の縁の色<br>
-                                    <input type="color" id="selectcolor4" value="#000000"><br>
-                                    ▼文字の大きさ：<span id="slider-value8">14</span><br>
-                                    <input id="slider8" type="range" min="500" max="5000" step="0" value="1400"><br>
-                                    ▼文字の輪郭の太さ：<span id="slider-value9">2</span><br>
-                                    <input id="slider9" type="range" min="0" max="1000" step="0" value="100"><br>
-                                    ▼不透明度：<span id="slider-value7">100%</span><br>
-                                    <input id="slider7" type="range" min="0" max="100" step="0" value="100">
+                                    <input type="color" id="selectcolor_texthalo" value="#000000"><br>
+                                    ▼文字の大きさ：<span id="slider_text_size_value">14</span><br>
+                                    <input id="slider_text_size" type="range" min="500" max="5000" step="0" value="1400"><br>
+                                    ▼文字の輪郭の太さ：<span id="slider_text_halowidth_value">2</span><br>
+                                    <input id="slider_text_halowidth" type="range" min="0" max="1000" step="0" value="100"><br>
+                                    ▼不透明度：<span id="slider_text_opacity_value">100%</span><br>
+                                    <input id="slider_text_opacity" type="range" min="0" max="100" step="0" value="100">
                                     <script type="text/javascript" src="CangeText.js" defer></script>
                                 </div>
                             </div>                 
