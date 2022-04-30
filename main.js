@@ -270,7 +270,7 @@ map.on("load", () => {
     tiles: ["https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.png"],
     tileSize: 256,
     attribution:
-        "copy; <a href='https://stamen.com/'>Stamen</a> contributors",
+        "&copy; <a href='https://stamen.com/'>Stamen</a> contributors",
     });
 
     //Stamen_w
@@ -279,7 +279,7 @@ map.on("load", () => {
     tiles: ["https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg"],
     tileSize: 256,
     attribution:
-        "copy; <a href='https://stamen.com/'>Stamen</a> contributors",
+        "&copy; <a href='https://stamen.com/'>Stamen</a> contributors",
     });
 
     //岐阜県共有空間データ
@@ -586,7 +586,7 @@ map.on("load", () => {
     tiles: ["https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.png"],
     tileSize: 256,
     attribution:
-        "copy; <a href='https://stamen.com/'>Stamen</a> contributors",
+        "&copy; <a href='https://stamen.com/'>Stamen</a> contributors",
     });
 
     //Stamen_wR
@@ -595,7 +595,7 @@ map.on("load", () => {
     tiles: ["https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg"],
     tileSize: 256,
     attribution:
-        "copy; <a href='https://stamen.com/'>Stamen</a> contributors",
+        "&copy; <a href='https://stamen.com/'>Stamen</a> contributors",
     });
 
     //岐阜県共有空間データR
