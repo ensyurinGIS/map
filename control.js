@@ -254,147 +254,147 @@ map.addControl(
     "top-left"
     );
 
-//ドローイングツール
-var Draw = new MapboxDraw({
-    displayControlsDefault: false,
-    controls: {
-        polygon: true,
-        line_string: true,
-        point: true,
-        trash: true,
-    },
-    styles: [
-        {
-            "id": "gl-draw-line",
-            "type": "line",
-            "filter": ["all", ["==", "$type", "LineString"], ["!=", "mode", "static"]],
-            "layout": {
-            "line-cap": "round",
-            "line-join": "round"
-            },
-            "paint": {
-            "line-color": "#D20C0C",
-            "line-dasharray": [0.2, 2],
-            "line-width": 4
-            }
-        },
-        {
-            "id": "gl-draw-polygon-fill",
-            "type": "fill",
-            "filter": ["all", ["==", "$type", "Polygon"], ["!=", "mode", "static"]],
-            "paint": {
-            "fill-color": "#D20C0C",
-            "fill-outline-color": "#D20C0C",
-            "fill-opacity": 0.5
-            }
-        },
-        {
-            "id": "gl-draw-polygon-stroke-active",
-            "type": "line",
-            "filter": ["all", ["==", "$type", "Polygon"], ["!=", "mode", "static"]],
-            "layout": {
-            "line-cap": "round",
-            "line-join": "round"
-            },
-            "paint": {
-            "line-color": "#D20C0C",
-            "line-dasharray": [0.2, 2],
-            "line-width": 4
-            }
-        },
-        {
-            "id": "gl-draw-polygon-and-line-vertex-halo-active",
-            "type": "circle",
-            "filter": ["all", ["==", "meta", "vertex"], ["==", "$type", "Point"], ["!=", "mode", "static"]],
-            "paint": {
-            "circle-radius": 5,
-            "circle-color": "#FFF"
-            }
-        },
-        // vertex points
-        {
-            "id": "gl-draw-polygon-and-line-vertex-active",
-            "type": "circle",
-            "filter": ["all", ["==", "meta", "vertex"], ["==", "$type", "Point"], ["!=", "mode", "static"]],
-            "paint": {
-            "circle-radius": 4,
-            "circle-color": "#D20C0C",
-            }
-        },
+// //ドローイングツール
+// var Draw = new MapboxDraw({
+//     displayControlsDefault: false,
+//     controls: {
+//         polygon: true,
+//         line_string: true,
+//         point: true,
+//         trash: true,
+//     },
+//     styles: [
+//         {
+//             "id": "gl-draw-line",
+//             "type": "line",
+//             "filter": ["all", ["==", "$type", "LineString"], ["!=", "mode", "static"]],
+//             "layout": {
+//             "line-cap": "round",
+//             "line-join": "round"
+//             },
+//             "paint": {
+//             "line-color": "#D20C0C",
+//             "line-dasharray": [0.2, 2],
+//             "line-width": 4
+//             }
+//         },
+//         {
+//             "id": "gl-draw-polygon-fill",
+//             "type": "fill",
+//             "filter": ["all", ["==", "$type", "Polygon"], ["!=", "mode", "static"]],
+//             "paint": {
+//             "fill-color": "#D20C0C",
+//             "fill-outline-color": "#D20C0C",
+//             "fill-opacity": 0.5
+//             }
+//         },
+//         {
+//             "id": "gl-draw-polygon-stroke-active",
+//             "type": "line",
+//             "filter": ["all", ["==", "$type", "Polygon"], ["!=", "mode", "static"]],
+//             "layout": {
+//             "line-cap": "round",
+//             "line-join": "round"
+//             },
+//             "paint": {
+//             "line-color": "#D20C0C",
+//             "line-dasharray": [0.2, 2],
+//             "line-width": 4
+//             }
+//         },
+//         {
+//             "id": "gl-draw-polygon-and-line-vertex-halo-active",
+//             "type": "circle",
+//             "filter": ["all", ["==", "meta", "vertex"], ["==", "$type", "Point"], ["!=", "mode", "static"]],
+//             "paint": {
+//             "circle-radius": 5,
+//             "circle-color": "#FFF"
+//             }
+//         },
+//         // vertex points
+//         {
+//             "id": "gl-draw-polygon-and-line-vertex-active",
+//             "type": "circle",
+//             "filter": ["all", ["==", "meta", "vertex"], ["==", "$type", "Point"], ["!=", "mode", "static"]],
+//             "paint": {
+//             "circle-radius": 4,
+//             "circle-color": "#D20C0C",
+//             }
+//         },
     
-        // INACTIVE (static, already drawn)
-        // line stroke
-        {
-            "id": "gl-draw-line-static",
-            "type": "line",
-            "filter": ["all", ["==", "$type", "LineString"], ["==", "mode", "static"]],
-            "layout": {
+//         // INACTIVE (static, already drawn)
+//         // line stroke
+//         {
+//             "id": "gl-draw-line-static",
+//             "type": "line",
+//             "filter": ["all", ["==", "$type", "LineString"], ["==", "mode", "static"]],
+//             "layout": {
 
-            },
-            "paint": {
-                "line-color": "#000",
-                "line-width": 3
-            }
-        },
-        // polygon fill
-        {
-            "id": "gl-draw-polygon-fill-static",
-            "type": "fill",
-            "filter": ["all", ["==", "$type", "Polygon"], ["==", "mode", "static"]],
-            "paint": {
-            "fill-color": "#000",
-            "fill-outline-color": "#000",
-            "fill-opacity": 0.1
-            }
-        },
-        // polygon outline
-        {
-            "id": "gl-draw-polygon-stroke-static",
-            "type": "line",
-            "filter": ["all", ["==", "$type", "Polygon"], ["==", "mode", "static"]],
-            "layout": {
-            "line-cap": "round",
-            "line-join": "round"
-            },
-            "paint": {
-            "line-color": "#000",
-            "line-width": 3
-            }
-        },
-        //Point選択中
-        {
-            'id': 'highlight-active-points',
-            'type': 'circle',
-            'filter': ['all',
-            ['==', '$type', 'Point'],
-            ['==', 'meta', 'feature'],
-            ['==', 'active', 'true']],
-            'paint': {
-            'circle-radius': 8,
-            "circle-stroke-width": 2,
-            "circle-stroke-color": "#FFFFFF",
-            'circle-color': '#000000'
-            }
-        },
-        //Point
-        {
-            'id': 'points-are-blue',
-            'type': 'circle',
-            'filter': ['all',
-            ['==', '$type', 'Point'],
-            ['==', 'meta', 'feature'],
-            ['==', 'active', 'false']],
-            'paint': {
-            'circle-radius': 7,
-            "circle-stroke-width": 2,
-            "circle-stroke-color": "#FFFFFF",
-            'circle-color': '#000088'
-            }
-        }
-    ],
-}); 
+//             },
+//             "paint": {
+//                 "line-color": "#000",
+//                 "line-width": 3
+//             }
+//         },
+//         // polygon fill
+//         {
+//             "id": "gl-draw-polygon-fill-static",
+//             "type": "fill",
+//             "filter": ["all", ["==", "$type", "Polygon"], ["==", "mode", "static"]],
+//             "paint": {
+//             "fill-color": "#000",
+//             "fill-outline-color": "#000",
+//             "fill-opacity": 0.1
+//             }
+//         },
+//         // polygon outline
+//         {
+//             "id": "gl-draw-polygon-stroke-static",
+//             "type": "line",
+//             "filter": ["all", ["==", "$type", "Polygon"], ["==", "mode", "static"]],
+//             "layout": {
+//             "line-cap": "round",
+//             "line-join": "round"
+//             },
+//             "paint": {
+//             "line-color": "#000",
+//             "line-width": 3
+//             }
+//         },
+//         //Point選択中
+//         {
+//             'id': 'highlight-active-points',
+//             'type': 'circle',
+//             'filter': ['all',
+//             ['==', '$type', 'Point'],
+//             ['==', 'meta', 'feature'],
+//             ['==', 'active', 'true']],
+//             'paint': {
+//             'circle-radius': 8,
+//             "circle-stroke-width": 2,
+//             "circle-stroke-color": "#FFFFFF",
+//             'circle-color': '#000000'
+//             }
+//         },
+//         //Point
+//         {
+//             'id': 'points-are-blue',
+//             'type': 'circle',
+//             'filter': ['all',
+//             ['==', '$type', 'Point'],
+//             ['==', 'meta', 'feature'],
+//             ['==', 'active', 'false']],
+//             'paint': {
+//             'circle-radius': 7,
+//             "circle-stroke-width": 2,
+//             "circle-stroke-color": "#FFFFFF",
+//             'circle-color': '#000088'
+//             }
+//         }
+//     ],
+// }); 
     
-map.addControl(Draw, 'top-left');
+// map.addControl(Draw, 'top-left');
 
 //3Dボタン
 map.addControl(new Control_DEM(), "top-right");
