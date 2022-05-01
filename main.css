@@ -6,8 +6,8 @@ body {
     margin: 0;
     padding: 0;
     overscroll-behavior-y: none;/* スワイプリロード無効 */
-    background: rgb(12,17,13);
-    background: linear-gradient(133deg, rgba(12,17,13,1) 0%, rgba(61,97,68,1) 60%, rgba(11,142,39,1) 100%);
+    background: rgb(0,0,0);
+    background: linear-gradient(334deg, rgba(0,0,0,1) 0%, rgba(9,73,0,1) 100%);
 }
 #map {
     z-index: 1;
@@ -23,8 +23,8 @@ body {
     width: 100%;
     height: 100%;
     z-index: 99;
-    background: rgb(12,17,13);
-    background: linear-gradient(133deg, rgba(12,17,13,1) 0%, rgba(61,97,68,1) 60%, rgba(11,142,39,1) 100%);
+    background: rgb(0,0,0);
+    background: linear-gradient(334deg, rgba(0,0,0,1) 0%, rgba(9,73,0,1) 100%);
 }
 
 /* 画像中央配置*/
