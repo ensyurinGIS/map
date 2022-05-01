@@ -49,10 +49,10 @@ class Control_kiroku {
 
         const homeButton = document.createElement("button");
         homeButton.innerHTML =
-            '<img src="https://img.icons8.com/ios-glyphs/30/e2041e/plus.png"/>';
+            '<img src="https://img.icons8.com/ios-glyphs/30/000000/plus.png"/>';
         homeButton.addEventListener("click", (e) => {
             window.open(
-            "https://script.google.com/macros/s/AKfycbwe-uhVihdq3mTFKdR9lmgGurv06pKNlhXKEBiHL1hwu9PUTUtNsB4U87pqt9660VG6yA/exec",
+            "https://script.google.com/macros/s/AKfycbxRybyOHRi04tzHOajt055glZdzPkyriU2lZyrgG4Q20lJeTRT5EU3NdmQy3020ewAXXA/exec",
             "window_name",
             "width=600,height=800,scrollbars=yes"
             );
