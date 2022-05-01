@@ -52,7 +52,7 @@ class Control_kiroku {
             '<img src="https://img.icons8.com/ios-glyphs/30/000000/plus.png"/>';
         homeButton.addEventListener("click", (e) => {
             window.open(
-            "https://script.google.com/macros/s/AKfycbxRybyOHRi04tzHOajt055glZdzPkyriU2lZyrgG4Q20lJeTRT5EU3NdmQy3020ewAXXA/exec",
+            "https://script.google.com/macros/s/AKfycbzR7Jo8IqBEKpF7eEusmne2wsbe6mE96_q3dwAutVsDmrlMSYSIp5Dn_30aIxnP3Mu4qA/exec",
             "window_name",
             "width=600,height=800,scrollbars=yes"
             );

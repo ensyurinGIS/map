@@ -675,10 +675,16 @@ map.on("load", () => {
         url: "mapbox://ensyuringis.cl2em8xmn1yks21o4ey2m50br-8h3uo",
     });
 
-    //歩道
-    map.addSource("MITI", {
+    //演習林-歩道
+    map.addSource("ENSYURIN_MITI", {
         type: "vector",
-        url: "mapbox://ensyuringis.ckzt7hmq914bf21r0qywp8gop-71byn",
+        url: "mapbox://ensyuringis.cl2ms64e60f4t20nyp7xi4j4l-9xom5",
+    });
+
+    //その他歩道
+    map.addSource("MITI_SONOTA", {
+        type: "vector",
+        url: "mapbox://ensyuringis.cl2ms2yx30byg27p60rotvi0t-8bkke",
     });
 
     //川
@@ -1670,10 +1676,26 @@ map.on("load", () => {
     });
 
     map.addLayer({
-        id: "歩道",
+        id: "演習林-歩道",
         type: "line",
-        source: "MITI",
-        "source-layer": "MITI",
+        source: "ENSYURIN_MITI",
+        "source-layer": "ENSYURIN_MITI",
+        layout: {
+            visibility: "visible",
+            "line-join": "bevel",
+        },
+        paint: {
+            "line-opacity": 0.8,
+            "line-color": "#8e8e7b",
+            "line-width": 5,
+        },
+    });
+
+    map.addLayer({
+        id: "その他歩道",
+        type: "line",
+        source: "MITI_SONOTA",
+        "source-layer": "MITI_SONOTA",
         layout: {
             visibility: "visible",
             "line-join": "bevel",
@@ -3007,13 +3029,11 @@ map.on("load", () => {
 const toggleableLayerIds = [
     "みんなの記録",
     "みんなの記録-文字",
-    "その他地点",
-    "歩道",
-    "川",
     "アカデミー施設・その他建物",
     "アカデミー施設・その他建物-文字",
     "自力建設",
     "自力建設-文字",
+    "演習林-歩道",
     "演習林-スギ林",
     "演習林-ヒノキ林",
     "演習林-アカマツ林",
@@ -3024,6 +3044,9 @@ const toggleableLayerIds = [
     "演習林-林分ラベル",
     "演習林-小林班境界線",
     "演習林-林班境界線",
+    "川",
+    "その他地点",
+    "その他歩道",
 ];
 
 //各レイヤーに対応するトグルボタンを設定します。
