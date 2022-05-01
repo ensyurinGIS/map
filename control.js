@@ -236,23 +236,6 @@ map.addControl(new Control_spinR(), "top-right");
 //左回転ボタン
 map.addControl(new Control_spinL(), "top-right");
 
-//検索ツール
-map.addControl(
-    new MapboxGeocoder({
-    accessToken: mapboxgl.accessToken,
-    localGeocoder: forwardGeocoder,
-    mapboxgl: mapboxgl,
-    zoom: 17,
-    placeholder: "アカデミー内検索",
-    collapsed: true,
-    limit: 30,
-    mapboxgl: mapboxgl,
-    bbox: [
-    136.91859770217587, 35.55452735278091, 136.91862256754007, 35.5541050315276,
-    ],
-    }),
-    "top-left"
-    );
 
 // //ドローイングツール
 // var Draw = new MapboxDraw({

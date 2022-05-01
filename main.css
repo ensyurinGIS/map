@@ -36,11 +36,11 @@ body {
 }
 
 /*アイコンの大きさ設定*/
-#title1 {
+#title {
     position: absolute;
     text-align: center;
     width: 100%;
-    font-size: 32px;
+    font-size: 27px;
     font-family: 'Noto Sans JP', sans-serif;
     color: #ffffff;
 }
