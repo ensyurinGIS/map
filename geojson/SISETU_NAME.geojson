@@ -29,7 +29,7 @@
 { "type": "Feature", "properties": { "カテゴリ": "自力建設", "name": "桂の湯殿" }, "geometry": { "type": "Point", "coordinates": [ 136.918084422326956, 35.555830789012084 ] } },
 { "type": "Feature", "properties": { "カテゴリ": "自力建設", "name": "地空楼" }, "geometry": { "type": "Point", "coordinates": [ 136.917618570812039, 35.554045846428131 ] } },
 { "type": "Feature", "properties": { "カテゴリ": "自力建設", "name": "ほたるの川床" }, "geometry": { "type": "Point", "coordinates": [ 136.918656781631711, 35.555502646872029 ] } },
-{ "type": "Feature", "properties": { "カテゴリ": "自力建設", "name": "こならのみち" }, "geometry": { "type": "Point", "coordinates": [ 136.919224249151654, 35.554496996842751 ] } },
+{ "type": "Feature", "properties": { "カテゴリ": "自力建設", "name": "こならのこみち" }, "geometry": { "type": "Point", "coordinates": [ 136.919224249151654, 35.554496996842751 ] } },
 { "type": "Feature", "properties": { "カテゴリ": "自力建設", "name": "アラカシのだんだん" }, "geometry": { "type": "Point", "coordinates": [ 136.918467131203499, 35.554975629711009 ] } },
 { "type": "Feature", "properties": { "カテゴリ": "自力建設", "name": "森のインターチェンジ" }, "geometry": { "type": "Point", "coordinates": [ 136.919127168383341, 35.554339802531338 ] } },
 { "type": "Feature", "properties": { "カテゴリ": "自力建設", "name": "木漏れ日の塔" }, "geometry": { "type": "Point", "coordinates": [ 136.916694167743628, 35.555513979309644 ] } },
@@ -41,6 +41,6 @@
 { "type": "Feature", "properties": { "カテゴリ": "自力建設", "name": "森のいちだんらく" }, "geometry": { "type": "Point", "coordinates": [ 136.918166397048736, 35.555849394379692 ] } },
 { "type": "Feature", "properties": { "カテゴリ": "自力建設", "name": "Cobiki(こびき)" }, "geometry": { "type": "Point", "coordinates": [ 136.918435706747175, 35.554224969452243 ] } },
 { "type": "Feature", "properties": { "カテゴリ": "自力建設", "name": "みどりのアトリエ" }, "geometry": { "type": "Point", "coordinates": [ 136.918709805142299, 35.555509842128053 ] } },
-{ "type": "Feature", "properties": { "カテゴリ": "自力建設", "name": "木立のみち" }, "geometry": { "type": "Point", "coordinates": [ 136.917934694649944, 35.55566128838381 ] } }
+{ "type": "Feature", "properties": { "カテゴリ": "自力建設", "name": "木立のこみち" }, "geometry": { "type": "Point", "coordinates": [ 136.917934694649944, 35.55566128838381 ] } }
 ]
 }
