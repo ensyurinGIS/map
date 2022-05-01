@@ -393,6 +393,7 @@ map.addControl(
         },
         trackUserLocation: true,
         showUserHeading: true,
+        showAccuracyCircle: false,
     })
 );
 
