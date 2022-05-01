@@ -2777,7 +2777,6 @@ map.on("load", () => {
         },
     });
 
-
     map.addLayer({
         id: "消火器・避難器具等1F",
         source: "SYOUKA1F-TEXT",
