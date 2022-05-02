@@ -717,9 +717,23 @@ map.on("click", "自力建設", (e) => {
     e.features[0].properties.name +
     "</h3>" +
     e.features[0].properties.年度 +
-    "年度自力建設<hr>" +
-    e.features[0].properties.説明 +
-    "<br><div style='text-align: center'><a href='" +
+    "年度自力建設<hr>建物名称：" +
+    e.features[0].properties.建物名称 +
+    "<br>建物用途：" +
+    e.features[0].properties.建物用途 +
+    "<br>構造規模：" +
+    e.features[0].properties.構造規模 +
+    "<br>建築面積：" +
+    e.features[0].properties.建築面積 +
+    "m2<br>床面積　：" +
+    e.features[0].properties.床面積 +
+    "m2<br>建物高さ：" +
+    e.features[0].properties.建物高さ +
+    "m<br>地盤高　：" +
+    e.features[0].properties.地盤高 +
+    "m<br>（GL-8.012）" +
+    e.features[0].properties.GLを引いた分 +
+    "m<br><div style='text-align: center'><a href='" +
     e.features[0].properties.image +
     "' target='_blank'rel='noopener noreferrer'><img src='" +
     e.features[0].properties.image +
@@ -749,9 +763,23 @@ map.on("click", "アカデミー施設・その他建物", (e) => {
     .setHTML(
     "<div id='scroll-inner'><div id='scroll-top'><h3>" +
     e.features[0].properties.name +
-    "</h3><hr>" +
-    e.features[0].properties.説明 +
-    "<br><div style='text-align: center'><a href='" +
+    "</h3><hr>建物名称：" +
+    e.features[0].properties.建物名称 +
+    "<br>建物用途：" +
+    e.features[0].properties.建物用途 +
+    "<br>構造規模：" +
+    e.features[0].properties.構造規模 +
+    "<br>建築面積：" +
+    e.features[0].properties.建築面積 +
+    "m2<br>床面積　：" +
+    e.features[0].properties.床面積 +
+    "m2<br>建物高さ：" +
+    e.features[0].properties.建物高さ +
+    "m<br>地盤高　：" +
+    e.features[0].properties.地盤高 +
+    "m<br>（GL-8.012）" +
+    e.features[0].properties.GLを引いた分 +
+    "m<br><div style='text-align: center'><a href='" +
     e.features[0].properties.image +
     "' target='_blank'rel='noopener noreferrer'><img src='" +
     e.features[0].properties.image +
