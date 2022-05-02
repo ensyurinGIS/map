@@ -3193,3 +3193,15 @@ function autoreload() {
     );
 }
 setInterval(autoreload, 3000);
+
+function resizeToFit(datas) {
+ 
+    var bounds = new mapboxgl.LngLatBounds();
+
+    datas.forEach(function(data) {
+        bounds.extend(data.geometry.coordinates);
+    });
+ 
+    map.fitBounds(bounds);	
+    
+}
