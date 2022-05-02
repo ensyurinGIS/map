@@ -731,7 +731,7 @@ map.on("click", "自力建設", (e) => {
     e.features[0].properties.建物高さ +
     "m<br>地盤高　：" +
     e.features[0].properties.地盤高 +
-    "m<br>（GL-8.012）" +
+    "m<br>(GL-8.012)：" +
     e.features[0].properties.GLを引いた分 +
     "m<br><div style='text-align: center'><a href='" +
     e.features[0].properties.image +
@@ -777,7 +777,7 @@ map.on("click", "アカデミー施設・その他建物", (e) => {
     e.features[0].properties.建物高さ +
     "m<br>地盤高　：" +
     e.features[0].properties.地盤高 +
-    "m<br>（GL-8.012）" +
+    "m<br>(GL-8.012)：" +
     e.features[0].properties.GLを引いた分 +
     "m<br><div style='text-align: center'><a href='" +
     e.features[0].properties.image +
