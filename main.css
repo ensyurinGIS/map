@@ -724,12 +724,14 @@ body .mapboxgl-map {
     z-index: 1;
     position: absolute;
     pointer-events: none;
-    right: 10px;
+    left: 10px;
     bottom: 80px;
 }
 
 @media (min-width: 640px) {
     .Scale {
+        left: auto;
+        right: 10px;
         bottom: 20px;
     }
 }
