@@ -1630,7 +1630,7 @@ map.on("load", () => {
         id: "演習林-林班境界線",
         type: "line",
         source: "ENSYURIN_3rinhan",
-        "source-layer": "ENSYURIN_rinhanzu",
+        "source-layer": "ENSYURIN_3rinhan",
         layout: {
         visibility: "visible",
         },
