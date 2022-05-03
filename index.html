@@ -287,14 +287,20 @@
             </div>
         </div>  
     </div>
-    <div class="controls">
+    <div id="map"></div>
+    <div id="geocoder" class="geocoder"></div>
+    <div id="Scale" class="Scale"></div>
+        <div class="controls">
         <div class="controls__item">
             <input type="radio" name="dropdown-radios" id="dropdown-radio-clear" class="u-hidden" />
             <div class="dropdown">
-                <input type="radio" name="dropdown-radios" id="dropdown-radio-search" class="dropdown__radio u-hidden" />
-                <label class="dropdown__label-open" for="dropdown-radio-search" tabindex="0" onclick="massage_base()">
-                    <img class="icon" src="https://img.icons8.com/ios-glyphs/35/ffffff/world-map.png"/></label>
-                <label class="dropdown__label-close-left" for="dropdown-radio-clear">閉じる</label>
+                <input type="radio" name="dropdown-radios" id="dropdown-radio-base" class="dropdown__radio u-hidden" />
+                <label class="dropdown__label-open" for="dropdown-radio-base" tabindex="0" onclick="massage_base()">
+                    <img class="icon" src="https://raw.githubusercontent.com/ensyurinGIS/map/main/sozai/base.svg"/>
+                </label>
+                <label class="dropdown__label-close" for="dropdown-radio-clear">
+                    <img class="icon" src="https://raw.githubusercontent.com/ensyurinGIS/map/main/sozai/cancel.svg"/>
+                </label>
                 <div class="dropdown__contents">
                     <div class="dropdown__contents-inner">
                         <nav id="menu_base"></nav>
@@ -304,11 +310,13 @@
         </div>
         <div class="controls__item">
             <div class="dropdown">
-                <input type="radio" name="dropdown-radios" id="dropdown-radio-crop2" class="dropdown__radio u-hidden" />
-                <label class="dropdown__label-open" for="dropdown-radio-crop2" tabindex="0" onclick="massage_raster()">
-                    <img class="icon" src="https://img.icons8.com/material-outlined/35/ffffff/timezone-plus-2.png"/>
+                <input type="radio" name="dropdown-radios" id="dropdown-radio-raster" class="dropdown__radio u-hidden" />
+                <label class="dropdown__label-open" for="dropdown-radio-raster" tabindex="0" onclick="massage_raster()">
+                    <img class="icon" src="https://raw.githubusercontent.com/ensyurinGIS/map/main/sozai/raster.svg"/>
                 </label>
-                <label class="dropdown__label-close" for="dropdown-radio-clear">閉じる</label>
+                <label class="dropdown__label-close" for="dropdown-radio-clear">
+                    <img class="icon" src="https://raw.githubusercontent.com/ensyurinGIS/map/main/sozai/cancel.svg"/>
+                </label>
                 <div class="dropdown__contents">
                     <div class="dropdown__contents-inner">
                         <nav id="menu_raster"></nav>
@@ -318,10 +326,13 @@
         </div>
         <div class="controls__item">
             <div class="dropdown">
-                <input type="radio" name="dropdown-radios" id="dropdown-radio-crop" class="dropdown__radio u-hidden" />
-                <label class="dropdown__label-open" for="dropdown-radio-crop" tabindex="0" onclick="massage_vector()">
-                    <img class="icon" src="https://img.icons8.com/ios-glyphs/35/ffffff/layers.png"/></label>
-                <label class="dropdown__label-close" for="dropdown-radio-clear">閉じる</label>
+                <input type="radio" name="dropdown-radios" id="dropdown-radio-vector" class="dropdown__radio u-hidden" />
+                <label class="dropdown__label-open" for="dropdown-radio-vector" tabindex="0" onclick="massage_vector()">
+                    <img class="icon" src="https://raw.githubusercontent.com/ensyurinGIS/map/main/sozai/layer.svg"/>
+                </label>
+                <label class="dropdown__label-close" for="dropdown-radio-clear">
+                    <img class="icon" src="https://raw.githubusercontent.com/ensyurinGIS/map/main/sozai/cancel.svg"/>
+                </label>
                 <div class="dropdown__contents">
                     <div class="dropdown__contents-inner">
                         <nav id="menu_vector"></nav>
@@ -331,10 +342,13 @@
         </div>
         <div class="controls__item">
             <div class="dropdown">
-                <input type="radio" name="dropdown-radios" id="dropdown-radio-layers" class="dropdown__radio u-hidden" />
-                <label class="dropdown__label-open" for="dropdown-radio-layers" tabindex="0" onclick="massage_property()">
-                    <img src="https://img.icons8.com/material-outlined/35/ffffff/paint-palette.png"/></label>
-                <label class="dropdown__label-close" for="dropdown-radio-clear">閉じる</label>
+                <input type="radio" name="dropdown-radios" id="dropdown-radio-property" class="dropdown__radio u-hidden" />
+                <label class="dropdown__label-open" for="dropdown-radio-property" tabindex="0" onclick="massage_property()">
+                    <img class="icon" src="https://raw.githubusercontent.com/ensyurinGIS/map/main/sozai/property.svg"/>
+                </label>
+                <label class="dropdown__label-close" for="dropdown-radio-clear">
+                    <img class="icon" src="https://raw.githubusercontent.com/ensyurinGIS/map/main/sozai/cancel.svg"/>
+                </label>
                 <div class="dropdown__contents">
                     <div class="dropdown__contents-inner"> 
                         <div class="tab">
@@ -431,9 +445,13 @@
         </div>
         <div class="controls__item">
             <div class="dropdown">
-                <input type="radio" name="dropdown-radios" id="dropdown-radio-basemaps" class="dropdown__radio u-hidden" />
-                <label class="dropdown__label-open" for="dropdown-radio-basemaps" tabindex="0" onclick="massage_information()"><img src="https://img.icons8.com/material-outlined/35/ffffff/info.png"/></label>
-                <label class="dropdown__label-close-right" for="dropdown-radio-clear">閉じる</label>
+                <input type="radio" name="dropdown-radios" id="dropdown-radio-information" class="dropdown__radio u-hidden" />
+                <label class="dropdown__label-open" for="dropdown-radio-information" tabindex="0" onclick="massage_information()">
+                    <img class="icon" src="https://raw.githubusercontent.com/ensyurinGIS/map/main/sozai/info.svg"/>
+                </label>
+                <label class="dropdown__label-close" for="dropdown-radio-clear">
+                    <img class="icon" src="https://raw.githubusercontent.com/ensyurinGIS/map/main/sozai/cancel.svg"/>
+                </label>
                 <div class="dropdown__contents">
                     <div class="dropdown__contents-inner">
                         <div id="informationbox">
@@ -448,15 +466,14 @@
                         <h2>制作者</h2>
                             <div id="img_block">
                                 <img src="https://raw.githubusercontent.com/ensyurinGIS/map/main/sozai/creatoricon.png">
-                                <h3>Satoshi Komatsu</h3>森と木のクリエーター科20期生<br>林業専攻<br>satoshi7190@gmail.com<br>なにかの不具合や要望がありましたらご連絡ください
+                                <h3>Satoshi Komatsu</h3>森と木のクリエーター科20期生<br>林業専攻<br>satoshi7190@gmail.com<br>なにかの不具合や要望がありましたらご連絡ください<br><br>
                             </div>
                         </div> 
                     </div>           
                 </div>
             </div>
         </div>
-    </div>
-    <div id="map"></div>      
+    </div>   
 </body>
     <script type="text/javascript" src="main.js" defer></script>
     <script type="text/javascript" src="geocoding.js" defer></script>

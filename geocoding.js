@@ -1649,19 +1649,19 @@ return matchingFeatures;
 }
 
 //検索ツール
-map.addControl(
-    new MapboxGeocoder({
+
+    const geocoder = new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
     localGeocoder: forwardGeocoder,
     mapboxgl: mapboxgl,
     zoom: 18,
     placeholder: "アカデミー内検索",
-    collapsed: true,
+    // collapsed: true,
     limit: 30,
     mapboxgl: mapboxgl,
     bbox: [
     136.91859770217587, 35.55452735278091, 136.91862256754007, 35.5541050315276,
     ],
-    }),
-    "top-left"
-    );
+    });
+
+        document.getElementById('geocoder').appendChild(geocoder.onAdd(map));

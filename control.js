@@ -130,9 +130,9 @@ class Control_spinL {
 class Control_360 {
     onAdd(map) {
     const seton =
-        '<img src="https://img.icons8.com/ios-glyphs/25/05CB63/360-view.png"/>';
+        '<b>解除</b>';
     const setoff =
-        '<img src="https://img.icons8.com/ios-glyphs/25/000000/360-view.png"/>';
+        '<b>360°</b>';
 
     this.map = map;
     const homeButton = document.createElement("button");
@@ -199,17 +199,8 @@ class Control_360 {
     }
 }
 
-//スケール
-map.addControl(
-    new mapboxgl.ScaleControl({
-    maxWidth: 200,
-    unit: "metric",
-    }),
-    "bottom-right"
-);
-
 //地図情報
-map.addControl(new mapboxgl.AttributionControl(), "top-right");
+map.addControl(new mapboxgl.AttributionControl(), "bottom-right");
 
 //フルスクリーン
 map.addControl(new mapboxgl.FullscreenControl());
@@ -386,3 +377,11 @@ map.addControl(
 
 //記録
 map.addControl(new Control_kiroku(), "top-right");
+
+//スケール
+const Scale = new mapboxgl.ScaleControl({
+    maxWidth: 200,
+    unit: "metric",
+});
+
+document.getElementById('Scale').appendChild(Scale.onAdd(map));
