@@ -1,19 +1,19 @@
 //セレクトボタンのIDを列挙
 const textselectID = [
     "その他地点",
-    "アカデミー施設・その他建物-文字",
-    "自力建設-文字",
+    "アカデミー施設・その他建物-ラベル",
+    "自力建設-ラベル",
     "演習林-林分ラベル",
-    "平面図-アカデミー施設1F-文字",
-    "平面図-アカデミー施設2F-文字",
-    "平面図-自力建設-文字",
+    "平面図-アカデミー施設1F-ラベル",
+    "平面図-アカデミー施設2F-ラベル",
+    "平面図-自力建設-ラベル",
     "消火器・避難器具等1F",
     "消火器・避難器具等2F",
     "施設案内塔",
     "サインポール",
-    "試験地-文字",
+    "試験地-ラベル",
     "アカデミー危険木調査結果(H25)",
-    "OWL-立木データ-文字",
+    "OWL-立木データ-ラベル",
     "フェノロジー調査2020-植物",
     "フェノロジー調査2020-昆虫",
     "フェノロジー調査2020-哺乳類",
@@ -33,9 +33,9 @@ const textselectID = [
     "美濃市指定緊急避難場所",
     "等高線-標高ラベル",
     "標高点",
-    "岐阜県鳥獣保護区等(H30)-文字",
-    "岐阜県20万分の1表層地質-文字",
-    "岐阜県20万分の1土壌分類-文字",
+    "岐阜県鳥獣保護区等(H30)-ラベル",
+    "岐阜県20万分の1表層地質-ラベル",
+    "岐阜県20万分の1土壌分類-ラベル",
 ];
 
   //セレクトボタンを追加
@@ -52,21 +52,21 @@ for (const id of textselectID) {
     select.appendChild(option);
 }
 
-//文字の色の変更
+//ラベルの色の変更
 document.querySelector("#selectcolor_text").addEventListener('input',(event)=>{
     var layer = document.getElementById('property_text');
     var colorval = event.target.value;
     map.setPaintProperty(layer.value, 'text-color', colorval);
 });
 
-//文字の縁の色の変更
+//ラベルの縁の色の変更
 document.querySelector("#selectcolor_texthalo").addEventListener('input',(event)=>{
     var layer = document.getElementById('property_text');
     var colorval = event.target.value;
     map.setPaintProperty(layer.value, 'text-halo-color', colorval);
 });
 
-//文字のサイズ変更
+//ラベルのサイズ変更
 slider_text_size.addEventListener('input', (e) => {
     const sliderValue = document.getElementById('slider_text_size_value');
     map.setLayoutProperty(
@@ -77,7 +77,7 @@ slider_text_size.addEventListener('input', (e) => {
     sliderValue.textContent = e.target.value / 100
 });
 
-//文字の縁の幅変更
+//ラベルの縁の幅変更
 slider_text_halowidth.addEventListener('input', (e) => {
     const sliderValue = document.getElementById('slider_text_halowidth_value');
     map.setPaintProperty(
@@ -88,7 +88,7 @@ slider_text_halowidth.addEventListener('input', (e) => {
     sliderValue.textContent = e.target.value / 100
 });
 
-//文字の不透明度変更
+//ラベルの不透明度変更
 slider_text_opacity.addEventListener('input', (e) => {
     const sliderValue = document.getElementById('slider_text_opacity_value');
     map.setPaintProperty(

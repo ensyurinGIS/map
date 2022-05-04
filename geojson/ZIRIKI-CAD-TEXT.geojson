@@ -1,6 +1,6 @@
 {
 "type": "FeatureCollection",
-"name": "自力建設平面図-文字",
+"name": "自力建設平面図-ラベル",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
 { "type": "Feature", "properties": { "name": "囲炉裏" }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 136.921299756172999, 35.552169294690472 ] ] } },

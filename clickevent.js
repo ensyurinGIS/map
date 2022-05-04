@@ -556,9 +556,7 @@ map.on("click", "みんなの記録(表示期限切れ)", (e) => {
     e.features[0].properties.タイトル +
     "</h3>" +
     e.features[0].properties.説明 +
-    "<hr>期限　：残り" +
-    e.features[0].properties.残り日数 +
-    "日<br>緯度　：" +
+    "<hr>緯度　：" +
     e.features[0].properties.緯度 +
     "<br>経度　：" +
     e.features[0].properties.経度 +
@@ -579,7 +577,10 @@ map.on("click", "みんなの記録(表示期限切れ)", (e) => {
     "分に記録"
     )
     .addTo(map);
-    map.flyTo({ center: e.features[0].geometry.coordinates });
+    map.flyTo({ 
+        center: e.features[0].geometry.coordinates,
+        duration: 1000,  
+    });
     e.stopPropagation();
 });
 map.on("mouseenter", "みんなの記録(表示期限切れ)", () => {

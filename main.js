@@ -916,13 +916,13 @@ map.on("load", () => {
         data: "https://raw.githubusercontent.com/ensyurinGIS/map/main/geojson/AC2F-CAD.geojson",
     });
 
-    //平面図-アカデミー施設1F-文字
+    //平面図-アカデミー施設1F-ラベル
     map.addSource("AC1F-CAD-TEXT", {
         type: "geojson",
         data: "https://raw.githubusercontent.com/ensyurinGIS/map/main/geojson/AC1F-CAD-TEXT.geojson",
     });
 
-    //平面図-アカデミー施設2F-文字
+    //平面図-アカデミー施設2F-ラベル
     map.addSource("AC2F-CAD-TEXT", {
         type: "geojson",
         data: "https://raw.githubusercontent.com/ensyurinGIS/map/main/geojson/AC2F-CAD-TEXT.geojson",
@@ -934,7 +934,7 @@ map.on("load", () => {
         data: "https://raw.githubusercontent.com/ensyurinGIS/map/main/geojson/ZIRIKI-CAD.geojson",
     });
 
-    //平面図-自力建設-文字
+    //平面図-自力建設-ラベル
     map.addSource("ZIRIKI-CAD-TEXT", {
         type: "geojson",
         data: "https://raw.githubusercontent.com/ensyurinGIS/map/main/geojson/ZIRIKI-CAD-TEXT.geojson",
@@ -1435,7 +1435,7 @@ map.on("load", () => {
     });
 
     map.addLayer({
-        id: "行政区画-文字",
+        id: "行政区画-ラベル",
         type: "symbol",
         source: "mapbox",
         "source-layer": "place_label",
@@ -1836,7 +1836,7 @@ map.on("load", () => {
     });
 
     map.addLayer({
-        id: "試験地-文字",
+        id: "試験地-ラベル",
         source: "ENSYURIN_sikenti",
         "source-layer": "ENSYURIN_sikenti",
         type: "symbol",
@@ -1881,7 +1881,7 @@ map.on("load", () => {
     });
 
     map.addLayer({
-        id: "岐阜県20万分の1表層地質-文字",
+        id: "岐阜県20万分の1表層地質-ラベル",
         source: "GIFU-201tisitu",
         filter: ["all", ["match", ["geometry-type"], ["Polygon"], true, false]],
         type: "symbol",
@@ -1901,7 +1901,7 @@ map.on("load", () => {
     });
 
     map.addLayer({
-        id: "岐阜県20万分の1土壌分類-文字",
+        id: "岐阜県20万分の1土壌分類-ラベル",
         source: "GIFU-201dozyo",
         type: "symbol",
         layout: {
@@ -1920,7 +1920,7 @@ map.on("load", () => {
     });
 
     map.addLayer({
-        id: "岐阜県鳥獣保護区等(H30)-文字",
+        id: "岐阜県鳥獣保護区等(H30)-ラベル",
         source: "GIFU-tyouzyuhogokuH30",
         type: "symbol",
         layout: {
@@ -1939,7 +1939,7 @@ map.on("load", () => {
     });
 
     map.addLayer({
-        id: "自力建設-文字",
+        id: "自力建設-ラベル",
         source: "SISETU_NAME",
         type: "symbol",
         filter: ["all", ["match", ["get", "カテゴリ"], ["自力建設"], true, false]],
@@ -1961,7 +1961,7 @@ map.on("load", () => {
     });
 
     map.addLayer({
-        id: "アカデミー施設・その他建物-文字",
+        id: "アカデミー施設・その他建物-ラベル",
         source: "SISETU_NAME",
         type: "symbol",
         filter: ["all", ["match", ["get", "カテゴリ"], ["建物", "その他"], true, false]],
@@ -2585,7 +2585,7 @@ map.on("load", () => {
     });
 
     map.addLayer({
-        id: "OWL-立木データ-文字",
+        id: "OWL-立木データ-ラベル",
         type: "symbol",
         source: "OWL",
         "source-layer": "OWL",
@@ -2759,7 +2759,7 @@ map.on("load", () => {
     });
 
     map.addLayer({
-        id: "平面図-アカデミー施設1F-文字",
+        id: "平面図-アカデミー施設1F-ラベル",
         source: "AC1F-CAD-TEXT",
         type: "symbol",
         layout: {
@@ -2776,7 +2776,7 @@ map.on("load", () => {
     });
 
     map.addLayer({
-        id: "平面図-アカデミー施設2F-文字",
+        id: "平面図-アカデミー施設2F-ラベル",
         source: "AC2F-CAD-TEXT",
         type: "symbol",
         layout: {
@@ -2793,7 +2793,7 @@ map.on("load", () => {
     });
 
     map.addLayer({
-        id: "平面図-自力建設-文字",
+        id: "平面図-自力建設-ラベル",
         source: "ZIRIKI-CAD-TEXT",
         type: "symbol",
         layout: {
@@ -2980,7 +2980,7 @@ map.on("load", () => {
     });
 
     map.addLayer({
-        id: "みんなの記録-文字",
+        id: "みんなの記録-ラベル",
         source: "kiroku",
         type: "symbol",
         filter: ["match", ["get", "表示"], ["on"], true, false],
@@ -3038,11 +3038,11 @@ map.on("load", () => {
 
 const toggleableLayerIds = [
     "みんなの記録",
-    "みんなの記録-文字",
+    "みんなの記録-ラベル",
     "アカデミー施設・その他建物",
-    "アカデミー施設・その他建物-文字",
+    "アカデミー施設・その他建物-ラベル",
     "自力建設",
-    "自力建設-文字",
+    "自力建設-ラベル",
     "演習林-歩道",
     "演習林-スギ林",
     "演習林-ヒノキ林",
@@ -3096,21 +3096,21 @@ const toggleableLayerIds2 = [
     "みんなの記録-統計密度",
     "未来の森づくり予定地",
     "平面図-アカデミー施設1F",
-    "平面図-アカデミー施設1F-文字",
+    "平面図-アカデミー施設1F-ラベル",
     "平面図-アカデミー施設2F",
-    "平面図-アカデミー施設2F-文字",
+    "平面図-アカデミー施設2F-ラベル",
     "平面図-自力建設",
-    "平面図-自力建設-文字",
+    "平面図-自力建設-ラベル",
     "消火器・避難器具等1F",
     "消火器・避難器具等2F",
     "施設案内塔",
     "駐車場",
     "サインポール",
     "試験地",
-    "試験地-文字",
+    "試験地-ラベル",
     "アカデミー危険木調査結果(H25)",
     "OWL-立木データ",
-    "OWL-立木データ-文字",
+    "OWL-立木データ-ラベル",
     "フェノロジー調査2020-植物",
     "フェノロジー調査2020-昆虫",
     "フェノロジー調査2020-哺乳類",
@@ -3140,16 +3140,16 @@ const toggleableLayerIds2 = [
     "美濃市指定避難場所",
     "美濃市指定緊急避難場所",
     "岐阜県鳥獣保護区等(H30)",
-    "岐阜県鳥獣保護区等(H30)-文字",
+    "岐阜県鳥獣保護区等(H30)-ラベル",
     "岐阜県20万分の1表層地質",
     "岐阜県20万分の1表層地質-断層",
-    "岐阜県20万分の1表層地質-文字",
+    "岐阜県20万分の1表層地質-ラベル",
     "岐阜県20万分の1土壌分類",
-    "岐阜県20万分の1土壌分類-文字",
+    "岐阜県20万分の1土壌分類-ラベル",
     "地すべり地形分布図",
     "全国傾斜量区分図（雪崩関連）",
     "行政区画",
-    "行政区画-文字",
+    "行政区画-ラベル",
 ];
 
 //各レイヤーに対応するトグルボタンを設定します。
