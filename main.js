@@ -3207,14 +3207,10 @@ function autoreload() {
 }
 setInterval(autoreload, 3000);
 
-function resizeToFit(datas) {
- 
-    var bounds = new mapboxgl.LngLatBounds();
-
-    datas.forEach(function(data) {
-        bounds.extend(data.geometry.coordinates);
+map.on('mousemove', (e) => {
+    const text = document.getElementById('pointerdate');
+    const lat = e.lngLat.lat;
+    const lng = e.lngLat.lng;
+    const cangetext = "緯度：" + lat +"<br>経度：" + lng;
+    text.innerHTML = cangetext;
     });
- 
-    map.fitBounds(bounds);	
-    
-}

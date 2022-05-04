@@ -104,7 +104,7 @@ label {
         max-width: 4rem;
         margin-right: auto;
         bottom: auto;
-        top: 57px;
+        top: 52px;
     }
 }
 
@@ -194,8 +194,8 @@ label {
         z-index: 3;
         left: 5rem;
         width: 25rem;
-        top: 60px;
-        bottom: 3rem;
+        top: 55px;
+        bottom: 3.5rem;
         transform: translate3d(0, 0, 0) scaleX(0);
         transform-origin: 0 0;
     }
@@ -746,9 +746,7 @@ body .mapboxgl-map {
 
 @media (min-width: 640px) {
     .Scale {
-        left: auto;
-        right: 10px;
-        bottom: 20px;
+        bottom: 30px;
     }
 }
 
@@ -757,4 +755,29 @@ body .mapboxgl-map {
     padding: 0.3rem;
     height: 6rem;
     cursor : pointer;
+}
+
+/* 緯度経度 */
+.pointerdate {
+    z-index: 2;
+    position: absolute;
+    height: 60px;
+    width: 220px;
+    right: 10px;
+    bottom: 30px;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.75);
+    pointer-events: none;
+    display: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    text-align: left;
+    padding: 5px;
+    border-radius: 0.25rem;
+}
+
+@media (min-width: 640px) {
+    .pointerdate {
+        display: block;
+
+    }
 }
