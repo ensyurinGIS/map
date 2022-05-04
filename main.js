@@ -2914,7 +2914,20 @@ map.on("load", () => {
         type: "symbol",
         layout: {
             visibility: "none",
-            "text-field": ["to-string", ["get", "タイトル"]],
+            "text-field":             [
+                "to-string",
+                [
+                "concat",
+                ["get", "タイトル"],
+                "\n",
+                ["get", "年"],
+                "年",
+                ["get", "月"],
+                "月",
+                ["get", "日"],
+                "日"
+                ],
+            ],
             "text-offset": [0, -1],
             "text-variable-anchor": ["top", "bottom", "left", "right"],
             "text-radial-offset": 0.5,
