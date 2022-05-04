@@ -787,6 +787,15 @@ map.on("load", () => {
         url: "mapbox://mapbox.mapbox-streets-v8",
     });
 
+    //古城山森林基本図
+    map.addSource('SINEINKIHONZU-KOZYOUSAN', {
+        type: 'raster',
+        url: 'mapbox://ensyuringis.bumy3dbh',
+        attribution:
+            "<a href='https://www.rinya.maff.go.jp/j/kokuyu_rinya/kokuyu_rin_map.html' target='_blank'>林野庁</a>",
+        });
+
+
 //★ラスターデータ読み込み
 
     //洪水浸水想定区域  
@@ -1158,6 +1167,17 @@ map.on("load", () => {
         maxzoom: 0,
         paint: {
             "raster-opacity": 0,
+        },
+    });
+    
+
+    //古城山国有林-森林基本図
+    map.addLayer({
+        id: "古城山国有林-森林基本図",
+        source: 'SINEINKIHONZU-KOZYOUSAN',
+        type: "raster",
+        layout: {
+            visibility: "none",
         },
     });
 
@@ -3142,6 +3162,7 @@ const toggleableLayerIds2 = [
     "古城山国有林-林分",
     "古城山国有林-林分境界線",
     "古城山国有林-林分ラベル",
+    "古城山国有林-森林基本図",
     "等高線",
     "等高線-標高ラベル",
     "標高点",
