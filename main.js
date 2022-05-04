@@ -8,7 +8,12 @@ window.setTimeout(function(){
         [
         [136.919170, 35.546920], // southwestern corner of the bounds
         [136.926816, 35.555121] // northeastern corner of the bounds
-        ]
+        ],
+        {
+            padding: 20,
+            pitch: 0,
+            duration: 1000,
+        },
         );
 }, 5000);
 
@@ -33,6 +38,7 @@ const map = new mapboxgl.Map({
     maxBounds: bounds,
     attributionControl: false,
     bearing: i,
+    hash: true,
 });
 
 // マップの読み込み完了後にロード
