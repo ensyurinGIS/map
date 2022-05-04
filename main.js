@@ -973,6 +973,24 @@ map.on("load", () => {
         data: "https://raw.githubusercontent.com/ensyurinGIS/map/main/geojson/syohusai2021.geojson",
     });
 
+    //美濃市林班界
+    map.addSource("MINOSI-RINHANKAI-R3", {
+        type: "geojson",
+        data: "https://raw.githubusercontent.com/ensyurinGIS/map/main/geojson/MINOSI-RINHANKAI-R3.geojson",
+    });
+
+    //美濃市準林班界
+    map.addSource("MINOSI-ZYUNRINKANKAI-R3", {
+        type: "geojson",
+        data: "https://raw.githubusercontent.com/ensyurinGIS/map/main/geojson/MINOSI-ZYUNRINKANKAI-R3.geojson",
+    });
+
+    //美濃市小班界
+    map.addSource("MINOSI-SYOUHANKAI-R3", {
+        type: "geojson",
+        data: "https://raw.githubusercontent.com/ensyurinGIS/map/main/geojson/MINOSI-SYOUHANKAI-R3.geojson",
+    });
+
     //ベースマップメニュー作成
     for (var i = 0; i < Object.keys(mapselectID).length; i++) {
     // レイヤID取得
@@ -1738,6 +1756,34 @@ map.on("load", () => {
     });
 
     map.addLayer({
+        id: "美濃市準林班界",
+        type: "line",
+        source: "MINOSI-ZYUNRINKANKAI-R3",
+        layout: {
+            visibility: "none",
+        },
+        paint: {
+            "line-width": 2,
+            "line-opacity": 1,
+            "line-color": "#FF6600",
+        },
+    });
+
+    map.addLayer({
+        id: "美濃市林班界",
+        type: "line",
+        source: "MINOSI-RINHANKAI-R3",
+        layout: {
+            visibility: "none",
+        },
+        paint: {
+            "line-width": 3,
+            "line-opacity": 1,
+            "line-color": "#FFEA00",
+        },
+    });
+
+    map.addLayer({
         id: "演習林-林分ラベル",
         source: "ENSYURIN_rinhanzu",
         "source-layer": "ENSYURIN_rinhanzu",
@@ -1938,6 +1984,25 @@ map.on("load", () => {
             "text-halo-width": 1,
         },
     });
+
+    map.addLayer({
+        id: "美濃市準林班界-ラベル",
+        source: "MINOSI-ZYUNRINKANKAI-R3",
+        type: "symbol",
+        layout: {
+            visibility: "none",
+            "text-field": ["concat", ["get", "林班"], "\n", ["get", "準林班名"]],
+            "text-variable-anchor": ["top", "bottom", "left", "right"],
+            "text-radial-offset": 0.5,
+            "text-justify": "auto",
+        },
+        paint: {
+            "text-color": "#000000",
+            "text-halo-color": "#ffffff",
+            "text-opacity": 1,
+            "text-halo-width": 1,
+        },
+    });    
 
     map.addLayer({
         id: "岐阜県鳥獣保護区等(H30)-ラベル",
@@ -3171,6 +3236,9 @@ const toggleableLayerIds2 = [
     "土砂災害警戒区域（急傾斜地の崩壊）",
     "土石流危険渓流",
     "急傾斜地崩壊危険箇所",
+    "美濃市林班界",
+    "美濃市準林班界",
+    "美濃市準林班界-ラベル",
     "美濃市指定避難場所",
     "美濃市指定緊急避難場所",
     "岐阜県鳥獣保護区等(H30)",
