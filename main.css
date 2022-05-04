@@ -762,7 +762,7 @@ body .mapboxgl-map {
     z-index: 2;
     position: absolute;
     height: 60px;
-    width: 220px;
+    width: 150px;
     right: 10px;
     bottom: 30px;
     color: #ffffff;

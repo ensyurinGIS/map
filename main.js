@@ -3304,8 +3304,8 @@ setInterval(autoreload, 3000);
 
 map.on('mousemove', (e) => {
     const text = document.getElementById('pointerdate');
-    const lat = e.lngLat.lat;
-    const lng = e.lngLat.lng;
+    const lat = Math.floor(e.lngLat.lat * 1000000) / 1000000;
+    const lng = Math.floor(e.lngLat.lng * 1000000) / 1000000;
     const cangetext = "緯度：" + lat +"<br>経度：" + lng;
     text.innerHTML = cangetext;
     });
