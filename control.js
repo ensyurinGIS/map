@@ -3,36 +3,34 @@
 //ボタン定義
 class Control_DEM {
     onAdd(map) {
-    const seton =
-        '<b>3D</b>';
-    const setoff =
-        '<b>2D</b>';
+        const seton = '<b>3D</b>';
+        const setoff = '<b>2D</b>';
 
-    this.map = map;
-    const homeButton = document.createElement("button");
-    homeButton.innerHTML = setoff;
-    homeButton.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        homeButton.innerHTML = seton;
+        this.map = map;
+        const homeButton = document.createElement('button');
+        homeButton.innerHTML = setoff;
+        homeButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            homeButton.innerHTML = seton;
 
-        const dem = map.getTerrain();
-        const demcheck = Object.values(dem)[1];
+            const dem = map.getTerrain();
+            const demcheck = Object.values(dem)[1];
 
-        if (demcheck === 1) {
-            homeButton.innerHTML = setoff;
-            map.easeTo({ pitch: 0 });
-            map.setTerrain({ source: "mapbox-dem", exaggeration: 0 });
-            massage_2D();
-        } else {
-            map.easeTo({ pitch: 60 });
-            map.setTerrain({ source: "mapbox-dem", exaggeration: 1 });
-            massage_3D();
-        }
-    });
+            if (demcheck === 1) {
+                homeButton.innerHTML = setoff;
+                map.easeTo({ pitch: 0 });
+                map.setTerrain({ source: 'mapbox-dem', exaggeration: 0 });
+                massage_2D();
+            } else {
+                map.easeTo({ pitch: 60 });
+                map.setTerrain({ source: 'mapbox-dem', exaggeration: 1 });
+                massage_3D();
+            }
+        });
 
-        this.container = document.createElement("div");
-        this.container.className = "mapboxgl-ctrl mapboxgl-ctrl-group";
+        this.container = document.createElement('div');
+        this.container.className = 'mapboxgl-ctrl mapboxgl-ctrl-group';
         this.container.appendChild(homeButton);
 
         return this.container;
@@ -47,25 +45,25 @@ class Control_kiroku {
     onAdd(map) {
         this.map = map;
 
-        const homeButton = document.createElement("button");
+        const homeButton = document.createElement('button');
         homeButton.innerHTML =
             '<img src="https://img.icons8.com/ios-glyphs/30/000000/plus.png"/>';
-        homeButton.addEventListener("click", (e) => {
+        homeButton.addEventListener('click', (e) => {
             window.open(
-            "https://script.google.com/macros/s/AKfycbzR7Jo8IqBEKpF7eEusmne2wsbe6mE96_q3dwAutVsDmrlMSYSIp5Dn_30aIxnP3Mu4qA/exec",
-            "window_name",
-            "width=600,height=800,scrollbars=yes"
+                'https://script.google.com/macros/s/AKfycbzR7Jo8IqBEKpF7eEusmne2wsbe6mE96_q3dwAutVsDmrlMSYSIp5Dn_30aIxnP3Mu4qA/exec',
+                'window_name',
+                'width=600,height=800,scrollbars=yes',
             );
         });
 
-        this.container = document.createElement("div");
-        this.container.className = "mapboxgl-ctrl mapboxgl-ctrl-group";
+        this.container = document.createElement('div');
+        this.container.className = 'mapboxgl-ctrl mapboxgl-ctrl-group';
         this.container.appendChild(homeButton);
 
         return this.container;
-        }
+    }
 
-        onRemove() {
+    onRemove() {
         this.container.parentNode.removeChild(this.container);
         this.map = undefined;
     }
@@ -75,10 +73,10 @@ class Control_spinR {
     onAdd(map) {
         this.map = map;
 
-        const homeButton = document.createElement("button");
+        const homeButton = document.createElement('button');
         homeButton.innerHTML =
             '<img src="https://img.icons8.com/material-rounded/26/000000/rotate-right.png"/>';
-        homeButton.addEventListener("click", (e) => {
+        homeButton.addEventListener('click', (e) => {
             // map.setBearing(i -= 15);
 
             const bearingright = Math.round(map.getBearing()) - 15;
@@ -86,8 +84,8 @@ class Control_spinR {
             map.rotateTo(bearingright, { duration: 300 });
         });
 
-        this.container = document.createElement("div");
-        this.container.className = "mapboxgl-ctrl mapboxgl-ctrl-group";
+        this.container = document.createElement('div');
+        this.container.className = 'mapboxgl-ctrl mapboxgl-ctrl-group';
         this.container.appendChild(homeButton);
 
         return this.container;
@@ -104,90 +102,86 @@ class Control_spinL {
     onAdd(map) {
         this.map = map;
 
-        const homeButton = document.createElement("button");
+        const homeButton = document.createElement('button');
         homeButton.innerHTML =
             '<img src="https://img.icons8.com/material-sharp/26/000000/rotate-left.png"/>';
-        homeButton.addEventListener("click", (e) => {
+        homeButton.addEventListener('click', (e) => {
             const bearingleft = Math.round(map.getBearing()) + 15;
             map.rotateTo(bearingleft, { duration: 300 });
-
         });
 
-        this.container = document.createElement("div");
-        this.container.className = "mapboxgl-ctrl mapboxgl-ctrl-group";
+        this.container = document.createElement('div');
+        this.container.className = 'mapboxgl-ctrl mapboxgl-ctrl-group';
         this.container.appendChild(homeButton);
 
         return this.container;
-        }
+    }
 
-        onRemove() {
-            this.container.parentNode.removeChild(this.container);
-            this.map = undefined;
-            }
+    onRemove() {
+        this.container.parentNode.removeChild(this.container);
+        this.map = undefined;
+    }
 }
 
 //360°ボタンset
 class Control_360 {
     onAdd(map) {
-    const seton =
-        '<b>解除</b>';
-    const setoff =
-        '<b>360°</b>';
+        const seton = '<b>解除</b>';
+        const setoff = '<b>360°</b>';
 
-    this.map = map;
-    const homeButton = document.createElement("button");
-    homeButton.innerHTML = setoff;
-    homeButton.addEventListener("click", (e) => {
-        const clickedLayer = "360度写真";
-        e.preventDefault();
-        e.stopPropagation();
-        homeButton.innerHTML = seton;
+        this.map = map;
+        const homeButton = document.createElement('button');
+        homeButton.innerHTML = setoff;
+        homeButton.addEventListener('click', (e) => {
+            const clickedLayer = '360度写真';
+            e.preventDefault();
+            e.stopPropagation();
+            homeButton.innerHTML = seton;
 
-        if (map.getLayer("360度写真")) {
-            homeButton.innerHTML = setoff;
-            map.removeLayer("background");
-            map.removeLayer("360度写真");
-        } else {
+            if (map.getLayer('360度写真')) {
+                homeButton.innerHTML = setoff;
+                map.removeLayer('background');
+                map.removeLayer('360度写真');
+            } else {
+                map.addLayer({
+                    id: 'background',
+                    type: 'background',
+                    layout: {
+                        visibility: 'visible',
+                    },
+                    paint: {
+                        'background-color': '#000000',
+                        'background-opacity': 0.4,
+                    },
+                });
 
-        map.addLayer({
-            id: "background",
-            type: "background",
-            layout: {
-            visibility: "visible",
-            },
-            paint: {
-            "background-color": "#000000",
-            "background-opacity": 0.4,
-            },
+                map.addLayer({
+                    id: '360度写真',
+                    type: 'circle',
+                    source: 'THETA360',
+                    'source-layer': 'THETA360',
+                    paint: {
+                        'circle-color': '#05CB63',
+                        'circle-radius': [
+                            'interpolate',
+                            ['linear'],
+                            ['zoom'],
+                            13,
+                            1,
+                            15,
+                            8,
+                            20.014,
+                            30,
+                        ],
+                        'circle-opacity': 0.7,
+                    },
+                });
+                massage_360();
+            }
         });
 
-        map.addLayer({
-            id: "360度写真",
-            type: "circle",
-            source: "THETA360",
-            "source-layer": "THETA360",
-            paint: {
-                "circle-color": "#05CB63",
-                "circle-radius": [
-                    "interpolate",
-                    ["linear"],
-                    ["zoom"],
-                    13,
-                    1,
-                    15,
-                    8,
-                    20.014,
-                    30,
-                ],
-                "circle-opacity": 0.7,
-            },
-        });
-            massage_360();
-        }
-    });
-
-        this.container = document.createElement("div");
-        this.container.className = "mapboxgl-ctrl mapboxgl-ctrl-group";
+        this.container = document.createElement('div');
+        this.container.className = 'mapboxgl-ctrl mapboxgl-ctrl-group';
         this.container.appendChild(homeButton);
 
         return this.container;
@@ -200,7 +194,7 @@ class Control_360 {
 }
 
 //地図情報
-map.addControl(new mapboxgl.AttributionControl(), "bottom-right");
+map.addControl(new mapboxgl.AttributionControl(), 'bottom-right');
 
 //フルスクリーン
 map.addControl(new mapboxgl.FullscreenControl());
@@ -209,11 +203,10 @@ map.addControl(new mapboxgl.FullscreenControl());
 map.addControl(new mapboxgl.NavigationControl());
 
 //右回転ボタン
-map.addControl(new Control_spinR(), "top-right");
+map.addControl(new Control_spinR(), 'top-right');
 
 //左回転ボタン
-map.addControl(new Control_spinL(), "top-right");
-
+map.addControl(new Control_spinL(), 'top-right');
 
 // //ドローイングツール
 // var Draw = new MapboxDraw({
@@ -282,7 +275,7 @@ map.addControl(new Control_spinL(), "top-right");
 //             "circle-color": "#D20C0C",
 //             }
 //         },
-    
+
 //         // INACTIVE (static, already drawn)
 //         // line stroke
 //         {
@@ -353,15 +346,15 @@ map.addControl(new Control_spinL(), "top-right");
 //             }
 //         }
 //     ],
-// }); 
-    
+// });
+
 // map.addControl(Draw, 'top-left');
 
 //3Dボタン
-map.addControl(new Control_DEM(), "top-right");
+map.addControl(new Control_DEM(), 'top-right');
 
 //360°
-map.addControl(new Control_360, "top-right");
+map.addControl(new Control_360(), 'top-right');
 
 // 現在地
 map.addControl(
@@ -372,16 +365,16 @@ map.addControl(
         trackUserLocation: true,
         showUserHeading: true,
         showAccuracyCircle: false,
-    })
+    }),
 );
 
 //記録
-map.addControl(new Control_kiroku(), "top-right");
+map.addControl(new Control_kiroku(), 'top-right');
 
 //スケール
 const Scale = new mapboxgl.ScaleControl({
     maxWidth: 200,
-    unit: "metric",
+    unit: 'metric',
 });
 
 document.getElementById('Scale').appendChild(Scale.onAdd(map));
