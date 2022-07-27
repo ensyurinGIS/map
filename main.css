@@ -5,9 +5,13 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overscroll-behavior-y: none;/* スワイプリロード無効 */
-    background: rgb(0,0,0);
-    background: linear-gradient(334deg, rgba(0,0,0,1) 0%, rgba(9,73,0,1) 100%);
+    overscroll-behavior-y: none; /* スワイプリロード無効 */
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+        334deg,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(9, 73, 0, 1) 100%
+    );
 }
 
 /* 起動画面*/
@@ -16,8 +20,12 @@ body {
     width: 100%;
     height: 100%;
     z-index: 99;
-    background: rgb(0,0,0);
-    background: linear-gradient(334deg, rgba(0,0,0,1) 0%, rgba(9,73,0,1) 100%);
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+        334deg,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(9, 73, 0, 1) 100%
+    );
 }
 
 /* 画像中央配置*/
@@ -53,11 +61,11 @@ body {
 }
 @keyframes svg {
     0% {
-    stroke-dasharray: 2000px;
-    stroke-dashoffset: 2000px;
+        stroke-dasharray: 2000px;
+        stroke-dashoffset: 2000px;
     }
     100% {
-    stroke-dashoffset: 0;
+        stroke-dashoffset: 0;
     }
 }
 
@@ -80,7 +88,7 @@ label {
     font-size: 15px;
     text-transform: none;
     letter-spacing: 0.05em;
-    }
+}
 
 .u-hidden {
     visibility: hidden !important;
@@ -135,12 +143,11 @@ label {
     padding: 0.2rem;
 }
 
-
 /* ボタンアイコン画像PC */
 @media (min-width: 640px) {
     .icon {
         position: relative;
-        margin : 0 auto;
+        margin: 0 auto;
         align-items: center;
         display: flex;
         justify-content: center;
@@ -165,7 +172,7 @@ label {
     line-height: 1rem;
     color: white;
     text-align: center;
-    background-color: rgb(24,110,24);
+    background-color: rgb(24, 110, 24);
     font-family: 'Noto Sans JP', sans-serif;
     border-radius: 0.25rem;
 }
@@ -214,7 +221,6 @@ label {
     background-color: rgba(0, 0, 0, 0.75);
 }
 
-
 /* スクロールバーカスタマイズ */
 .dropdown__contents-inner::-webkit-scrollbar {
     width: 5px;
@@ -222,9 +228,8 @@ label {
 
 .dropdown__contents-inner::-webkit-scrollbar-thumb {
     border-radius: 4px;
-    background:rgb(24,110,24);
+    background: rgb(24, 110, 24);
 }
-
 
 /* コンテナpc*/
 @media (min-width: 640px) {
@@ -257,16 +262,23 @@ label {
     line-height: 2rem;
     color: white;
     font-family: 'Noto Sans JP', sans-serif;
-    }
+}
 
-#img_block{
+#img_block {
     text-align: center;
+}
+
+.SNSicon {
+    padding: 0.3rem;
+    height: 6rem;
+    width: 6rem;
+    cursor: pointer;
 }
 
 #informationbox img {
     width: 60%;
 }
-.linkbutton{
+.linkbutton {
     color: #fff;
     background-color: rgba(11, 126, 11, 0.75);
     padding: 10px;
@@ -396,7 +408,7 @@ label {
 }
 
 /* ラジオボタンは非表示 */
-input[type="radio"] {
+input[type='radio'] {
     display: none;
 }
 
@@ -500,7 +512,7 @@ input[type="radio"] {
 }
 
 /* 全スライダースタイル */
-input[type="range"] {
+input[type='range'] {
     pointer-events: none;
     -webkit-appearance: none;
     appearance: none;
@@ -512,7 +524,7 @@ input[type="range"] {
     border-radius: 10px;
     border: solid 3px #a0a0a0;
 }
-input[type="range"]::-webkit-slider-thumb {
+input[type='range']::-webkit-slider-thumb {
     -webkit-appearance: none;
     background: rgb(11, 126, 11);
     width: 24px;
@@ -521,7 +533,7 @@ input[type="range"]::-webkit-slider-thumb {
     box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
     pointer-events: all;
 }
-input[type="range"]::-moz-range-thumb {
+input[type='range']::-moz-range-thumb {
     background: rgb(11, 126, 11);
     width: 24px;
     height: 24px;
@@ -530,18 +542,18 @@ input[type="range"]::-moz-range-thumb {
     border: none;
     pointer-events: all;
 }
-input[type="range"]::-moz-focus-outer {
+input[type='range']::-moz-focus-outer {
     border: 0;
     pointer-events: all;
 }
-input[type="range"]:active::-webkit-slider-thumb {
+input[type='range']:active::-webkit-slider-thumb {
     box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.3);
     pointer-events: all;
 }
 
 /* スライダー操作制限解除　pc*/
 @media (min-width: 640px) {
-    input[type="range"] {
+    input[type='range'] {
         pointer-events: auto;
     }
 }
@@ -561,10 +573,10 @@ input[type="range"]:active::-webkit-slider-thumb {
 /* ポップアップ */
 @keyframes fadein {
     from {
-    opacity: 0;
+        opacity: 0;
     }
     to {
-    opacity: 1;
+        opacity: 1;
     }
 }
 
@@ -573,7 +585,7 @@ input[type="range"]:active::-webkit-slider-thumb {
     animation: fadein 0.2s;
     width: 70%;
     max-width: 200px;
-    font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     color: #ffffff;
     font-family: 'Noto Sans JP', sans-serif;
 }
@@ -619,11 +631,11 @@ body .mapboxgl-map {
 
 /* ポップアップのなかのスクロールボックスPC*/
 @media (min-width: 640px) {
-#scroll-inner {
-    overflow-y: scroll;
-    margin-top: 17px;
-    width: 100%;
-    max-height: 300px;
+    #scroll-inner {
+        overflow-y: scroll;
+        margin-top: 17px;
+        width: 100%;
+        max-height: 300px;
     }
 }
 
@@ -674,10 +686,11 @@ body .mapboxgl-map {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 22px;
-    font-style: "Yu Gothic UI Semibold";
+    font-style: 'Yu Gothic UI Semibold';
     color: #fdfdfd;
     text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, -2px 2px 0 #000,
-    2px -2px 0 #000, 0px 2px 0 #000, 0 -2px 0 #000, -2px 0 0 #000, 2px 0 0 #000;
+        2px -2px 0 #000, 0px 2px 0 #000, 0 -2px 0 #000, -2px 0 0 #000,
+        2px 0 0 #000;
 }
 
 /* スプラッシュメッセージ */
@@ -691,7 +704,7 @@ body .mapboxgl-map {
     font-size: 20px;
     font-family: 'Noto Sans JP', sans-serif;
     text-align: center;
-    background-color: rgb(16,16,16);
+    background-color: rgb(16, 16, 16);
     border-radius: 0.25rem;
 }
 
@@ -700,15 +713,15 @@ body .mapboxgl-map {
     pointer-events: none;
 }
 @media (min-width: 640px) {
-#append_splash_msg_inner.default {
-    position: absolute;
-    pointer-events: none;
-    top: 50%;
-    left: 50%;
-    font-size: 20px;
-    font-family: 'Noto Sans JP', sans-serif;
-    text-align: center;
-    background-color: rgb(16,16,16);
+    #append_splash_msg_inner.default {
+        position: absolute;
+        pointer-events: none;
+        top: 50%;
+        left: 50%;
+        font-size: 20px;
+        font-family: 'Noto Sans JP', sans-serif;
+        text-align: center;
+        background-color: rgb(16, 16, 16);
     }
 }
 
@@ -716,7 +729,6 @@ body .mapboxgl-map {
     width: 100%;
     border: 2px rgba(48, 48, 48, 0.979) solid;
 }
-
 
 /* 検索 */
 .geocoder {
@@ -754,7 +766,7 @@ body .mapboxgl-map {
 .SNSicon {
     padding: 0.3rem;
     height: 6rem;
-    cursor : pointer;
+    cursor: pointer;
 }
 
 /* 緯度経度 */
@@ -778,6 +790,5 @@ body .mapboxgl-map {
 @media (min-width: 640px) {
     .pointerdate {
         display: block;
-
     }
 }
