@@ -173,7 +173,7 @@ class Control_360 {
                             20.014,
                             30,
                         ],
-                        'circle-opacity': 0.6,
+                        'circle-opacity': 0.7,
                         'circle-stroke-color': 'cyan',
                         'circle-stroke-width': 5,
                         'circle-stroke-opacity': 0.3,
