@@ -671,7 +671,7 @@ map.on('load', () => {
         url: 'mapbox://ensyuringis.cl2em8xmn1yks21o4ey2m50br-8h3uo',
     });
 
-    //演習林-歩道
+    //演習林-歩道,林道
     map.addSource('ENSYURIN_MITI', {
         type: 'vector',
         url: 'mapbox://ensyuringis.cl2ms64e60f4t20nyp7xi4j4l-9xom5',
@@ -1724,6 +1724,7 @@ map.on('load', () => {
         type: 'line',
         source: 'ENSYURIN_MITI',
         'source-layer': 'ENSYURIN_MITI',
+        filter: ['all', ['match', ['get', '種類'], [''], true, false]],
         layout: {
             visibility: 'visible',
             'line-join': 'bevel',
@@ -1732,6 +1733,23 @@ map.on('load', () => {
             'line-opacity': 0.8,
             'line-color': '#8e8e7b',
             'line-width': 5,
+        },
+    });
+
+    map.addLayer({
+        id: '演習林-林道',
+        type: 'line',
+        source: 'ENSYURIN_MITI',
+        'source-layer': 'ENSYURIN_MITI',
+        filter: ['all', ['match', ['get', '種類'], ['林道'], true, false]],
+        layout: {
+            visibility: 'visible',
+            'line-join': 'bevel',
+        },
+        paint: {
+            'line-opacity': 0.8,
+            'line-color': '#8e8e7b',
+            'line-width': 10,
         },
     });
 
@@ -3194,6 +3212,7 @@ const toggleableLayerIds = [
     '自力建設',
     '自力建設-ラベル',
     '演習林-歩道',
+    '演習林-林道',
     '演習林-スギ林',
     '演習林-ヒノキ林',
     '演習林-アカマツ林',
