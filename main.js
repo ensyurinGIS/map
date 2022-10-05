@@ -39,7 +39,7 @@ const map = new mapboxgl.Map({
     maxBounds: bounds,
     attributionControl: false,
     bearing: i,
-    hash: true,
+    // hash: true,
 });
 
 // マップの読み込み完了後にロード
@@ -219,33 +219,6 @@ map.on('load', () => {
         tileSize: 256,
         attribution:
             "<a href='https://www.rrim.jp/' target='_blank'>アジア航測株式会社</a>",
-    });
-
-    //Google Maps
-    map.addSource('google_Base', {
-        type: 'raster',
-        tiles: ['https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}'],
-        tileSize: 256,
-        attribution:
-            "&copy; <a href='https://www.google.com/intl/ja_jp/help/terms_maps/' target='_blank'>Google</a>",
-    });
-
-    //Google s
-    map.addSource('GoogleS_Base', {
-        type: 'raster',
-        tiles: ['https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}'],
-        tileSize: 256,
-        attribution:
-            "&copy; <a href='https://www.google.com/intl/ja_jp/help/terms_maps/' target='_blank'>Google</a>",
-    });
-
-    //Google sh
-    map.addSource('GoogleSH_Base', {
-        type: 'raster',
-        tiles: ['https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}'],
-        tileSize: 256,
-        attribution:
-            "&copy; <a href='https://www.google.com/intl/ja_jp/help/terms_maps/' target='_blank'>Google</a>",
     });
 
     //OpenStreetMap
@@ -554,33 +527,6 @@ map.on('load', () => {
             "<a href='https://www.rrim.jp/' target='_blank'>アジア航測株式会社</a>",
     });
 
-    //Google MapsR
-    map.addSource('google_Raster', {
-        type: 'raster',
-        tiles: ['https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}'],
-        tileSize: 256,
-        attribution:
-            "&copy; <a href='https://www.google.com/intl/ja_jp/help/terms_maps/' target='_blank'>Google</a>",
-    });
-
-    //Google sR
-    map.addSource('GoogleS_Raster', {
-        type: 'raster',
-        tiles: ['https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}'],
-        tileSize: 256,
-        attribution:
-            "&copy; <a href='https://www.google.com/intl/ja_jp/help/terms_maps/' target='_blank'>Google</a>",
-    });
-
-    //Google shR
-    map.addSource('GoogleSH_Raster', {
-        type: 'raster',
-        tiles: ['https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}'],
-        tileSize: 256,
-        attribution:
-            "&copy; <a href='https://www.google.com/intl/ja_jp/help/terms_maps/' target='_blank'>Google</a>",
-    });
-
     //OpenStreetMapR
     map.addSource('osm_Raster', {
         type: 'raster',
@@ -825,14 +771,6 @@ map.on('load', () => {
     map.addSource('mapbox', {
         type: 'vector',
         url: 'mapbox://mapbox.mapbox-streets-v8',
-    });
-
-    //古城山森林基本図
-    map.addSource('SINEINKIHONZU-KOZYOUSAN', {
-        type: 'raster',
-        url: 'mapbox://ensyuringis.bumy3dbh',
-        attribution:
-            "<a href='https://www.rinya.maff.go.jp/j/kokuyu_rinya/kokuyu_rin_map.html' target='_blank'>林野庁</a>",
     });
 
     //★ラスターデータ読み込み
@@ -3340,7 +3278,6 @@ const toggleableLayerIds2 = [
     '古城山国有林-林分',
     '古城山国有林-林分境界線',
     '古城山国有林-林分ラベル',
-    '古城山国有林-森林基本図',
     '等高線',
     '等高線-標高ラベル',
     '標高点',

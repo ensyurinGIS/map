@@ -161,7 +161,7 @@ class Control_360 {
                     source: 'THETA360',
                     'source-layer': 'THETA360',
                     paint: {
-                        'circle-color': '#05CB63',
+                        'circle-color': 'cyan',
                         'circle-radius': [
                             'interpolate',
                             ['linear'],
@@ -174,6 +174,9 @@ class Control_360 {
                             30,
                         ],
                         'circle-opacity': 0.7,
+                        'circle-stroke-color': 'cyan',
+                        'circle-stroke-width': 5,
+                        'circle-stroke-opacity': 0.3,
                     },
                 });
                 massage_360();

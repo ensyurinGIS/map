@@ -106,9 +106,6 @@ https://ensyuringis.github.io/forest.ac/
 -   岐阜県共有空間データ（Q 地図タイル）
 -   MIERUNE Dark
 -   MIERUNE Gray
--   Google Maps
--   Google Satellite
--   Google Satellite Hybrid
 -   Mapbox Streets
 -   Mapbox Dark
 -   Mapbox Satelite
