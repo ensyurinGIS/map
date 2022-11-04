@@ -104,8 +104,6 @@ https://ensyuringis.github.io/forest.ac/
 -   地すべり地形分布図
 -   全国傾斜量区分図(雪崩関連)
 -   岐阜県共有空間データ（Q 地図タイル）
--   MIERUNE Dark
--   MIERUNE Gray
 -   Mapbox Streets
 -   Mapbox Dark
 -   Mapbox Satelite
